@@ -1,0 +1,90 @@
+using NUnit.Framework;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class Navigate : MonoBehaviour
+{
+    [SerializeField] private Transform tileHighlight;
+
+    private Player player;
+    
+    Tile selected;
+    Camera mainCamera;
+    Tile[] tiles;
+
+    LineRenderer line;
+
+    public void Start()
+    {
+        line = GetComponent<LineRenderer>();
+        tiles = UnityEngine.Object.FindObjectsByType<Tile>(FindObjectsSortMode.None);
+        mainCamera = Camera.main;
+        player = FindAnyObjectByType<Player>();
+        selected = player.walker.tile;
+        transform.position = player.transform.position;
+    }
+
+    IEnumerator Walk()
+    {
+        yield return StartCoroutine(player.WalkTo(selected));
+        gameObject.SetActive(false);
+        player.OpenActionGUI();
+    }
+
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            StartCoroutine(Walk());
+        }
+
+        Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+        if (input.magnitude < 0.5)
+            input = Vector3.zero;
+
+        Vector3 motion = mainCamera.transform.rotation * new Vector3(input.x, 0, input.y);
+        motion.y = 0;
+        motion.Normalize();
+        motion *= Time.deltaTime * 3;
+        
+        transform.position += motion;
+
+        Tile nearest = null;
+        float nearestDistance = 1000;
+        foreach (Tile tile in tiles)
+        {
+            float distance = Vector3.Distance(transform.position, tile.transform.position);
+            if (distance < nearestDistance)
+            {
+                nearestDistance = distance;
+                nearest = tile;
+            }
+        }
+
+        if(nearest == null)
+        {
+            Debug.LogWarning("No tile found for selector!");
+            return;
+        }
+
+        tileHighlight.transform.position = nearest.transform.position;
+        selected = nearest;
+
+        UpdateLine();
+    }
+
+    public void UpdateLine()
+    {
+        List<Tile> tiles = GridWalker.CalculatePath(selected, player.walker.tile);
+
+        line.positionCount = tiles.Count;
+        for (int i = 0; i < tiles.Count; i++)
+        {
+            line.SetPosition(i, tiles[i].transform.position + new Vector3(0, 0.1f, 0));
+        }
+    }
+}
