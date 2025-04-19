@@ -88,18 +88,20 @@ public class Enemy : MonoBehaviour
     {
         CameraSystem.SetTarget(transform); // Look at us
         yield return new WaitForSeconds(1f);
+        Projectile.instance.DrawShot(shot);
         CameraSystem.SetTarget(shot.target.transform);   // Look at player  
-
         yield return new WaitForSeconds(1f);
 
         if (Random.Range(0f, 1f) <= shot.GetHitChance())
         {
             // Shot hit
+            Notification.SetText("Hit!", 1f);
             shot.target.GetComponent<Living>().Damage(20);
         }
         else
         {
             // Shot miss
+            Notification.SetText("Miss!", 1f);
             Debug.Log("Miss!");
         }
 
