@@ -7,6 +7,7 @@ public class ShotChangeEffector : MonoBehaviour
 
     public void OnDrawGizmosSelected()
     {
+        Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, DistanceBypass);
     }
 }
