@@ -9,7 +9,10 @@ public class Enemy : MonoBehaviour
 
         Shot shot = new Shot(GetComponent<Living>(), player.gameObject, new Vector3(0, 0.1f, 0));
 
-        if (shot.GetHitChance() < 0.5f)
+        float c = shot.GetHitChance();
+        Debug.Log("Current Hit Chance: " + c);
+
+        if (c < 0.25f)
         {
             yield return StartCoroutine(Walk());
         }
@@ -47,6 +50,11 @@ public class Enemy : MonoBehaviour
                     score[i] += 1f;
                     Debug.Log("Found a friend!");
                 }
+            }
+
+            if (tiles[i].IsOccupied())
+            {
+                score[i] -= 1000f;
             }
 
             Shot shot = new Shot(Object.FindAnyObjectByType<Player>().GetComponent<Living>(), tiles[i].gameObject, new Vector3(0, 0.1f, 0));
@@ -92,7 +100,9 @@ public class Enemy : MonoBehaviour
         CameraSystem.SetTarget(shot.target.transform);   // Look at player  
         yield return new WaitForSeconds(1f);
 
-        if (Random.Range(0f, 1f) <= shot.GetHitChance())
+        float c = shot.GetHitChance();
+        Debug.Log("Chance of hit hitting, " + c);
+        if (Random.Range(0f, 1f) <= c)
         {
             // Shot hit
             Notification.SetText("Hit!", 1f);
