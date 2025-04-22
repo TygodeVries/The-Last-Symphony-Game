@@ -4,10 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shoot : MonoBehaviour
 {
-    public TMP_Text ChanceText;
+    [SerializeField] public TMP_Text ChanceText;
+
+
+    [SerializeField] private float Speed;
+    [SerializeField] public GameObject ShootingUI;
+    [SerializeField] public Image timingImage;
+
+    bool inTimingState;
+    float time;
+
 
     public void Update()
     {
@@ -16,21 +26,45 @@ public class Shoot : MonoBehaviour
 
         float chance = shot.GetHitChance();
 
+        if (inTimingState)
+        {
+            time += Time.deltaTime * Speed;
+
+            timingImage.fillAmount = (Mathf.Sin(time) + 1) / 2;
+
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                Projectile.instance.DrawShot(shot);
+
+                if (Random.Range(0f, 1f) <= chance)
+                {
+                    int am = 10;
+                    if (timingImage.fillAmount > 0.9f)
+                    {
+                        am = 20;
+                    }
+                    target.Damage(am);
+                    Notification.SetText($"Did {am} damage!", 1);
+                }
+                else
+                {
+                    Notification.SetText("Miss!", 1f);
+                }
+
+                ShootingUI.SetActive(false);
+                inTimingState = false;
+                GetComponent<SelectEnemy>().enabled = true;
+                StartCoroutine(DoThing(target.transform));
+            }
+            return;
+        }
+
         ChanceText.text = "Chance: " + Mathf.RoundToInt(chance * 100) + "%";
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            Projectile.instance.DrawShot(shot);
-
-            if (Random.Range(0f, 1f) <= chance)
-            {
-                target.Damage(20);
-            }
-            else
-            {
-                Notification.SetText("Miss!", 1f);
-            }
-
-            StartCoroutine(DoThing(target.transform));
+            ShootingUI.SetActive(true);
+            inTimingState = true;
+            GetComponent<SelectEnemy>().enabled = false;
         }
     }
 
