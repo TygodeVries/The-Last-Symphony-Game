@@ -1,5 +1,6 @@
 
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -61,62 +62,33 @@ public class Shot
 
     public float GetHitChance()
     {
-        return GetHitChanceI(shooter.transform.position + eyeLevel, target, shooter.gameObject, 1.0f, 0) * LossOverDistance(Vector3.Distance(shooter.transform.position, target.transform.position));
+        return 
+            ShootHitRay(shooter.transform.position + eyeLevel, target, shooter.gameObject) 
+            *
+            LossOverDistance(Vector3.Distance(shooter.transform.position, target.transform.position));
     }
 
     public Vector3 ProjectileEarlyDeathPoint;
-    private float GetHitChanceI(Vector3 origin, GameObject target, GameObject shooter, float baseChance, int age)
+    private float ShootHitRay(Vector3 origin, GameObject target, GameObject shooter)
     {
-        if(age > 100)
+        Vector3 direction = (target.transform.position - origin).normalized;
+        RaycastHit[] hits = Physics.RaycastAll(origin, direction, 300);
+
+        float baseRate = 1.0f;
+        foreach (RaycastHit hit in hits.OrderBy(h => h.distance))
         {
-            Debug.LogError($"Ran out of age.\n{target.name}, {shooter.name}");
-            return 0f;
+            ShotChangeEffector effector = hit.collider.GetComponent<ShotChangeEffector>();
+            if (effector == null)
+                continue;
+
+            // We are close enough, so we can pass ;)
+            if (Vector3.Distance(origin, effector.transform.position) < effector.DistanceBypass)
+                continue;
+
+            baseRate *= effector.PassChance;
         }
 
-        try
-        {
-            Vector3 direction = (target.transform.position - origin);
-
-            Debug.DrawRay(origin + direction * 0.1f, direction, Color.red, 3);
-
-            RaycastHit[] hits = Physics.RaycastAll(origin + (direction.normalized * 0.1f), direction, 300);
-
-            foreach (RaycastHit hit in hits.OrderBy(h => h.distance))
-            {
-                if (hit.collider.transform.root == shooter.transform.root) // Skip self
-                {
-                    continue;
-                }
-
-                if (hit.collider.transform.root.gameObject == target.transform.root.gameObject)
-                {
-                    return baseChance;
-                }
-
-                ShotChangeEffector effector = hit.collider.transform.root.GetComponent<ShotChangeEffector>();
-                if (effector != null)
-                {
-                    if (Vector3.Distance(shooter.transform.position, effector.transform.position) > effector.DistanceBypass)
-                    {
-                        if (effector.PassChance == 0)
-                        {
-                            ProjectileEarlyDeathPoint = hit.point;
-                        }
-
-                        baseChance *= effector.PassChance;
-                    }
-                }
-
-                return GetHitChanceI(origin, target, hit.collider.transform.root.gameObject, baseChance, age + 1);
-            }
-
-            return 0f;
-        }
-        catch (System.Exception e)
-        {
-            Debug.LogError("Raycast error! " + e + ", age is " + age);
-            return 0f;
-        }
+        return baseRate;
     }
 
     private static float LossOverDistance(float distance)
@@ -124,8 +96,6 @@ public class Shot
         float alwaysHit = 3;
         float halfHit = 20;
 
-
-        Debug.Log(distance);
         if (distance < alwaysHit)
             return 1f;
 
