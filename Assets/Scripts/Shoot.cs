@@ -137,7 +137,7 @@ public class Shot
             return 0.5f;
 
         float t = (distance - alwaysHit) / halfHit;
-        return 1f - t * 0.5f;
+        return 1f - t * 1f;
     }
 
 }
