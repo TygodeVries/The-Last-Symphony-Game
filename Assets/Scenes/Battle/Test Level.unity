@@ -701,6 +701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PassChance: 0
+  DistanceBypass: 0
 --- !u!65 &30712415
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -822,7 +823,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6a1767d44fb9224e8b5be20798c91d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PassChance: 0
+  PassChance: 0.5
+  DistanceBypass: 2
 --- !u!65 &44494745
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -842,7 +844,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 5.27, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &44494746
 MeshRenderer:
@@ -906,8 +908,8 @@ Transform:
   m_GameObject: {fileID: 44494743}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.995, y: 0.41, z: -0.9884}
-  m_LocalScale: {x: 0.89892113, y: 1, z: 0.8739274}
+  m_LocalPosition: {x: -4.995, y: 0.0984, z: -0.9884}
+  m_LocalScale: {x: 0.89892113, y: 0.3768, z: 0.8739274}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -5483,6 +5485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PassChance: 0
+  DistanceBypass: 0
 --- !u!65 &784906109
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9335,6 +9338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PassChance: 0
+  DistanceBypass: 0
 --- !u!65 &1488740947
 BoxCollider:
   m_ObjectHideFlags: 0

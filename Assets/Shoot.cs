@@ -96,12 +96,15 @@ public class Shot
                 ShotChangeEffector effector = hit.collider.transform.root.GetComponent<ShotChangeEffector>();
                 if (effector != null)
                 {
-                    if(effector.PassChance == 0)
+                    if (Vector3.Distance(shooter.transform.position, effector.transform.position) > effector.DistanceBypass)
                     {
-                        ProjectileEarlyDeathPoint = hit.point;
-                    }
+                        if (effector.PassChance == 0)
+                        {
+                            ProjectileEarlyDeathPoint = hit.point;
+                        }
 
-                    baseChance *= effector.PassChance;
+                        baseChance *= effector.PassChance;
+                    }
                 }
 
                 return GetHitChanceI(origin, target, hit.collider.transform.root.gameObject, baseChance, age + 1);
