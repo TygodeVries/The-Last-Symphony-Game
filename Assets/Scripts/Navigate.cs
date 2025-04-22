@@ -25,6 +25,7 @@ public class Navigate : MonoBehaviour
         player = FindAnyObjectByType<Player>();
         selected = player.walker.tile;
         transform.position = player.transform.position;
+        CameraSystem.SetTarget(transform);
     }
 
     IEnumerator Walk()

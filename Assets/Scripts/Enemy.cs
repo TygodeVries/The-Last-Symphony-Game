@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using System.Collections;
 using UnityEngine;
 
@@ -24,7 +25,8 @@ public class Enemy : MonoBehaviour
     }
 
     public IEnumerator Walk()
-    { 
+    {
+        Debug.Log("Walking...");
         CameraSystem.SetTarget(transform);
         Tile[] tiles = UnityEngine.Object.FindObjectsByType<Tile>(FindObjectsSortMode.None);
         float[] score = new float[tiles.Length];
@@ -33,6 +35,7 @@ public class Enemy : MonoBehaviour
 
 
         Debug.Log($"Checking {tiles.Length} tiles!");
+        ShotChangeEffector[] effectors = FindObjectsByType<ShotChangeEffector>(FindObjectsSortMode.None);
         Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
         for (int i = 0; i < tiles.Length; i++)
         {
@@ -47,7 +50,7 @@ public class Enemy : MonoBehaviour
                 Shot see = new Shot(enemy.GetComponent<Living>(), tiles[i].gameObject, new Vector3(0, 0.1f, 0));
                 if(see.GetHitChance() > 0.5f)
                 {
-                    score[i] += 1f;
+                    score[i] += 3f;
                     Debug.Log("Found a friend!");
                 }
             }
@@ -57,19 +60,45 @@ public class Enemy : MonoBehaviour
                 score[i] -= 1000f;
             }
 
+            foreach(ShotChangeEffector effector in effectors)
+            {
+                float effectorDistance = Vector3.Distance(tiles[i].transform.position, effector.transform.position);
+               
+                if (effectorDistance < effector.DistanceBypass)
+                {
+                    score[i] += 2f;
+                }
+
+                Player player = FindAnyObjectByType<Player>();
+
+                float EffectorDistanceToPlayer = Vector3.Distance(effector.transform.position, player.transform.position);
+                float TileDistanceToPlayer = Vector3.Distance(tiles[i].transform.position, player.transform.position);
+
+
+                if (effectorDistance < TileDistanceToPlayer)
+                {
+                    // FUCK, WRONG SIDE OF THE WALL
+                    score[i] -= 5f;
+                }
+                else
+                {
+                    score[i] += 2f;
+                }
+            }
+
             Shot shot = new Shot(Object.FindAnyObjectByType<Player>().GetComponent<Living>(), tiles[i].gameObject, new Vector3(0, 0.1f, 0));
 
             if(shot.GetHitChance() > 0.5f)
             {
-                if(me.HealthPoints > 20)
+                if(me.HealthPoints > 10)
                 {
                     // Lets go attack!
-                    score[i] += 4f;
+                    score[i] += 10f;
                 }
                 else
                 {
                     // Run away!!!!
-                    score[i] -= 4f;
+                    score[i] -= 2f;
                 }
                 Debug.Log("Can shoot people here, and people can shoot me!");
             }
@@ -86,6 +115,22 @@ public class Enemy : MonoBehaviour
                 Debug.Log(best);
                 Debug.DrawLine(tiles[i].transform.position, tiles[i].transform.position + new Vector3(0, 1, 0) * best, Color.green, 10);
             }
+        }
+
+        for (int i = 0; i < tiles.Length; i++)
+        {
+            MeshRenderer renderer = tiles[i].GetComponent<MeshRenderer>();
+            Material m = new Material(renderer.material.shader);
+
+            float a = score[i] / best;
+            m.color = new Color(a, 0, 0);
+
+            if (i == bestIndex)
+            {
+                m.color = new Color(0, 255, 0);
+            }
+
+            renderer.material = m;
         }
 
         yield return GetComponent<GridWalker>().Navigate(tiles[bestIndex]);
