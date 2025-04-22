@@ -25,7 +25,6 @@ public class Navigate : MonoBehaviour
         player = FindAnyObjectByType<Player>();
         selected = player.walker.tile;
         transform.position = player.transform.position;
-        CameraSystem.SetTarget(transform);
     }
 
     IEnumerator Walk()
@@ -47,6 +46,7 @@ public class Navigate : MonoBehaviour
         if (input.magnitude < 0.5)
             input = Vector3.zero;
 
+        CameraSystem.SetTarget(transform)
         Vector3 motion = mainCamera.transform.rotation * new Vector3(input.x, 0, input.y);
         motion.y = 0;
         motion.Normalize();
