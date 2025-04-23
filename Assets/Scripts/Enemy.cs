@@ -142,8 +142,6 @@ public class Enemy : MonoBehaviour
             {
                 best = score[i];
                 bestIndex = i;
-                Debug.Log(best);
-                Debug.DrawLine(tiles[i].transform.position, tiles[i].transform.position + new Vector3(0, 1, 0) * best, Color.green, 10);
             }
         }
 
