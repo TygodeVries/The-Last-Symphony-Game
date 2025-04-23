@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class Battle : MonoBehaviour
@@ -14,6 +15,7 @@ public class Battle : MonoBehaviour
         availablePlayerActions.Add("Move");
         availablePlayerActions.Add("Attack Shoot");
         availablePlayerActions.Add("End");
+        availablePlayerActions.Add("Attack Granade");
     }
 
     public void CheckForEndOfGame()
@@ -55,10 +57,14 @@ public class Battle : MonoBehaviour
         StartPlayerTurn();
     }
 
+    [SerializeField] private UnityEvent PlayerTurnStarts;
+
     public void StartPlayerTurn()
     {
+
         ResetActions();
 
+        PlayerTurnStarts.Invoke();
         StartCoroutine(TitleInOut("Player Turn", 1.5f));
         CameraSystem.SetTarget(null);
         player.OpenActionGUI();

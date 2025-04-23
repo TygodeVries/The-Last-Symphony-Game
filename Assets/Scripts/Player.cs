@@ -45,14 +45,24 @@ public class Player : MonoBehaviour
             navigateObject.SetActive(true);
         }
 
-        if(id == "End")
+        else if(id == "End")
         {
             StartCoroutine(battle.StartEnemyTurn());
         }
 
-        if(id == "Attack Shoot")
+        else if(id == "Attack Shoot")
+        {
+            AttackObjects[0].SetActive(true);
+        }
+
+        else if(id == "Attack Granade")
         {
             AttackObjects[1].SetActive(true);
+        }
+
+        else
+        {
+            Debug.LogError($"Unknown Action: {id}");
         }
     }
 
