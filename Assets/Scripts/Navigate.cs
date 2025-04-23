@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class Navigate : MonoBehaviour
 {
     [SerializeField] private Transform tileHighlight;
+    [SerializeField] private GameObject ring;
 
     private Player player;
     
@@ -29,14 +30,27 @@ public class Navigate : MonoBehaviour
 
     IEnumerator Walk()
     {
+        isWalking = true;
+        CameraSystem.SetTarget(player.transform);
         yield return StartCoroutine(player.WalkTo(selected));
         gameObject.SetActive(false);
         player.OpenActionGUI();
+        isWalking = false;
     }
 
+    
+
+    bool isWalking;
     public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Return))
+        if (isWalking)
+        {
+            ring.SetActive(false);
+            return;
+        }
+
+        ring.SetActive(true);
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             StartCoroutine(Walk());
         }
@@ -51,8 +65,12 @@ public class Navigate : MonoBehaviour
         motion.y = 0;
         motion.Normalize();
         motion *= Time.deltaTime * 3;
-        
-        transform.position += motion;
+
+        float newDistance = Vector3.Distance(player.transform.position, transform.position + motion);
+        if (newDistance < 5)
+        {
+            transform.position += motion;
+        }
 
         Tile nearest = null;
         float nearestDistance = 1000;

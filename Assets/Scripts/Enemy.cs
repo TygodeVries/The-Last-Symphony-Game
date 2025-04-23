@@ -2,8 +2,35 @@ using NUnit.Framework.Constraints;
 using System.Collections;
 using UnityEngine;
 
+
+[ExecuteInEditMode]
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private bool DebugMode;
+
+    [SerializeField] private float MinimumPlayerDistance = 3f;
+    [SerializeField] private float MaximumPlayerDistance = 10f;
+
+    [SerializeField] private int InOthersVisionScore = 3;
+    [SerializeField] private int NearHidingPlaceScore = 3;
+    [SerializeField] private int InfrontHidingPlaceScore = -3;
+    [SerializeField] private int BehindHidingPlaceScore = 10;
+
+    [SerializeField] private int PlayerInVisionScoreHealthy = 4;
+    [SerializeField] private int PlayerInVisionScoreAlmostDead = -5;
+
+    [SerializeField] private int HealthyThreshold = 10;
+    [SerializeField] private int NotInRangeScore = -1000;
+
+    [SerializeField] private float ShotRiskinessThreshold = 0.5f;
+
+    public void Update()
+    {
+        if (DebugMode)
+            StartCoroutine(Walk());
+    }
+
+
     public IEnumerator TakeTurn()
     {
         Living player = FindAnyObjectByType<Player>().GetComponent<Living>();
@@ -32,25 +59,30 @@ public class Enemy : MonoBehaviour
         float[] score = new float[tiles.Length];
 
         Living me = GetComponent<Living>();
-
+        Player player = FindAnyObjectByType<Player>();
 
         Debug.Log($"Checking {tiles.Length} tiles!");
         ShotChangeEffector[] effectors = FindObjectsByType<ShotChangeEffector>(FindObjectsSortMode.None);
         Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
         for (int i = 0; i < tiles.Length; i++)
         {
-            if (Vector3.Distance(tiles[i].transform.position, me.transform.position) > 10)
+            float tileDistanceToPlayer = Vector3.Distance(tiles[i].transform.position, player.transform.position);
+
+            if (tileDistanceToPlayer > MaximumPlayerDistance || tileDistanceToPlayer < MinimumPlayerDistance)
             {
-                score[i] -= 1000f;
+                score[i] += NotInRangeScore;
             }
 
             // Check if friends can back me up
             foreach(Enemy enemy in enemies)
             {
+                if (enemy == this)
+                    continue;
+
                 Shot see = new Shot(enemy.GetComponent<Living>(), tiles[i].gameObject, new Vector3(0, 0.1f, 0));
                 if(see.GetHitChance() > 0.5f)
                 {
-                    score[i] += 3f;
+                    score[i] += InOthersVisionScore;
                     Debug.Log("Found a friend!");
                 }
             }
@@ -60,45 +92,43 @@ public class Enemy : MonoBehaviour
                 score[i] -= 1000f;
             }
 
+            // Check if we can hide
             foreach(ShotChangeEffector effector in effectors)
             {
                 float effectorDistance = Vector3.Distance(tiles[i].transform.position, effector.transform.position);
                
                 if (effectorDistance < effector.DistanceBypass)
                 {
-                    score[i] += 2f;
-                }
+                    score[i] += NearHidingPlaceScore; // near hiding place
 
-                Player player = FindAnyObjectByType<Player>();
-
-                float EffectorDistanceToPlayer = Vector3.Distance(effector.transform.position, player.transform.position);
-                float TileDistanceToPlayer = Vector3.Distance(tiles[i].transform.position, player.transform.position);
+                    float EffectorDistanceToPlayer = Vector3.Distance(effector.transform.position, player.transform.position);
+                    float TileDistanceToPlayer = Vector3.Distance(tiles[i].transform.position, player.transform.position);
 
 
-                if (effectorDistance < TileDistanceToPlayer)
-                {
-                    // FUCK, WRONG SIDE OF THE WALL
-                    score[i] -= 5f;
-                }
-                else
-                {
-                    score[i] += 2f;
+                    if (EffectorDistanceToPlayer < TileDistanceToPlayer)
+                    {
+                        score[i] += BehindHidingPlaceScore;
+                    }
+                    else
+                    {
+                        score[i] += InfrontHidingPlaceScore;
+                    }
                 }
             }
 
             Shot shot = new Shot(Object.FindAnyObjectByType<Player>().GetComponent<Living>(), tiles[i].gameObject, new Vector3(0, 0.1f, 0));
 
-            if(shot.GetHitChance() > 0.5f)
+            if(shot.GetHitChance() > ShotRiskinessThreshold)
             {
-                if(me.HealthPoints > 10)
+                if(me.HealthPoints > HealthyThreshold)
                 {
                     // Lets go attack!
-                    score[i] += 10f;
+                    score[i] += PlayerInVisionScoreHealthy;
                 }
                 else
                 {
                     // Run away!!!!
-                    score[i] -= 2f;
+                    score[i] += PlayerInVisionScoreAlmostDead;
                 }
                 Debug.Log("Can shoot people here, and people can shoot me!");
             }
@@ -132,6 +162,9 @@ public class Enemy : MonoBehaviour
 
             renderer.material = m;
         }
+
+        if (DebugMode)
+            yield break;
 
         yield return GetComponent<GridWalker>().Navigate(tiles[bestIndex]);
         CameraSystem.SetTarget(null);
