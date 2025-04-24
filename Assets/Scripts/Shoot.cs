@@ -1,6 +1,8 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -97,29 +99,61 @@ public class Shot
     public float GetHitChance()
     {
         return 
-            ShootHitRay(shooter.transform.position + eyeLevel, target, shooter.gameObject) 
+            ShootHitRay(shooter.transform.position + eyeLevel, target.transform.position + eyeLevel, target, shooter.gameObject) 
             *
             LossOverDistance(Vector3.Distance(shooter.transform.position, target.transform.position));
     }
 
     public Vector3 ProjectileEarlyDeathPoint;
-    private float ShootHitRay(Vector3 origin, GameObject target, GameObject shooter)
+    private float ShootHitRay(Vector3 origin, Vector3 shootTarget, GameObject gameobjectTarget, GameObject shooter)
     {
-        Vector3 direction = (target.transform.position - origin).normalized;
+        string debugMsg = "";
+
+        Vector3 direction = (shootTarget - origin).normalized;
         RaycastHit[] hits = Physics.RaycastAll(origin, direction, 300);
 
         float baseRate = 1.0f;
+
+        debugMsg += "This is a shot debug message! Good luck.";
+        debugMsg += $"Base rate is {baseRate}";
         foreach (RaycastHit hit in hits.OrderBy(h => h.distance))
         {
+            if(hit.collider.transform.root == gameobjectTarget.transform.root)
+            {
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    File.WriteAllText("debug.txt", debugMsg);
+                    Process.Start("notepad.exe", "debug.txt");
+                }
+
+
+                return baseRate;
+            }
+
             ShotChangeEffector effector = hit.collider.GetComponent<ShotChangeEffector>();
             if (effector == null)
+            {
+                debugMsg += $"Passed {hit.collider}, No effector. Range remains {baseRate}\n";
                 continue;
+            }
 
             // We are close enough, so we can pass ;)
             if (Vector3.Distance(origin, effector.transform.position) < effector.DistanceBypass)
+            {
+                debugMsg += $"Passed {hit.collider}, But we are close. Range remains {baseRate}\n";
                 continue;
+            }
 
             baseRate *= effector.PassChance;
+            debugMsg += $"Passed {hit.collider}, Range is now {baseRate}.\n";
+
+            UnityEngine.Debug.DrawLine(hit.point, origin, Color.red, 10);
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            File.WriteAllText("debug.txt", debugMsg);
+            Process.Start("notepad.exe", "debug.txt");
         }
 
         return baseRate;
