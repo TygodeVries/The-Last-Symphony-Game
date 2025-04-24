@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class Cooldowns : MonoBehaviour
@@ -7,6 +8,11 @@ public class Cooldowns : MonoBehaviour
 
     [SerializeField] private GameObject GranadeCooldownUI;
     
+    public void ResetCooldown()
+    {
+        currentGranadeCooldown = GranadeCooldown;
+    }
+
     public void NextRound()
     {
         currentGranadeCooldown--;
@@ -14,10 +20,12 @@ public class Cooldowns : MonoBehaviour
         if(currentGranadeCooldown < 0)
         {
             GranadeCooldownUI.SetActive(false);
+            FindAnyObjectByType<Battle>().RestoreAction("Attack Granade");
         }
         else
         {
             GranadeCooldownUI.SetActive(true);
+            GranadeCooldownUI.GetComponentInChildren<TMP_Text>().text = $"Cooldown: {currentGranadeCooldown + 1}"; 
         }
     }
 }

@@ -1,3 +1,4 @@
+using UnityEditor.Search;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -20,6 +21,13 @@ public class Projectile : MonoBehaviour
         instance.SetPoints(start, end);
     }
 
+    public void Update()
+    {
+        if(instance == null)
+        {
+            Debug.LogWarning("Hot reloading is not supported!");
+        }
+    }
     public void Start()
     {
         instance = this;

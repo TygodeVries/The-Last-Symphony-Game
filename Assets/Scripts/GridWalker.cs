@@ -44,6 +44,8 @@ public class GridWalker : MonoBehaviour
 
     private IEnumerator Step(Tile tile)
     {
+        CameraSystem.SetTarget(transform);
+
         float waiting = 0.4f * 0.1f;
         for (float t = 0; t < 1f; t += 0.1f)
         {
