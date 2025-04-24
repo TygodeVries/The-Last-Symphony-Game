@@ -10,12 +10,23 @@ public class Battle : MonoBehaviour
     private List<string> availablePlayerActions = new List<string>();
     public void ResetActions()
     {
-        availablePlayerActions.Clear();
+        RestoreAction("Move");
 
-        availablePlayerActions.Add("Move");
-        availablePlayerActions.Add("Attack Shoot");
-        availablePlayerActions.Add("End");
-        availablePlayerActions.Add("Attack Granade");
+        RestoreAction("Attack Shoot");
+
+        RestoreAction("End");
+       
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        
+    }
+
+    public void RestoreAction(string action)
+    {
+        if (!availablePlayerActions.Contains(action))
+            availablePlayerActions.Add(action);
     }
 
     public void CheckForEndOfGame()
@@ -54,7 +65,9 @@ public class Battle : MonoBehaviour
         player = FindAnyObjectByType<Player>();
         this.InvokeRepeating("CheckForEndOfGame", 1, 0.5f);
 
+        RestoreAction("Attack Granade");
         StartPlayerTurn();
+
     }
 
     [SerializeField] private UnityEvent PlayerTurnStarts;
