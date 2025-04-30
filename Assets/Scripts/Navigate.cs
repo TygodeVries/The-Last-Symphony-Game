@@ -67,7 +67,7 @@ public class Navigate : MonoBehaviour
         motion *= Time.deltaTime * 3;
 
         float newDistance = Vector3.Distance(player.transform.position, transform.position + motion);
-        if (newDistance < 5)
+        if (newDistance < 10)
         {
             transform.position += motion;
         }
