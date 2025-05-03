@@ -126,7 +126,6 @@ public class Shot
                     Process.Start("notepad.exe", "debug.txt");
                 }
 
-
                 return baseRate;
             }
 
