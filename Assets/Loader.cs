@@ -8,6 +8,7 @@ public class Loader : MonoBehaviour
     private Animator animator;
     private void Start()
     {
+        AudioListener.volume = 1.0f;
         animator = GetComponent<Animator>();
     }
 
@@ -22,7 +23,13 @@ public class Loader : MonoBehaviour
     {
         yield return new WaitForSeconds(startDelay);
         animator.SetTrigger("Load");
-        yield return new WaitForSeconds(1.5f);
+
+        for (int i = 0; i < 15; i++)
+        {
+            AudioListener.volume -= 0.1f;
+            yield return new WaitForSeconds(0.1f);
+        }
+        
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(next);
 
