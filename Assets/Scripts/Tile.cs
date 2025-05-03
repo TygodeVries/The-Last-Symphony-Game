@@ -116,7 +116,7 @@ public class Tile : MonoBehaviour
     }
 }
 
-
+#if UNITY_EDITOR
 public class TileUI : EditorWindow
 {
     public static bool RenderType;
@@ -210,6 +210,7 @@ public class TileUI : EditorWindow
         return null;
     }
 }
+#endif
 
 public enum TileDirection
 {

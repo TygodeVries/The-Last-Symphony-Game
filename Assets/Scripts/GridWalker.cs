@@ -9,8 +9,11 @@ public class GridWalker : MonoBehaviour
     public void SetTile(Tile tile)
     {
         this.tile = tile;
+
+#if UNITY_EDITOR
         EditorUtility.SetDirty(tile);
         EditorUtility.SetDirty(this);
+#endif
     }
 
     public void Start()
