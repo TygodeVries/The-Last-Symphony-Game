@@ -6,4 +6,9 @@ public class MenuItems : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void Settings()
+    {
+        Camera.main.GetComponent<Animator>().SetBool("Settings", true);
+    }
 }

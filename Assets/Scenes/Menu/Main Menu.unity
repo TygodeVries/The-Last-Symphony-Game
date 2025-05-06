@@ -201,7 +201,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8707556}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1275186462}
+        m_TargetAssemblyTypeName: MenuItems, Assembly-CSharp
+        m_MethodName: Settings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8707556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1048,13 +1060,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315561616}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12740198, y: -0.0059436564, z: 0.0018701511, w: 0.9918316}
+  m_LocalRotation: {x: 0.12512682, y: 0.15739547, z: -0.0060147545, w: 0.979558}
   m_LocalPosition: {x: 0, y: 2.48, z: -6.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 14.64, y: -0.67, z: 0.13}
+  m_LocalEulerAnglesHint: {x: 14.302, y: 18.461, z: 1.632}
 --- !u!114 &315561620
 MonoBehaviour:
   m_ObjectHideFlags: 0
