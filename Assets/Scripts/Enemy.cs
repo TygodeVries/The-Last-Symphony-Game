@@ -24,12 +24,18 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private float ShotRiskinessThreshold = 0.5f;
 
+    private Animator animator;
+
     public void Update()
     {
         if (DebugMode)
             StartCoroutine(Walk());
     }
 
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     public IEnumerator TakeTurn()
     {
@@ -42,11 +48,14 @@ public class Enemy : MonoBehaviour
 
         if (c < 0.25f)
         {
+            animator.SetBool("IsWalking", true);
             yield return StartCoroutine(Walk());
+            animator.SetBool("IsWalking", false);
         }
 
         else
         {
+            animator.SetTrigger("Shoot");
             yield return StartCoroutine(Shoot(shot));
         }
     }
