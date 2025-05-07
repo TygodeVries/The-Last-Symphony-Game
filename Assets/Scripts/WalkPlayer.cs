@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class WalkPlayer : MonoBehaviour
 {
+
+    [SerializeField] private float PlayerSpeed;
     private Rigidbody body;
     private Camera cam;
 
@@ -13,6 +15,6 @@ public class WalkPlayer : MonoBehaviour
 
     void Update()
     {
-        body.linearVelocity = new Vector3(Input.GetAxis("Horizontal"), -5, Input.GetAxis("Vertical")) * 4;
+        body.linearVelocity = new Vector3(Input.GetAxis("Horizontal") * PlayerSpeed, body.linearVelocity.y, Input.GetAxis("Vertical") * PlayerSpeed);
     }
 }
