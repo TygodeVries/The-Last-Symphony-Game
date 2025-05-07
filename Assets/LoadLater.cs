@@ -9,6 +9,13 @@ public class LoadLater : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if(StartOnStart)
+            StartCoroutine(DoLater());
+    }
+    public bool StartOnStart = true;
+
+    public void StartTimer()
+    {
         StartCoroutine(DoLater());
     }
 
