@@ -8,7 +8,7 @@ public class Loader : MonoBehaviour
     private Animator animator;
     private void Start()
     {
-        AudioListener.volume = 1.0f;
+        AudioListener.volume = PlayerPrefs.GetFloat("Volume", 1);
         animator = GetComponent<Animator>();
     }
 
