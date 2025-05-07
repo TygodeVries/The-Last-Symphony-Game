@@ -2163,7 +2163,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1275186462}
+        m_TargetAssemblyTypeName: MenuItems, Assembly-CSharp
+        m_MethodName: VolumeChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &664494090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4509,6 +4521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8030336c46f76b439f5003645fe255b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  VolumeSlider: {fileID: 657325744}
 --- !u!1 &1297188594
 GameObject:
   m_ObjectHideFlags: 0
