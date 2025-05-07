@@ -13,6 +13,6 @@ public class WalkPlayer : MonoBehaviour
 
     void Update()
     {
-        body.linearVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * 4;
+        body.linearVelocity = new Vector3(Input.GetAxis("Horizontal"), -5, Input.GetAxis("Vertical")) * 4;
     }
 }
