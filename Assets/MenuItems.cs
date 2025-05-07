@@ -23,6 +23,8 @@ public class MenuItems : MonoBehaviour
     public void VolumeChanged()
     {
         AudioListener.volume = VolumeSlider.value;
+        PlayerPrefs.SetFloat("Volume", VolumeSlider.value);
+        PlayerPrefs.Save();
     }
 
     public void Start()
