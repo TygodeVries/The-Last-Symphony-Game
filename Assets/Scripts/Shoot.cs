@@ -160,6 +160,8 @@ public class Shot
 
     private static float LossOverDistance(float distance)
     {
+        return 1.0f;
+
         float alwaysHit = 3;
         float halfHit = 20;
 
