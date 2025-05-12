@@ -92,7 +92,6 @@ public class Enemy : MonoBehaviour
                 if(see.GetHitChance() > 0.5f)
                 {
                     score[i] += InOthersVisionScore;
-                    Debug.Log("Found a friend!");
                 }
             }
 
@@ -139,11 +138,10 @@ public class Enemy : MonoBehaviour
                     // Run away!!!!
                     score[i] += PlayerInVisionScoreAlmostDead;
                 }
-                Debug.Log("Can shoot people here, and people can shoot me!");
             }
         }
 
-        float best = 0;
+        float best = score[0];
         int bestIndex = -1;
         for (int i = 0; i < score.Length; i++)
         {
