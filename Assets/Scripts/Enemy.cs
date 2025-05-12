@@ -6,7 +6,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private bool DebugMode;
+    [SerializeField] public bool DebugMode;
 
     [SerializeField] private float MinimumPlayerDistance = 3f;
     [SerializeField] private float MaximumPlayerDistance = 10f;
