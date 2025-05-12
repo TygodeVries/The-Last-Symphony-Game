@@ -33,7 +33,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3928547835293629412}
   - {fileID: 6088786065949502265}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -235,31 +234,31 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 6958964982152259731}
+    m_TransformParent: {fileID: 6088786065949502265}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2111f1f7cb82dab46a7a14fb50894079, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.37789527
+      value: 0.28904518
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2111f1f7cb82dab46a7a14fb50894079, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.37789527
+      value: 0.28904518
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2111f1f7cb82dab46a7a14fb50894079, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.37789527
+      value: 0.28904518
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2111f1f7cb82dab46a7a14fb50894079, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.404
+      value: 0.30725294
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2111f1f7cb82dab46a7a14fb50894079, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.345
+      value: 0.011473238
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2111f1f7cb82dab46a7a14fb50894079, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.508
+      value: 0.40475893
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2111f1f7cb82dab46a7a14fb50894079, type: 3}
       propertyPath: m_LocalRotation.w
@@ -602,7 +601,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d0b60e722d080424583429a515583304, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 3928547835293629412}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d0b60e722d080424583429a515583304, type: 3}
       insertIndex: -1

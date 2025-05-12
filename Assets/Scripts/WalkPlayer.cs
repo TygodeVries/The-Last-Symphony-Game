@@ -15,11 +15,35 @@ public class WalkPlayer : MonoBehaviour
         cam = Camera.main;
     }
 
+    float time = 1;
+
+
+    private bool isWalking = false;
     void Update()
     {
+        time -= Time.deltaTime;
+        if(time < 0)
+        {
+            time = 1;
+            animator.SetInteger("Random", Random.Range(0, 100));
+        }
+
         body.linearVelocity = new Vector3(Input.GetAxis("Horizontal") * PlayerSpeed, body.linearVelocity.y, Input.GetAxis("Vertical") * PlayerSpeed);
 
-        animator.SetBool("IsWalking", body.linearVelocity.magnitude > 0.5f);
+        if(isWalking && body.linearVelocity.magnitude < 0.5f)
+        {
+            isWalking = false;
+            animator.SetTrigger("StartWalking");
+            Debug.Log("[Animator] Start Walking");
+        }
+        
+        if (!isWalking && body.linearVelocity.magnitude > 0.5f)
+        {
+            isWalking = true;
+            animator.SetTrigger("StopWalking");
+            Debug.Log("[Animator] Stop Walking");
+
+        }
 
         if (body.linearVelocity.magnitude > 0.5f)
         {
