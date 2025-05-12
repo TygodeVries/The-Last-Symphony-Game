@@ -21,18 +21,21 @@ public class WalkPlayer : MonoBehaviour
 
         animator.SetBool("IsWalking", body.linearVelocity.magnitude > 0.5f);
 
-        float f = Mathf.Atan2(body.linearVelocity.z, body.linearVelocity.x);
+        if (body.linearVelocity.magnitude > 0.5f)
+        {
+            float f = Mathf.Atan2(body.linearVelocity.z, body.linearVelocity.x);
 
-        f *= Mathf.Rad2Deg;
+            f *= Mathf.Rad2Deg;
 
-        cur = Mathf.LerpAngle(cur, f, Time.deltaTime * 5);
+            cur = Mathf.LerpAngle(cur, f, Time.deltaTime * 5);
 
-        Debug.Log(cur);
+            Debug.Log(cur);
 
-        float x = Mathf.Cos((cur / 180f) * Mathf.PI);
-        float y = Mathf.Sin((cur / 180f) * Mathf.PI);
+            float x = Mathf.Cos((cur / 180f) * Mathf.PI);
+            float y = Mathf.Sin((cur / 180f) * Mathf.PI);
 
-        transform.forward = new Vector3(x, 0, y);
+            transform.forward = new Vector3(x, 0, y);
+        }
     }
 
     float cur = 0;
