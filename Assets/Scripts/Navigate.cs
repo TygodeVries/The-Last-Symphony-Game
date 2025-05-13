@@ -43,6 +43,10 @@ public class Navigate : MonoBehaviour
     bool isWalking;
     public void Update()
     {
+        tileHighlight.transform.parent = null;
+
+        tileHighlight.transform.position = Vector3.Lerp(tileHighlight.transform.position, selected.transform.position, Time.deltaTime * 6);
+
         if (isWalking)
         {
             ring.SetActive(false);
@@ -90,7 +94,6 @@ public class Navigate : MonoBehaviour
             return;
         }
 
-        tileHighlight.transform.position = nearest.transform.position;
         selected = nearest;
 
         UpdateLine();
