@@ -46,18 +46,17 @@ public class Enemy : MonoBehaviour
         float c = shot.GetHitChance();
         Debug.Log("Current Hit Chance: " + c);
 
-        if (c < 0.25f)
-        {
-            animator.SetBool("IsWalking", true);
-            yield return StartCoroutine(Walk());
-            animator.SetBool("IsWalking", false);
-        }
-
-        else
+        if (c > ShotRiskinessThreshold)
         {
             animator.SetTrigger("Shoot");
             yield return StartCoroutine(Shoot(shot));
         }
+
+        animator.SetBool("IsWalking", true);
+        yield return StartCoroutine(Walk());
+        animator.SetBool("IsWalking", false);
+
+
     }
 
     public IEnumerator Walk()
@@ -142,7 +141,7 @@ public class Enemy : MonoBehaviour
         }
 
         float best = score[0];
-        int bestIndex = -1;
+        int bestIndex = 0;
         for (int i = 0; i < score.Length; i++)
         {
             if (score[i] > best)
