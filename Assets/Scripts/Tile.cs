@@ -27,6 +27,24 @@ public class Tile : MonoBehaviour
         return false;
     }
 
+    public bool IsOccupied(GridWalker ignore)
+    {
+        GridWalker[] walkers = FindObjectsByType<GridWalker>(FindObjectsSortMode.None);
+        foreach (GridWalker walker in walkers)
+        {
+            if (walker == ignore)
+                continue;
+
+            Vector3 walkerPos = walker.transform.position;
+
+            if (Vector3.Distance(transform.position, walkerPos) < 1)
+                return true;
+        }
+
+
+        return false;
+    }
+
     private TileStyle currentStyle = TileStyle.None;
     public void SetStyle(TileStyle style)
     {

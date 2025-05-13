@@ -26,6 +26,8 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private float ShotRiskinessThreshold = 0.5f;
 
+    [SerializeField] private float TileAlreadyOccupiedScore = -10000;
+
     private Animator animator;
 
     public void Update()
@@ -134,9 +136,9 @@ public class Enemy : MonoBehaviour
                 }
             }
 
-            if (tiles[i].IsOccupied())
+            if (tiles[i].IsOccupied(this.GetComponent<GridWalker>()))
             {
-                score[i] -= 1000f;
+                score[i] += TileAlreadyOccupiedScore;
             }
 
             // Check if we can hide
