@@ -76,10 +76,11 @@ public class Shoot : MonoBehaviour
 
         yield return new WaitForSeconds(1);
         FindAnyObjectByType<Battle>().UseAction("Attack Shoot");
-        FindAnyObjectByType<Player>().OpenActionGUI();
+        CameraSystem.SetTarget(null);
+        FindAnyObjectByType<Battle>().StartCoroutine(FindAnyObjectByType<Battle>().StartEnemyTurn());
+
         gameObject.SetActive(false);
 
-        CameraSystem.SetTarget(null);
     }
 }
 
