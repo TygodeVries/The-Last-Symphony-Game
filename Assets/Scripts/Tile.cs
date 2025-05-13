@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    [SerializeField] private bool CanNavigateInto = true;
+    [SerializeField] public bool CanNavigateInto = true;
 
     [HideInInspector] [SerializeField] public List<TileConnection> connections;
 
