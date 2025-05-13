@@ -94,7 +94,7 @@ public class GridWalker : MonoBehaviour
             }
         }
 
-        return new List<Tile>();
+        return null;
     }
     private static List<Tile> ReconstructPath(Dictionary<Tile, Tile> from, Tile end)
     {

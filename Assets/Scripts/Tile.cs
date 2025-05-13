@@ -102,7 +102,6 @@ public class Tile : MonoBehaviour
             yield return StartCoroutine(b.Step());
         }
 
-        Debug.Log("Completed Behavior!");
     }
 
     public List<Tile> GetConnections()
