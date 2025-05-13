@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraSystem : MonoBehaviour
 {
     private Transform target;
-    private Vector3 offset = new Vector3(-1, 2, -1);
+    [SerializeField] private Vector3 offset = new Vector3(-1, 2, -1);
     public static void SetTarget(Transform transform)
     {
         FindObjectsByType<CameraSystem>(FindObjectsSortMode.None)[0].target = transform;

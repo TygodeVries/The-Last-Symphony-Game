@@ -6553,6 +6553,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1372377228389212986, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: offset.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1372377228389212986, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: offset.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1372377228389212986, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: offset.z
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 1745206043629286717, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: tile
       value: 
