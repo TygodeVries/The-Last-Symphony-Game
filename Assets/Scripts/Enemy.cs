@@ -151,6 +151,11 @@ public class Enemy : MonoBehaviour
             }
         }
 
+        if(best < 0)
+        {
+            Debug.LogError("Very low score, may cause visual bugs!");
+        }
+
         for (int i = 0; i < tiles.Length; i++)
         {
             MeshRenderer renderer = tiles[i].GetComponent<MeshRenderer>();
