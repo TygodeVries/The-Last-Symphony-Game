@@ -95,6 +95,11 @@ public class Enemy : MonoBehaviour
                 continue;
             }
 
+            TileEffector tileEffector = tiles[i].GetComponent<TileEffector>();
+
+            if(tileEffector != null)
+                score[i] += tileEffector.BaseScore;
+
             float tileDistanceToPlayer = Vector3.Distance(tiles[i].transform.position, player.transform.position);
 
             if (tileDistanceToPlayer > MaximumPlayerDistance || tileDistanceToPlayer < MinimumPlayerDistance)
