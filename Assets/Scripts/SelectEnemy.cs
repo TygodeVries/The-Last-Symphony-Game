@@ -6,8 +6,15 @@ public class SelectEnemy : MonoBehaviour
 {
     Enemy[] enemies;
     int selected;
+
+
+    GameInput.UINavActions uiInput;
     void Start()
     {
+        var input = new GameInput();
+        uiInput = input.UINav;
+        input.Enable();
+
         enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
     }
 
@@ -21,9 +28,9 @@ public class SelectEnemy : MonoBehaviour
     {
         enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (uiInput.Right.WasPressedThisFrame())
             selected++;
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (uiInput.Left.WasPressedThisFrame())
             selected--;
 
         if (selected < 0)

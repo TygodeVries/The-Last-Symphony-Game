@@ -1,6 +1,7 @@
 using NUnit.Framework.Constraints;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 
@@ -179,8 +180,8 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        float best = FirstNotNull(score, tiles);
-        int bestIndex = 0;
+        float best = FirstNotNull(score, tiles).Item1;
+        int bestIndex = FirstNotNull(score, tiles).Item2;
         for (int i = 0; i < score.Length; i++)
         {
             if (tiles[i] == null)
@@ -206,33 +207,48 @@ public class Enemy : MonoBehaviour
             MeshRenderer renderer = tiles[i].GetComponent<MeshRenderer>();
             Material m = new Material(renderer.material.shader);
 
-            float a = score[i] / best;
-            m.color = new Color(a, 0, 0);
+            if(best < 1)
+            {
+                Debug.LogWarning("Best was very low, failed to draw debug tiles.");
+                m.color = new Color(0, 0, 0);
+            }
+            else
+            {
+                float a = score[i] / best;
+                m.color = new Color(a, 0, 0);
+            }
+
 
             if (i == bestIndex)
             {
                 m.color = new Color(0, 1, 0);
             }
 
-            renderer.material = m;
+            renderer.sharedMaterial = m;
         }
 
         if (DebugMode)
             yield break;
 
+        if (tiles[bestIndex] == null)
+        {
+            Debug.LogError($"Could not find a perfect tile :(, {bestIndex} is null.");
+        }
+
         yield return GetComponent<GridWalker>().Navigate(tiles[bestIndex]);
         CameraSystem.SetTarget(null);
     }
 
-    public float FirstNotNull(float[] objects, Tile[] tiles)
+    public (float, int) FirstNotNull(float[] objects, Tile[] tiles)
     {
         for(int i = 0; i < tiles.Length; i++)
         {
             if (tiles[i] != null)
-                return objects[i];
+                return (objects[i], i);
         }
 
-        return -1;
+        Debug.LogError("EVERYTHING IS BROKEN? NO TILES FOR ME???");
+        return (-1000, 0);
     }
 
     public IEnumerator Shoot(Shot shot)

@@ -18,6 +18,7 @@ public class Navigate : MonoBehaviour
 
     LineRenderer line;
 
+    GameInput.UINavActions uiInput;
     public void Start()
     {
         line = GetComponent<LineRenderer>();
@@ -26,6 +27,11 @@ public class Navigate : MonoBehaviour
         player = FindAnyObjectByType<Player>();
         selected = player.walker.tile;
         transform.position = player.transform.position;
+
+        var gameInput = new GameInput();
+        gameInput.Enable();
+
+        uiInput = gameInput.UINav;
     }
 
     IEnumerator Walk()
@@ -44,19 +50,32 @@ public class Navigate : MonoBehaviour
     public void Update()
     {
         tileHighlight.transform.parent = null;
-
         tileHighlight.transform.position = Vector3.Lerp(tileHighlight.transform.position, selected.transform.position, Time.deltaTime * 6);
 
         if (isWalking)
         {
             ring.SetActive(false);
+            tileHighlight.gameObject.SetActive(false);
             return;
         }
+        else
+        {
+            tileHighlight.gameObject.SetActive(true);
+        }
 
-        ring.SetActive(true);
-        if (Input.GetKeyDown(KeyCode.Return))
+            ring.SetActive(true);
+        if (uiInput.Confirm.WasPressedThisFrame())
         {
             StartCoroutine(Walk());
+        }
+
+        if(uiInput.Back.WasPressedThisFrame())
+        {
+            ring.SetActive(false);
+            tileHighlight.gameObject.SetActive(false);
+            CameraSystem.SetTarget(null);
+            player.OpenActionGUI();
+            gameObject.SetActive(false);
         }
 
         Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));

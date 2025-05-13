@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEditor;
 using UnityEngine;
 
@@ -36,6 +37,11 @@ public class GridWalker : MonoBehaviour
 
     private IEnumerator WalkPath(List<Tile> path)
     {
+        if (path == null) {
+            Debug.LogError("Walking a null path???!?");
+            yield break;
+        }
+
         for (int i = 0; i < path.Count; i++)
         {
             Tile tile = path[i];
@@ -66,6 +72,18 @@ public class GridWalker : MonoBehaviour
 
     public static List<Tile> CalculatePath(Tile destination, Tile startingTile)
     {
+        if(destination == null)
+        {
+            Debug.LogError("Destination cannot be null!");
+            return null;
+        }
+
+        if (startingTile == null)
+        {
+            Debug.LogError("Starting tilew cannot be null!");
+            return null;
+        }
+
         Queue<Tile> queue = new Queue<Tile>();
         Dictionary<Tile, Tile> from = new Dictionary<Tile, Tile>();
         HashSet<Tile> visited = new HashSet<Tile>();
@@ -93,6 +111,8 @@ public class GridWalker : MonoBehaviour
                 }
             }
         }
+
+        Debug.DrawLine(destination.transform.position, startingTile.transform.position, Color.blue);
 
         return null;
     }

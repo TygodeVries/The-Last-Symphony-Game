@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class ActionUI : MonoBehaviour
@@ -14,11 +15,22 @@ public class ActionUI : MonoBehaviour
 
     private GameObject lastGlow;
 
+
+    GameInput.UINavActions uiInput;
+    private void Start()
+    {
+        var gameInput = new GameInput();
+        gameInput.Enable();
+
+        uiInput = gameInput.UINav;
+    }
+
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (uiInput.Right.WasPressedThisFrame())
             index++;
-        if (Input.GetKeyDown(KeyCode.Q))
+
+        if (uiInput.Left.WasPressedThisFrame())
             index--;
 
         if(index < 0)
@@ -32,7 +44,7 @@ public class ActionUI : MonoBehaviour
         activeUIItems[index].GetComponent<Outline>().enabled = true;
         lastGlow = activeUIItems[index];
 
-        if(Input.GetKeyDown(KeyCode.Return))
+        if(uiInput.Confirm.WasPressedThisFrame())
         {
             OnSelectionMade.Invoke(lastGlow.name);
         }

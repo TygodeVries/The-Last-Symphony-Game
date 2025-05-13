@@ -20,6 +20,14 @@ public class Shoot : MonoBehaviour
     bool inTimingState;
     float time;
 
+    GameInput.UINavActions uiInput;
+    private void Start()
+    {
+        var gameInput = new GameInput();
+        gameInput.Enable();
+
+        uiInput = gameInput.UINav;
+    }
 
     public void Update()
     {
@@ -28,13 +36,25 @@ public class Shoot : MonoBehaviour
 
         float chance = shot.GetHitChance();
 
+        if (uiInput.Back.WasPressedThisFrame())
+        {
+            FindAnyObjectByType<Player>().OpenActionGUI();
+            CameraSystem.SetTarget(null);
+            inTimingState = false;
+            ShootingUI.SetActive(false);
+            GetComponent<SelectEnemy>().enabled = true;
+
+            gameObject.SetActive(false);
+            return;
+        }
+
         if (inTimingState)
         {
             time += Time.deltaTime * Speed;
 
             timingImage.fillAmount = (Mathf.Sin(time) + 1) / 2;
 
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (uiInput.Confirm.WasPressedThisFrame())
             {
                 Projectile.instance.DrawShot(shot);
 
@@ -62,7 +82,7 @@ public class Shoot : MonoBehaviour
         }
 
         ChanceText.text = "Chance: " + Mathf.RoundToInt(chance * 100) + "%";
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (uiInput.Confirm.WasPressedThisFrame())
         {
             ShootingUI.SetActive(true);
             inTimingState = true;
