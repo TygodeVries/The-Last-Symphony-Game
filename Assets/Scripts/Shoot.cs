@@ -28,7 +28,10 @@ public class Shoot : MonoBehaviour
 
         uiInput = gameInput.UINav;
     }
-
+    public void OnApplicationQuit()
+    {
+        uiInput.Disable();
+    }
     public void Update()
     {
         Living target = GetComponent<SelectEnemy>().GetSelected().GetComponent<Living>();

@@ -34,6 +34,11 @@ public class Navigate : MonoBehaviour
         uiInput = gameInput.UINav;
     }
 
+    public void OnApplicationQuit()
+    {
+        uiInput.Disable();
+    }
+
     IEnumerator Walk()
     {
         isWalking = true;

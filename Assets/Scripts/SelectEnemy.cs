@@ -18,6 +18,12 @@ public class SelectEnemy : MonoBehaviour
         enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
     }
 
+    public void OnApplicationQuit()
+    {
+        uiInput.Disable();
+    }
+
+
     public Enemy GetSelected()
     {
         return enemies[selected];

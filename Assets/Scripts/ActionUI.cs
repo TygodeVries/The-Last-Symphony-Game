@@ -25,6 +25,11 @@ public class ActionUI : MonoBehaviour
         uiInput = gameInput.UINav;
     }
 
+    public void OnApplicationQuit()
+    {
+        uiInput.Disable();
+    }
+
     public void Update()
     {
         if (uiInput.Right.WasPressedThisFrame())
