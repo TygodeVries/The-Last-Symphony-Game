@@ -74,12 +74,14 @@ public class Enemy : MonoBehaviour
 
         for(int i = 0; i < tiles.Length; i++)
         {
-            List<Tile> path = GridWalker.CalculatePath(tiles[i], player.GetComponent<GridWalker>().tile);
+            List<Tile> path = GridWalker.CalculatePath(tiles[i], me.GetComponent<GridWalker>().tile);
 
             Debug.Log(path);
 
             if(path == null)
             {
+                Debug.DrawLine(tiles[i].transform.position, me.GetComponent<GridWalker>().tile.transform.position, Color.cyan, 10);
+
                 tiles[i] = null;
             }
         }
@@ -90,7 +92,6 @@ public class Enemy : MonoBehaviour
         {
             if (tiles[i] == null)
             {
-                score[i] -= 10000f;
                 continue;
             }
 
@@ -160,7 +161,7 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        float best = score[0];
+        float best = FirstNotNull(score, tiles);
         int bestIndex = 0;
         for (int i = 0; i < score.Length; i++)
         {
@@ -203,6 +204,17 @@ public class Enemy : MonoBehaviour
 
         yield return GetComponent<GridWalker>().Navigate(tiles[bestIndex]);
         CameraSystem.SetTarget(null);
+    }
+
+    public float FirstNotNull(float[] objects, Tile[] tiles)
+    {
+        for(int i = 0; i < tiles.Length; i++)
+        {
+            if (tiles[i] != null)
+                return objects[i];
+        }
+
+        return -1;
     }
 
     public IEnumerator Shoot(Shot shot)
