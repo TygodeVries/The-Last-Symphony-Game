@@ -15,9 +15,12 @@ public class Cooldowns : MonoBehaviour
 
     public void NextRound()
     {
-        currentGranadeCooldown--;
+        if (FindAnyObjectByType<Battle>().Granade)
+            currentGranadeCooldown--;
+        else
+            return;
 
-        if(currentGranadeCooldown < 0)
+        if (currentGranadeCooldown < 0)
         {
             GranadeCooldownUI.SetActive(false);
             FindAnyObjectByType<Battle>().RestoreAction("Attack Granade");
@@ -25,7 +28,7 @@ public class Cooldowns : MonoBehaviour
         else
         {
             GranadeCooldownUI.SetActive(true);
-            GranadeCooldownUI.GetComponentInChildren<TMP_Text>().text = $"Cooldown: {currentGranadeCooldown + 1}"; 
+            GranadeCooldownUI.GetComponentInChildren<TMP_Text>().text = $"Cooldown: {currentGranadeCooldown + 1}";
         }
     }
 }

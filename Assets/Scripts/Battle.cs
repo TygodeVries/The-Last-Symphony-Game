@@ -7,15 +7,19 @@ using UnityEngine.SceneManagement;
 
 public class Battle : MonoBehaviour
 {
+    [Header("Enabled Actions")]
+    public bool Move;
+    public bool Shoot;
+    public bool Granade;
+
     private List<string> availablePlayerActions = new List<string>();
     public void ResetActions()
     {
-        RestoreAction("Move");
+        if(Move)
+            RestoreAction("Move");
 
-        RestoreAction("Attack Shoot");
-
-        RestoreAction("End");
-       
+        if(Shoot)
+            RestoreAction("Attack Shoot");
     }
 
     private void OnCollisionStay(Collision collision)
@@ -65,7 +69,8 @@ public class Battle : MonoBehaviour
         player = FindAnyObjectByType<Player>();
         this.InvokeRepeating("CheckForEndOfGame", 1, 0.5f);
 
-        RestoreAction("Attack Granade");
+        if(Granade)
+            RestoreAction("Attack Granade");
         StartPlayerTurn();
 
     }
