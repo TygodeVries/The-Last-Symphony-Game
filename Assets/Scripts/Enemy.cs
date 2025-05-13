@@ -1,5 +1,6 @@
 using NUnit.Framework.Constraints;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -70,10 +71,29 @@ public class Enemy : MonoBehaviour
         Player player = FindAnyObjectByType<Player>();
 
         Debug.Log($"Checking {tiles.Length} tiles!");
+
+        for(int i = 0; i < tiles.Length; i++)
+        {
+            List<Tile> path = GridWalker.CalculatePath(tiles[i], player.GetComponent<GridWalker>().tile);
+
+            Debug.Log(path);
+
+            if(path == null)
+            {
+                tiles[i] = null;
+            }
+        }
+
         ShotChangeEffector[] effectors = FindObjectsByType<ShotChangeEffector>(FindObjectsSortMode.None);
         Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
         for (int i = 0; i < tiles.Length; i++)
         {
+            if (tiles[i] == null)
+            {
+                score[i] -= 10000f;
+                continue;
+            }
+
             float tileDistanceToPlayer = Vector3.Distance(tiles[i].transform.position, player.transform.position);
 
             if (tileDistanceToPlayer > MaximumPlayerDistance || tileDistanceToPlayer < MinimumPlayerDistance)
@@ -144,6 +164,9 @@ public class Enemy : MonoBehaviour
         int bestIndex = 0;
         for (int i = 0; i < score.Length; i++)
         {
+            if (tiles[i] == null)
+                continue;
+
             if (score[i] > best)
             {
                 best = score[i];
@@ -158,6 +181,9 @@ public class Enemy : MonoBehaviour
 
         for (int i = 0; i < tiles.Length; i++)
         {
+            if (tiles[i] == null)
+                continue;
+
             MeshRenderer renderer = tiles[i].GetComponent<MeshRenderer>();
             Material m = new Material(renderer.material.shader);
 
