@@ -29,9 +29,11 @@ public class Loader : MonoBehaviour
             AudioListener.volume -= 0.1f;
             yield return new WaitForSeconds(0.1f);
         }
-        
+
+        yield return new WaitForSeconds(2f);
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(next);
+
 
         while(!operation.isDone)
         {
