@@ -60,6 +60,10 @@ public class GridWalker : MonoBehaviour
         for (float t = 0; t < 1f; t += 0.01f)
         {
             transform.position = Vector3.Lerp(startPos, tile.transform.position, t);
+
+            Vector3 delta = tile.transform.position - startPos;
+            transform.forward = Vector3.Lerp(transform.forward, delta, Mathf.Clamp01(t * 2));
+
             yield return new WaitForSeconds(waiting);
         }
 

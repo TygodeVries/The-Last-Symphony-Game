@@ -270,6 +270,7 @@ MonoBehaviour:
   HealthyThreshold: 10
   NotInRangeScore: -1000
   ShotRiskinessThreshold: 0.5
+  TileAlreadyOccupiedScore: -10000
 --- !u!114 &920098885712460706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,6 +450,7 @@ GameObject:
   - component: {fileID: 5779047032113927615}
   - component: {fileID: 2147753797782007817}
   - component: {fileID: 8058819985059843772}
+  - component: {fileID: 5421879686018635527}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -614,3 +616,15 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 2147753797782007817}
   m_maskType: 0
+--- !u!114 &5421879686018635527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5763620604394878214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a5123f870c40584790195992bf729e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
