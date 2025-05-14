@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class WalkPlayer : MonoBehaviour
@@ -17,10 +18,36 @@ public class WalkPlayer : MonoBehaviour
 
     float time = 1;
 
+    public void PutDown()
+    {
+        puttingDown = true;
+        animator.SetTrigger("PutDown");
+        StartCoroutine(release());
+    }
 
+    private IEnumerator release()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(GetComponentInChildren<ConfigurableJoint>());
+        BoxCollider c = GetComponentInChildren<BoxCollider>();
+        c.isTrigger = false;
+        c.transform.parent = null;
+
+        GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+        yield return new WaitForSeconds(2f);
+        puttingDown = false;
+    }
+
+
+    private bool puttingDown;
     private bool isWalking = false;
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.T))
+            PutDown();
+
+        if (puttingDown)
+            return;
         time -= Time.deltaTime;
         if(time < 0)
         {
