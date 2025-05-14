@@ -79,7 +79,7 @@ public class Battle : MonoBehaviour
 
     public void StartPlayerTurn()
     {
-
+        ToolTip.Set("<sprite name=\"a\"> Select\n<sprite name=\"Inputs_1\"> Navigate");
         ResetActions();
 
         PlayerTurnStarts.Invoke();
@@ -97,6 +97,7 @@ public class Battle : MonoBehaviour
 
     public IEnumerator StartEnemyTurn()
     {
+        ToolTip.Set("");
         StartCoroutine(TitleInOut("Enemy Turn", 1.5f));
         Enemy[] enemies = UnityEngine.Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None);
 

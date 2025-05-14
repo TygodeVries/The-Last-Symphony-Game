@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     {
         actionUIObject.SetActive(true);
         actionUIObject.GetComponent<ActionUI>().Validate();
+        ToolTip.Set("<sprite name=\"a\"> Select\n<sprite name=\"Inputs_1\"> Navigate");
     }
 
     public void PerformAction(string id)
@@ -43,11 +44,13 @@ public class Player : MonoBehaviour
         if(id == "Move")
         {
             navigateObject.SetActive(true);
+            ToolTip.Set("<sprite name=\"a\"> Select\n<sprite name=\"b\"> Back\n<sprite name=\"Inputs_8\"> Navigate");
         }
 
         else if(id == "Attack Shoot")
         {
             AttackObjects[0].SetActive(true);
+            ToolTip.Set("<sprite name=\"a\"> Select\n<sprite name=\"b\"> Back\n<sprite name=\"Inputs_1\"> Navigate");
         }
 
         else if(id == "Attack Granade")

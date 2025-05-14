@@ -46,13 +46,15 @@ public class Shoot : MonoBehaviour
             inTimingState = false;
             ShootingUI.SetActive(false);
             GetComponent<SelectEnemy>().enabled = true;
-
+            ToolTip.Set("");
             gameObject.SetActive(false);
+
             return;
         }
 
         if (inTimingState)
         {
+
             time += Time.deltaTime * Speed;
 
             timingImage.fillAmount = (Mathf.Sin(time) + 1) / 2;
@@ -80,8 +82,13 @@ public class Shoot : MonoBehaviour
                 inTimingState = false;
                 GetComponent<SelectEnemy>().enabled = true;
                 StartCoroutine(DoThing(target.transform));
+
             }
             return;
+        }
+        else
+        {
+            
         }
 
         ChanceText.text = "Chance: " + Mathf.RoundToInt(chance * 100) + "%";
@@ -90,6 +97,7 @@ public class Shoot : MonoBehaviour
             ShootingUI.SetActive(true);
             inTimingState = true;
             GetComponent<SelectEnemy>().enabled = false;
+            ToolTip.Set("<sprite name=\"a\"> Play\n<sprite name=\"b\"> Back");
         }
     }
 
