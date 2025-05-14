@@ -56,8 +56,8 @@ public class GridWalker : MonoBehaviour
         CameraSystem.SetTarget(transform);
 
         Vector3 startPos = transform.position;
-        float waiting = 0.4f * 0.1f;
-        for (float t = 0; t < 1f; t += 0.1f)
+        float waiting = 0.4f * 0.01f;
+        for (float t = 0; t < 1f; t += 0.01f)
         {
             transform.position = Vector3.Lerp(startPos, tile.transform.position, t);
             yield return new WaitForSeconds(waiting);
