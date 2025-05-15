@@ -35,7 +35,7 @@ public class Shoot : MonoBehaviour
     public void Update()
     {
         Living target = GetComponent<SelectEnemy>().GetSelected().GetComponent<Living>();
-        Shot shot = new Shot(GetComponentInParent<Living>(), target.transform.root.gameObject, new Vector3(0, 0.1f, 0));
+        Shot shot = new Shot(GetComponentInParent<Living>().gameObject, target.transform.root.gameObject, new Vector3(0, 0.1f, 0));
 
         float chance = shot.GetHitChance();
 
@@ -117,11 +117,11 @@ public class Shoot : MonoBehaviour
 
 public class Shot
 {
-    public Living shooter;
+    public GameObject shooter;
     public GameObject target;
     private Vector3 eyeLevel;
 
-    public Shot(Living shooter, GameObject target, Vector3 eyeLevel)
+    public Shot(GameObject shooter, GameObject target, Vector3 eyeLevel)
     {
         this.shooter = shooter;
         this.target = target;
@@ -152,12 +152,6 @@ public class Shot
         {
             if(hit.collider.transform.root == gameobjectTarget.transform.root)
             {
-                if (Input.GetKey(KeyCode.LeftShift))
-                {
-                    File.WriteAllText("debug.txt", debugMsg);
-                    Process.Start("notepad.exe", "debug.txt");
-                }
-
                 return baseRate;
             }
 
@@ -179,13 +173,7 @@ public class Shot
             debugMsg += $"Passed {hit.collider}, Range is now {baseRate}.\n";
 
             UnityEngine.Debug.DrawLine(hit.point, origin, Color.red, 10);
-        }
-
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            File.WriteAllText("debug.txt", debugMsg);
-            Process.Start("notepad.exe", "debug.txt");
-        }
+        }   
 
         return baseRate;
     }

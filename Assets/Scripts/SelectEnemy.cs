@@ -29,6 +29,16 @@ public class SelectEnemy : MonoBehaviour
         return enemies[selected];
     }
 
+    private void OnEnable()
+    {
+        cursor.gameObject.SetActive(true);    
+    }
+
+    private void OnDisable()
+    {
+        cursor.gameObject.SetActive(false);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -46,5 +56,10 @@ public class SelectEnemy : MonoBehaviour
             selected = 0;
 
         CameraSystem.SetTarget(enemies[selected].transform);
+        cursor.transform.position = enemies[selected].transform.position + cursorOffset;
+
     }
+
+    [SerializeField] private GameObject cursor;
+    [SerializeField] private Vector3 cursorOffset = new Vector3(0, 1, 0);
 }

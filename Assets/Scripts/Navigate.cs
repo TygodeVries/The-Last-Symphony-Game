@@ -118,14 +118,14 @@ public class Navigate : MonoBehaviour
             return;
         }
 
-        selected = nearest;
+        List<Tile> path = GridWalker.CalculatePath(selected, player.walker.tile);
 
-        UpdateLine();
+        selected = nearest;
+        UpdateLine(path);
     }
 
-    public void UpdateLine()
+    public void UpdateLine(List<Tile> tiles)
     {
-        List<Tile> tiles = GridWalker.CalculatePath(selected, player.walker.tile);
 
         line.positionCount = tiles.Count;
         for (int i = 0; i < tiles.Count; i++)

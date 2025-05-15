@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
     {
         Living player = FindAnyObjectByType<Player>().GetComponent<Living>();
 
-        Shot shot = new Shot(GetComponent<Living>(), player.gameObject, new Vector3(0, 0.1f, 0));
+        Shot shot = new Shot(GetComponent<Living>().gameObject, player.gameObject, new Vector3(0, 0.1f, 0));
 
         float c = shot.GetHitChance();
         Debug.Log("Current Hit Chance: " + c);
@@ -129,7 +129,7 @@ public class Enemy : MonoBehaviour
                 if (enemy == this)
                     continue;
 
-                Shot see = new Shot(enemy.GetComponent<Living>(), tiles[i].gameObject, new Vector3(0, 0.1f, 0));
+                Shot see = new Shot(enemy.GetComponent<Living>().gameObject, tiles[i].gameObject, new Vector3(0, 0.1f, 0));
                 if(see.GetHitChance() > 0.5f)
                 {
                     score[i] += InOthersVisionScore;
@@ -165,7 +165,7 @@ public class Enemy : MonoBehaviour
                 }
             }
 
-            Shot shot = new Shot(Object.FindAnyObjectByType<Player>().GetComponent<Living>(), tiles[i].gameObject, new Vector3(0, 0.1f, 0));
+            Shot shot = new Shot(Object.FindAnyObjectByType<Player>().gameObject, tiles[i].gameObject, new Vector3(0, 0.1f, 0));
 
             if(shot.GetHitChance() > ShotRiskinessThreshold)
             {
