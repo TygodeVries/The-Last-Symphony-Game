@@ -347,6 +347,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7788820640742001801, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: origin
+      value: 
+      objectReference: {fileID: 1456437944}
+    - target: {fileID: 7788820640742001801, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: linePrefab
+      value: 
+      objectReference: {fileID: 6734301586088095747, guid: 353e25cd508424c4a96ead69fce3ab97, type: 3}
     - target: {fileID: 7968674885047058258, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 187.31042
@@ -1817,6 +1825,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
+--- !u!4 &1456437944 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2630408189039366427, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+  m_PrefabInstance: {fileID: 65913712}
+  m_PrefabAsset: {fileID: 0}
 --- !u!21 &1586905823
 Material:
   serializedVersion: 8
