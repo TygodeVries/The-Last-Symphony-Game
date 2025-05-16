@@ -182,6 +182,7 @@ public class Shot
     {
         return 1.0f;
 
+        // Cut later on, so its unused.
         float alwaysHit = 3;
         float halfHit = 20;
 
