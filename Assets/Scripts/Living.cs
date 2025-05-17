@@ -10,7 +10,7 @@ public class Living : MonoBehaviour
     {
         if (healthText != null)
         {
-            healthText.text = HealthPoints + "HP";
+            healthText.text = HealthPoints + "hp";
         }
     }
 
@@ -20,7 +20,7 @@ public class Living : MonoBehaviour
 
         if(healthText != null)
         {
-            healthText.text = HealthPoints + "HP";
+            healthText.text = HealthPoints + "hp";
         }
 
         if (HealthPoints <= 0)
