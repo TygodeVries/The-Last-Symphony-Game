@@ -171,8 +171,6 @@ public class Shot
 
             baseRate *= effector.PassChance;
             debugMsg += $"Passed {hit.collider}, Range is now {baseRate}.\n";
-
-            UnityEngine.Debug.DrawLine(hit.point, origin, Color.red, 10);
         }   
 
         return baseRate;

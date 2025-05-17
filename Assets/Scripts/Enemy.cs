@@ -2,10 +2,10 @@ using NUnit.Framework.Constraints;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-
-[ExecuteInEditMode]
 public class Enemy : MonoBehaviour
 {
     [SerializeField] public bool DebugMode;
@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
 
     private Animator animator;
 
-    public void Update()
+    public void OnDrawGizmos()
     {
         if (DebugMode)
             StartCoroutine(Walk());
@@ -83,8 +83,6 @@ public class Enemy : MonoBehaviour
 
             if(path == null)
             {
-                Debug.DrawLine(tiles[i].transform.position, me.GetComponent<GridWalker>().tile.transform.position, Color.cyan, 10);
-
                 tiles[i] = null;
             }
         }
@@ -201,33 +199,24 @@ public class Enemy : MonoBehaviour
             Debug.LogError("Very low score, may cause visual bugs!");
         }
 
+#if UNITY_EDITOR
         for (int i = 0; i < tiles.Length; i++)
         {
             if (tiles[i] == null)
                 continue;
 
-            MeshRenderer renderer = tiles[i].GetComponent<MeshRenderer>();
-            Material m = new Material(renderer.material.shader);
-
-            if(best < 1)
+            if (i == bestIndex)
             {
-                Debug.LogWarning("Best was very low, failed to draw debug tiles.");
-                m.color = new Color(0, 0, 0);
+                Gizmos.color = Color.green;
+                Gizmos.DrawCube(tiles[i].transform.position, new Vector3(0.6f, 1f, 0.6f));
             }
             else
             {
-                float a = score[i] / best;
-                m.color = new Color(a, 0, 0);
+                Gizmos.color = new Color(score[i] / best, 0, 0);
+                Gizmos.DrawCube(tiles[i].transform.position, new Vector3(0.2f, 0.3f, 0.2f));
             }
-
-
-            if (i == bestIndex)
-            {
-                m.color = new Color(0, 1, 0);
-            }
-
-            renderer.sharedMaterial = m;
         }
+#endif
 
         if (DebugMode)
             yield break;

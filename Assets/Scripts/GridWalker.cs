@@ -116,8 +116,6 @@ public class GridWalker : MonoBehaviour
             }
         }
 
-        Debug.DrawLine(destination.transform.position, startingTile.transform.position, Color.blue);
-
         return null;
     }
     private static List<Tile> ReconstructPath(Dictionary<Tile, Tile> from, Tile end)
