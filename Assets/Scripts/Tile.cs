@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Threading;
 using UnityEditor;
 using UnityEngine;
@@ -10,7 +11,6 @@ public class Tile : MonoBehaviour
     [SerializeField] public bool CanNavigateInto = true;
 
     [HideInInspector] [SerializeField] public List<TileConnection> connections;
-
 
     public bool IsOccupied()
     {
@@ -86,11 +86,18 @@ public class Tile : MonoBehaviour
             return;
 
         connections.Add(new TileConnection(direction, tile));
+
+#if UNITY_EDITOR
+        EditorUtility.SetDirty(this);
+#endif
     }
 
     public void RemoveConnections()
     {
         connections = new List<TileConnection>();
+#if UNITY_EDITOR
+        EditorUtility.SetDirty(this);
+#endif
     }
 
     public void OnDrawGizmos()
