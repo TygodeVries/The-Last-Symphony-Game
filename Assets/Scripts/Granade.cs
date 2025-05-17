@@ -24,6 +24,15 @@ public class Granade : MonoBehaviour
         a.Normalize();
         transform.position += a * Time.deltaTime;
 
+        Tile[] tiles = FindObjectsByType<Tile>(FindObjectsSortMode.None);
+        foreach (Tile tile in tiles)
+        {
+            if(Vector3.Distance(tile.transform.position, transform.position) < DamageRange)
+            {
+                tile.MarkSelected();
+            }
+        }
+
         if(Input.GetKeyDown(KeyCode.Return))
         {
             StartCoroutine(StartDo());

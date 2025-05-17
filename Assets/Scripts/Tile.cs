@@ -12,6 +12,30 @@ public class Tile : MonoBehaviour
 
     [HideInInspector] [SerializeField] public List<TileConnection> connections;
 
+    private bool IsSelected;
+    public void MarkSelected()
+    {
+        IsSelected = true;
+    }
+
+    [SerializeField] private Material selectedMaterial;
+    [SerializeField] private Material defaultMaterial;
+    private bool cacheSelected = false;
+    public void RenderSelected()
+    {
+        if(IsSelected && !cacheSelected)
+        {
+            GetComponent<MeshRenderer>().material = selectedMaterial;
+        }
+        
+        if(!IsSelected && cacheSelected)
+        {
+            GetComponent<MeshRenderer>().material = defaultMaterial;
+        }
+        cacheSelected = IsSelected;
+        IsSelected = false;
+    }
+
     public bool IsOccupied()
     {
         GridWalker[] walkers = FindObjectsByType<GridWalker>(FindObjectsSortMode.None);

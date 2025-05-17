@@ -22,6 +22,15 @@ public class Battle : MonoBehaviour
             RestoreAction("Attack Shoot");
     }
 
+    private void Update()
+    {
+        Tile[] tiles = FindObjectsByType<Tile>(FindObjectsSortMode.None);
+        foreach (Tile tile in tiles)
+        {
+            tile.RenderSelected();
+        }
+    }
+
     private void OnCollisionStay(Collision collision)
     {
         
