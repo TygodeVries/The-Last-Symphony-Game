@@ -200,21 +200,28 @@ public class Enemy : MonoBehaviour
         }
 
 #if UNITY_EDITOR
-        for (int i = 0; i < tiles.Length; i++)
-        {
-            if (tiles[i] == null)
-                continue;
 
-            if (i == bestIndex)
+        try
+        {
+            for (int i = 0; i < tiles.Length; i++)
             {
-                Gizmos.color = Color.green;
-                Gizmos.DrawCube(tiles[i].transform.position, new Vector3(0.6f, 1f, 0.6f));
+                if (tiles[i] == null)
+                    continue;
+
+                if (i == bestIndex)
+                {
+                    Gizmos.color = Color.green;
+                    Gizmos.DrawCube(tiles[i].transform.position, new Vector3(0.6f, 1f, 0.6f));
+                }
+                else
+                {
+                    Gizmos.color = new Color(score[i] / best, 0, 0);
+                    Gizmos.DrawCube(tiles[i].transform.position, new Vector3(0.2f, 0.3f, 0.2f));
+                }
             }
-            else
-            {
-                Gizmos.color = new Color(score[i] / best, 0, 0);
-                Gizmos.DrawCube(tiles[i].transform.position, new Vector3(0.2f, 0.3f, 0.2f));
-            }
+        } catch(System.Exception e)
+        {
+            Debug.LogWarning(e);
         }
 #endif
 

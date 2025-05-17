@@ -12,6 +12,8 @@ public class Tile : MonoBehaviour
 
     [HideInInspector] [SerializeField] public List<TileConnection> connections;
 
+
+    public int data;
     private bool IsSelected;
     public void MarkSelected()
     {

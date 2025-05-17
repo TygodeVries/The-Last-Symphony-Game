@@ -27,7 +27,7 @@ public class Granade : MonoBehaviour
         Tile[] tiles = FindObjectsByType<Tile>(FindObjectsSortMode.None);
         foreach (Tile tile in tiles)
         {
-            if(Vector3.Distance(tile.transform.position, transform.position) < DamageRange)
+            if(Vector3.Distance(tile.transform.position, Round(transform.position)) < DamageRange)
             {
                 tile.MarkSelected();
             }
@@ -37,6 +37,11 @@ public class Granade : MonoBehaviour
         {
             StartCoroutine(StartDo());
         }
+    }
+
+    public Vector3 Round(Vector3 a)
+    {
+        return new Vector3(Mathf.Round(a.x), Mathf.Round(a.y), Mathf.Round(a.z));
     }
 
     public IEnumerator StartDo()

@@ -501,7 +501,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8751315754883541135
 Transform:
   m_ObjectHideFlags: 0
@@ -2107,7 +2107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileHighlight: {fileID: 2630408189039366427}
-  ring: {fileID: 3709894045772048668}
+  maxWalkSize: 10
 --- !u!120 &3394607304893247475
 LineRenderer:
   serializedVersion: 2
@@ -4039,11 +4039,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac2b57ff7d8e5234c9eb98629a0d2a9e, type: 3}
---- !u!1 &3709894045772048668 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ac2b57ff7d8e5234c9eb98629a0d2a9e, type: 3}
-  m_PrefabInstance: {fileID: 4592925238162445389}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4050953049985004454 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ac2b57ff7d8e5234c9eb98629a0d2a9e, type: 3}

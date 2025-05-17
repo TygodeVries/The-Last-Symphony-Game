@@ -4858,14 +4858,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 527904504718455163, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
-      propertyPath: DamageRange
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 527904504718455163, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
-      propertyPath: DamageAmount
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 1745206043629286717, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: tile
       value: 
@@ -4889,6 +4881,10 @@ PrefabInstance:
     - target: {fileID: 2566588133134548036, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_Name
       value: Scene Requirements
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215469604774750104, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: maxWalkSize
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4532196545757295005, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_LocalPosition.x

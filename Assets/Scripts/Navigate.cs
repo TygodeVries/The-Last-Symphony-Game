@@ -8,7 +8,8 @@ using UnityEngine.InputSystem;
 public class Navigate : MonoBehaviour
 {
     [SerializeField] private Transform tileHighlight;
-    [SerializeField] private GameObject ring;
+
+    [SerializeField] private int maxWalkSize = 10;
 
     private Player player;
     
@@ -32,6 +33,20 @@ public class Navigate : MonoBehaviour
         gameInput.Enable();
 
         uiInput = gameInput.UINav;
+
+        foreach (Tile tile in tiles)
+        {
+            tile.data = 9999;
+
+            if (tile == null)
+                continue;
+
+            List<Tile> test = GridWalker.CalculatePath(tile, player.walker.tile);
+            if (test == null)
+                continue;
+
+            tile.data = test.Count;
+        }
     }
 
     public void OnApplicationQuit()
@@ -49,26 +64,40 @@ public class Navigate : MonoBehaviour
         isWalking = false;
     }
 
-    
+    private void OnEnable()
+    {
+        Start();
+
+    }
+
+
 
     bool isWalking;
     public void Update()
     {
+
         tileHighlight.transform.parent = null;
         tileHighlight.transform.position = Vector3.Lerp(tileHighlight.transform.position, selected.transform.position, Time.deltaTime * 6);
 
         if (isWalking)
         {
-            ring.SetActive(false);
             tileHighlight.gameObject.SetActive(false);
             return;
         }
         else
         {
             tileHighlight.gameObject.SetActive(true);
+
+            foreach(Tile tile in tiles)
+            {
+                if (tile == null)
+                    continue;
+
+                if (tile.data < maxWalkSize)
+                    tile.MarkSelected();
+            }
         }
 
-            ring.SetActive(true);
         if (uiInput.Confirm.WasPressedThisFrame())
         {
             StartCoroutine(Walk());
@@ -76,7 +105,6 @@ public class Navigate : MonoBehaviour
 
         if(uiInput.Back.WasPressedThisFrame())
         {
-            ring.SetActive(false);
             tileHighlight.gameObject.SetActive(false);
             CameraSystem.SetTarget(null);
             player.OpenActionGUI();
@@ -104,6 +132,12 @@ public class Navigate : MonoBehaviour
         float nearestDistance = 1000;
         foreach (Tile tile in tiles)
         {
+            if (tile == null)
+                continue;
+
+            if (tile.data >= maxWalkSize)
+                continue;
+
             float distance = Vector3.Distance(transform.position, tile.transform.position);
             if (distance < nearestDistance)
             {
