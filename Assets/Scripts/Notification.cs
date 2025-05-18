@@ -13,8 +13,18 @@ public class Notification : MonoBehaviour
 
     private IEnumerator e(string text, float time)
     {
+        yield return new WaitUntil(() =>
+        {
+            return txt.text.Length < 1;
+        });
+
+        Debug.Log("Showing: " + text);
+        GetComponent<Animator>().SetTrigger("In");
         txt.text = text;
         yield return new WaitForSeconds(time);
+
+        GetComponent<Animator>().SetTrigger("Out");
+        yield return new WaitForSeconds(0.2f);
         txt.text = "";
     }
 
@@ -23,5 +33,6 @@ public class Notification : MonoBehaviour
     {
         instance = this;
         txt = gameObject.GetComponent<TMP_Text>();
+        txt.text = "";
     }
 }

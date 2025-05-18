@@ -6,6 +6,9 @@ public class Projectile : MonoBehaviour
 
     public void DrawShot(Shot shot)
     {
+        if (shot.shooter == null || shot.target == null)
+            return;
+
         Vector3 start = shot.shooter.transform.position;
         Vector3 end = shot.target.transform.position;
 
