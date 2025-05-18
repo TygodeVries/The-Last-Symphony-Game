@@ -101,22 +101,15 @@ public class Battle : MonoBehaviour
         ResetActions();
 
         PlayerTurnStarts.Invoke();
-        StartCoroutine(TitleInOut("Player Turn", 1.5f));
+        Notification.SetText("Your Turn", 1.5f);
         CameraSystem.SetTarget(null);
         player.OpenActionGUI();
-    }
-
-    public IEnumerator TitleInOut(string msg, float time)
-    {
-        NotificationBar.text = msg;
-        yield return new WaitForSeconds(time);
-        NotificationBar.text = "";
     }
 
     public IEnumerator StartEnemyTurn()
     {
         ToolTip.Set("");
-        StartCoroutine(TitleInOut("Enemy Turn", 1.5f));
+        Notification.SetText("Ghost Turn", 1.5f);
         Enemy[] enemies = UnityEngine.Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None);
 
         foreach (Enemy enemy in enemies)

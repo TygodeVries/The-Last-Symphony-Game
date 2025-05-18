@@ -32,8 +32,18 @@ public class Shoot : MonoBehaviour
     {
         uiInput.Disable();
     }
+
+
+    private bool ShotFired;
+    public void OnEnable()
+    {
+        ShotFired = false;
+    }
     public void Update()
     {
+        if (ShotFired)
+            return;
+
         Enemy enemy = GetComponent<SelectEnemy>().GetSelected();
         if (enemy == null)
             return;
@@ -85,6 +95,7 @@ public class Shoot : MonoBehaviour
                 inTimingState = false;
                 GetComponent<SelectEnemy>().enabled = true;
                 StartCoroutine(DoThing(target.transform, shot));
+                ShotFired = true;
 
             }
             return;
