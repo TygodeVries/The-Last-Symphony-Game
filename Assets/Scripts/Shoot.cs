@@ -61,7 +61,6 @@ public class Shoot : MonoBehaviour
 
             if (uiInput.Confirm.WasPressedThisFrame())
             {
-                Projectile.instance.DrawShot(shot);
 
                 if (Random.Range(0f, 1f) <= chance)
                 {
@@ -81,7 +80,7 @@ public class Shoot : MonoBehaviour
                 ShootingUI.SetActive(false);
                 inTimingState = false;
                 GetComponent<SelectEnemy>().enabled = true;
-                StartCoroutine(DoThing(target.transform));
+                StartCoroutine(DoThing(target.transform, shot));
 
             }
             return;
@@ -101,8 +100,15 @@ public class Shoot : MonoBehaviour
         }
     }
 
-    IEnumerator DoThing(Transform target)
+    IEnumerator DoThing(Transform target, Shot shot)
     {
+        GameObject.FindGameObjectsWithTag("Player Animator")[0].transform.LookAt(target.position);
+        GameObject.FindGameObjectsWithTag("Player Animator")[0].GetComponent<Animator>().SetTrigger("Lyre");
+
+        yield return new WaitForSeconds(2);
+        Projectile.instance.DrawShot(shot);
+
+        yield return new WaitForSeconds(1);
         CameraSystem.SetTarget(target);
 
         yield return new WaitForSeconds(1);
