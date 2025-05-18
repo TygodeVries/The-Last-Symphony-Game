@@ -133,19 +133,19 @@ PrefabInstance:
       objectReference: {fileID: 739945136}
     - target: {fileID: 1879035793221501022, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1879035793221501022, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1879035793221501022, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 401.21906
       objectReference: {fileID: 0}
     - target: {fileID: 1879035793221501022, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -57.1314
       objectReference: {fileID: 0}
     - target: {fileID: 2566588133134548036, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_Name
@@ -158,6 +158,10 @@ PrefabInstance:
     - target: {fileID: 2768819656023474764, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: Granade
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768819656023474764, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: EnemyStartsBattle
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2967442178871383104, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_AnchorMax.y
@@ -245,18 +249,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5173908004682503940, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5173908004682503940, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5173908004682503940, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 240.73145
       objectReference: {fileID: 0}
     - target: {fileID: 5173908004682503940, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: -57.1314
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590047247511618156, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6008183066372605751, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
@@ -293,19 +301,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7597003615565741535, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7597003615565741535, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7597003615565741535, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 80.24381
       objectReference: {fileID: 0}
     - target: {fileID: 7597003615565741535, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -57.1314
       objectReference: {fileID: 0}
     - target: {fileID: 8209758457166567898, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -847,6 +855,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanNavigateInto: 1
   connections: []
+  data: 0
+  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!23 &739945138
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1103,6 +1114,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanNavigateInto: 1
   connections: []
+  data: 0
+  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!4 &1165778558
 Transform:
   m_ObjectHideFlags: 0
@@ -1262,6 +1276,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanNavigateInto: 1
   connections: []
+  data: 0
+  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!23 &1175010284
 MeshRenderer:
   m_ObjectHideFlags: 0

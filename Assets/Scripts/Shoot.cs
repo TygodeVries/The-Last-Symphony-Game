@@ -34,7 +34,11 @@ public class Shoot : MonoBehaviour
     }
     public void Update()
     {
-        Living target = GetComponent<SelectEnemy>().GetSelected().GetComponent<Living>();
+        Enemy enemy = GetComponent<SelectEnemy>().GetSelected();
+        if (enemy == null)
+            return;
+
+        Living target = enemy.GetComponent<Living>();
         Shot shot = new Shot(GetComponentInParent<Living>().gameObject, target.transform.root.gameObject, new Vector3(0, 0.1f, 0));
 
         float chance = shot.GetHitChance();

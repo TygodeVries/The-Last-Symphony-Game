@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -80,9 +81,17 @@ public class Battle : MonoBehaviour
 
         if(Granade)
             RestoreAction("Attack Granade");
-        StartPlayerTurn();
+
+        if (EnemyStartsBattle)
+        {
+            StartCoroutine(StartEnemyTurn());
+        }
+        else
+            StartPlayerTurn();
 
     }
+
+    [SerializeField] private bool EnemyStartsBattle = false;
 
     [SerializeField] private UnityEvent PlayerTurnStarts;
 
