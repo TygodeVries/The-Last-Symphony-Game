@@ -465,6 +465,9 @@ MonoBehaviour:
     tile: {fileID: 2079611248}
   - direction: 1
     tile: {fileID: 1658977707}
+  data: 0
+  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!23 &181534140
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -596,7 +599,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: fc4270c5331d3dd41bc4b8d38bed4828, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -834,6 +837,9 @@ MonoBehaviour:
   connections:
   - direction: 3
     tile: {fileID: 1793369070}
+  data: 0
+  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!23 &714567767
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -923,6 +929,9 @@ MonoBehaviour:
   connections:
   - direction: 3
     tile: {fileID: 1658977707}
+  data: 0
+  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!23 &739945138
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1222,6 +1231,9 @@ MonoBehaviour:
   connections:
   - direction: 2
     tile: {fileID: 1802489979}
+  data: 0
+  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!4 &1165778558
 Transform:
   m_ObjectHideFlags: 0
@@ -1398,6 +1410,9 @@ MonoBehaviour:
   connections:
   - direction: 3
     tile: {fileID: 1802489979}
+  data: 0
+  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!23 &1175010284
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1543,7 +1558,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: fc4270c5331d3dd41bc4b8d38bed4828, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2025,6 +2040,9 @@ MonoBehaviour:
     tile: {fileID: 181534139}
   - direction: 2
     tile: {fileID: 739945136}
+  data: 0
+  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!23 &1658977708
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2152,6 +2170,9 @@ MonoBehaviour:
     tile: {fileID: 714567766}
   - direction: 3
     tile: {fileID: 2079611248}
+  data: 0
+  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!23 &1793369071
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2244,6 +2265,9 @@ MonoBehaviour:
     tile: {fileID: 1175010283}
   - direction: 3
     tile: {fileID: 1165778557}
+  data: 0
+  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!4 &1802489980
 Transform:
   m_ObjectHideFlags: 0
@@ -2385,6 +2409,9 @@ MonoBehaviour:
     tile: {fileID: 181534139}
   - direction: 2
     tile: {fileID: 1793369070}
+  data: 0
+  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!65 &2079611249
 BoxCollider:
   m_ObjectHideFlags: 0
