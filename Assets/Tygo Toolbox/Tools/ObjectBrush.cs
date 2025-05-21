@@ -118,7 +118,7 @@ public class ObjectBrushEditor
 
                     float scale = Random.Range(-ObjectBrushWindow.randomScale, ObjectBrushWindow.randomScale);
                     gm.transform.localScale += new Vector3(scale, scale, scale);
-                    gm.transform.localScale /= 500;
+                    gm.transform.localScale *= 10;
                 }
             }
         }
