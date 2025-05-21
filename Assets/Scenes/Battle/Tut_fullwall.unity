@@ -638,8 +638,8 @@ Transform:
   m_GameObject: {fileID: 369593319}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.0000014603136, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: 0.2333, z: -3.0594}
-  m_LocalScale: {x: 0.52736014, y: 1.16661, z: 1.05498}
+  m_LocalPosition: {x: -2, y: 0.2333, z: -2.9726}
+  m_LocalScale: {x: 0.52736014, y: 1.16661, z: 1.228423}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1100,7 +1100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1745938314164785684, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
       propertyPath: HealthyThreshold
-      value: 0
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 1745938314164785684, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
       propertyPath: InOthersVisionScore
@@ -1146,6 +1146,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Close range guy
       objectReference: {fileID: 0}
+    - target: {fileID: 2147753797782007817, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 7377839715425914090, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
@@ -1186,6 +1190,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8058819985059843772, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 8058819985059843772, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
