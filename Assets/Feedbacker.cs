@@ -31,61 +31,6 @@ public class Feedbacker : MonoBehaviour
     public TMP_InputField inputField;
     public TMP_Dropdown dropDown;
 
-    public async Task SendImage(byte[] data, string filename)
-    {
-        const string CLOUD_NAME = "de8u6k7qs";
-        const string UPLOAD_PRESET = "Testing"; // Case-sensitive!
-
-        try
-        {
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-
-            using var client = new HttpClient();
-            using var form = new MultipartFormDataContent();
-
-            // Required parameters
-            form.Add(new StringContent(UPLOAD_PRESET), "upload_preset");
-
-            // File content
-            var fileContent = new ByteArrayContent(data);
-            fileContent.Headers.ContentType = new MediaTypeHeaderValue(GetMimeType(filename));
-            form.Add(fileContent, "file", filename);
-
-            var response = await client.PostAsync(
-                $"https://api.cloudinary.com/v1_1/{CLOUD_NAME}/image/upload",
-                form
-            );
-
-            var responseString = await response.Content.ReadAsStringAsync();
-
-            if (!response.IsSuccessStatusCode)
-            {
-                Debug.LogError($"Cloudinary Error ({response.StatusCode}): {responseString}");
-                return;
-            }
-
-            Debug.Log($"Upload successful: {responseString}");
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"Upload failed: {ex.Message}");
-        }
-    }
-
-    private string GetMimeType(string filename)
-    {
-        string extension = Path.GetExtension(filename).ToLowerInvariant();
-        return extension switch
-        {
-            ".jpg" or ".jpeg" => "image/jpeg",
-            ".png" => "image/png",
-            ".gif" => "image/gif",
-            ".bmp" => "image/bmp",
-            ".tiff" => "image/tiff",
-            _ => "application/octet-stream",
-        };
-    }
-
     public void Submit()
     {
         string[] smiles = { ":(", ":|", ":)", ":D" };
@@ -95,7 +40,7 @@ public class Feedbacker : MonoBehaviour
 
         Guid guid = Guid.NewGuid();
 
-        SendImage(fileData, $"{guid.ToString()}.png");
+        
 
         SendAsync(dropDown.itemText.text, smiles[ind], $"{guid.ToString()}.png", inputField.text);
     }
