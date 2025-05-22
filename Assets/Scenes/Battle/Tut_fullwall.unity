@@ -465,6 +465,9 @@ MonoBehaviour:
     tile: {fileID: 2079611248}
   - direction: 1
     tile: {fileID: 1658977707}
+  data: 0
+  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!23 &181534140
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -596,7 +599,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: fc4270c5331d3dd41bc4b8d38bed4828, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -635,8 +638,8 @@ Transform:
   m_GameObject: {fileID: 369593319}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.0000014603136, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: 0.2333, z: -3.0594}
-  m_LocalScale: {x: 0.52736014, y: 1.16661, z: 1.05498}
+  m_LocalPosition: {x: -2, y: 0.2333, z: -2.9726}
+  m_LocalScale: {x: 0.52736014, y: 1.16661, z: 1.228423}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -834,6 +837,9 @@ MonoBehaviour:
   connections:
   - direction: 3
     tile: {fileID: 1793369070}
+  data: 0
+  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!23 &714567767
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -923,6 +929,9 @@ MonoBehaviour:
   connections:
   - direction: 3
     tile: {fileID: 1658977707}
+  data: 0
+  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!23 &739945138
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1091,7 +1100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1745938314164785684, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
       propertyPath: HealthyThreshold
-      value: 0
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 1745938314164785684, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
       propertyPath: InOthersVisionScore
@@ -1137,6 +1146,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Close range guy
       objectReference: {fileID: 0}
+    - target: {fileID: 2147753797782007817, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 7377839715425914090, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
@@ -1177,6 +1190,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8058819985059843772, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 8058819985059843772, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1222,6 +1243,9 @@ MonoBehaviour:
   connections:
   - direction: 2
     tile: {fileID: 1802489979}
+  data: 0
+  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!4 &1165778558
 Transform:
   m_ObjectHideFlags: 0
@@ -1398,6 +1422,9 @@ MonoBehaviour:
   connections:
   - direction: 3
     tile: {fileID: 1802489979}
+  data: 0
+  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!23 &1175010284
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1543,7 +1570,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: fc4270c5331d3dd41bc4b8d38bed4828, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2025,6 +2052,9 @@ MonoBehaviour:
     tile: {fileID: 181534139}
   - direction: 2
     tile: {fileID: 739945136}
+  data: 0
+  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!23 &1658977708
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2152,6 +2182,9 @@ MonoBehaviour:
     tile: {fileID: 714567766}
   - direction: 3
     tile: {fileID: 2079611248}
+  data: 0
+  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!23 &1793369071
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2244,6 +2277,9 @@ MonoBehaviour:
     tile: {fileID: 1175010283}
   - direction: 3
     tile: {fileID: 1165778557}
+  data: 0
+  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!4 &1802489980
 Transform:
   m_ObjectHideFlags: 0
@@ -2385,6 +2421,9 @@ MonoBehaviour:
     tile: {fileID: 181534139}
   - direction: 2
     tile: {fileID: 1793369070}
+  data: 0
+  selectedMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!65 &2079611249
 BoxCollider:
   m_ObjectHideFlags: 0
