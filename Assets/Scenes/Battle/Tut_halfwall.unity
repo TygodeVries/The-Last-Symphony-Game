@@ -131,6 +131,14 @@ PrefabInstance:
       propertyPath: HealthPoints
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 1492860339817042817, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 1492860339817042817, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1745206043629286717, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: tile
       value: 
@@ -183,6 +191,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3627074555524095624, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3627074555524095624, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4096275549905875528, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4096275549905875528, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 4421500960329683218, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.3484364
@@ -287,6 +311,102 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[1].actionType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[2].actionType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[3].actionType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[4].actionType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[5].actionType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[6].actionType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[7].actionType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[0].stringArgument
+      value: LEARN THE BASICS!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[1].numberArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[1].stringArgument
+      value: They are using instruments as weapons, maybe i can do the same!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[2].numberArgument
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[2].stringArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[3].numberArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[3].stringArgument
+      value: Tch! One is hiding behind a Half Wall, I have a 50% chance of hitting
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[4].numberArgument
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[4].stringArgument
+      value: Tch! One is hiding behind a Half Wall, I have a 50% chance of hitting
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[5].numberArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[5].stringArgument
+      value: The other is out in the open, so I have a 100% chance of hitting!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[6].numberArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[6].stringArgument
+      value: The other is out in the open, so I have a 100% chance of hitting!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[7].stringArgument
+      value: The other is out in the open, so I have a 100% chance of hitting!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6609683278778634022, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 6609683278778634022, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 7133080883067763392, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -331,6 +451,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 8936825190263291956, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
