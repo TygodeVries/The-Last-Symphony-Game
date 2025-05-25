@@ -315,6 +315,62 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[1].actionType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[2].actionType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[3].actionType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[4].actionType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[0].stringArgument
+      value: LEARN THE BASICS
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[1].numberArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[1].stringArgument
+      value: Full walls give me safety, but I can't target enemies through them!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[2].numberArgument
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[2].stringArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[3].numberArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[3].stringArgument
+      value: I need to relocate to target them!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[4].numberArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[4].stringArgument
+      value: I need to relocate to target them!
+      objectReference: {fileID: 0}
     - target: {fileID: 7133080883067763392, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
