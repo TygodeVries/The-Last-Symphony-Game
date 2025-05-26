@@ -105,7 +105,7 @@ MonoBehaviour:
     m_Value: {x: 0.9845075, y: 0.96369225, z: 1, w: 0}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 0.9445152, y: 0.983793, z: 1, w: 0}
+    m_Value: {x: 0.9445152, y: 0.983793, z: 1, w: 0.04587154}
   highlights:
     m_OverrideState: 1
     m_Value: {x: 0.93892676, y: 0.9560758, z: 1, w: 0}
@@ -145,6 +145,7 @@ MonoBehaviour:
   - {fileID: 5475683686898590877}
   - {fileID: -2054754765583811023}
   - {fileID: 5744967743329978032}
+  - {fileID: 9126770520516033847}
 --- !u!114 &1439685025075474024
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -297,7 +298,7 @@ MonoBehaviour:
     m_Value: 1
   gaussianStart:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 70.47
   gaussianEnd:
     m_OverrideState: 1
     m_Value: 81.74
@@ -378,3 +379,25 @@ MonoBehaviour:
   texture:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+--- !u!114 &9126770520516033847
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5485954d14dfb9a4c8ead8edb0ded5b1, type: 3}
+  m_Name: LiftGammaGain
+  m_EditorClassIdentifier: 
+  active: 1
+  lift:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 1, z: 1, w: 0}
+  gamma:
+    m_OverrideState: 1
+    m_Value: {x: 0.7397005, y: 0.8344621, z: 1, w: 0.34403664}
+  gain:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 1, z: 1, w: 0}
