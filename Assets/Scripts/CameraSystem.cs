@@ -6,21 +6,35 @@ public class CameraSystem : MonoBehaviour
     [SerializeField] private Vector3 offset = new Vector3(-1, 2, -1);
     public static void SetTarget(Transform transform)
     {
+        Zoom(1);
         FindObjectsByType<CameraSystem>(FindObjectsSortMode.None)[0].target = transform;
     }
 
+    public static void Zoom(float amount)
+    {
+        FindObjectsByType<CameraSystem>(FindObjectsSortMode.None)[0].goalZoom = amount;
+    }
+
+    public float goalZoom = 1;
+    public float zoom = 1;
     private Vector3 start;
     private void Start()
     {
         start = transform.position;
     }
 
+    private Vector3 zoomedOffset;
     // Update is called once per frame
     void Update()
     {
-        if(target != null)
+        zoom = Mathf.Lerp(zoom, goalZoom, Time.deltaTime * 3);
+
+        zoomedOffset = offset;
+        zoomedOffset *= zoom;
+
+        if (target != null)
         {
-            transform.position = Vector3.Lerp(transform.position, target.position + offset, Time.deltaTime * 3);
+            transform.position = Vector3.Lerp(transform.position, target.position + zoomedOffset, Time.deltaTime * 3);
         }
         else
         {
