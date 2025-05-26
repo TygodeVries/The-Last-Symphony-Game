@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     public IEnumerator TakeTurn()
@@ -52,13 +52,22 @@ public class Enemy : MonoBehaviour
 
         if (c > ShotRiskinessThreshold)
         {
-            animator.SetTrigger("Shoot");
+            CameraSystem.SetTarget(transform);
+            CameraSystem.Zoom(0.5f);
+            Quaternion rot = transform.rotation;
+            yield return new WaitForSeconds(0.4f);
+
+            transform.LookAt(shot.target.transform);
+            animator.SetTrigger("Attack");
+            yield return new WaitForSeconds(0.7f);
             yield return StartCoroutine(Shoot(shot));
+
+            transform.rotation = rot;
         }
 
-        animator.SetBool("IsWalking", true);
+        animator.SetBool("Walking", true);
         yield return StartCoroutine(Walk());
-        animator.SetBool("IsWalking", false);
+        animator.SetBool("Walking", false);
 
 
     }
@@ -252,6 +261,7 @@ public class Enemy : MonoBehaviour
     public IEnumerator Shoot(Shot shot)
     {
         CameraSystem.SetTarget(transform); // Look at us
+        CameraSystem.Zoom(0.5f);
         yield return new WaitForSeconds(1f);
         Projectile.instance.DrawShot(shot);
         CameraSystem.SetTarget(shot.target.transform);   // Look at player  
