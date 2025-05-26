@@ -1,4 +1,6 @@
 ﻿
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
 using System;
 using System.Buffers.Text;
 using System.Collections;
@@ -15,6 +17,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Feedbacker : MonoBehaviour
@@ -23,41 +26,54 @@ public class Feedbacker : MonoBehaviour
     public GameObject ui;
 
     public RawImage screenShotImage;
-    public void OnEnable()
-    {
-       
-    }
+    public GameObject loadingIndicator;
 
     public TMP_InputField inputField;
     public TMP_Dropdown dropDown;
 
-    public void Submit()
+    public async void Submit()
     {
+        StartCoroutine(Close());
+        loadingIndicator.SetActive(true);
         string[] smiles = { ":(", ":|", ":)", ":D" };
 
-        string filename = Application.persistentDataPath + "/feedback_screenshot.png";
+        Guid guid = Guid.NewGuid();
         byte[] fileData = File.ReadAllBytes(filename);
 
-        Guid guid = Guid.NewGuid();
+        string cloudName = "de8u6k7qs";
 
-        
+        Cloudinary cloudinary = new Cloudinary($"cloudinary://746957665321922:UiOhpWSh0-Bw3-kjb6zDo1QTRN8@de8u6k7qs");
+        cloudinary.Api.Secure = true;
 
-        SendAsync(dropDown.itemText.text, smiles[ind], $"{guid.ToString()}.png", inputField.text);
+        ImageUploadParams image = new ImageUploadParams()
+        {
+            File = new FileDescription(filename),
+            UseFilename = true,
+            UniqueFilename = false,
+            Overwrite = false
+        };
+
+        var uploadResult = await cloudinary.UploadAsync(image);
+        Console.WriteLine(uploadResult.JsonObj);
+
+        string gameData = "Scene: " + SceneManager.GetActiveScene().name;
+
+        SendAsync(dropDown.options[dropDown.value].text, smiles[ind], uploadResult.Url.ToString(), inputField.text, gameData);
     }
 
-    public async void SendAsync(string type, string smile, string screenshot, string text)
+    public async void SendAsync(string type, string smile, string screenshot, string text, string game)
     {
 
         var client = new HttpClient();
         var request = new HttpRequestMessage
         {
-            Method = HttpMethod.Post,
-            RequestUri = new Uri("https://script.google.com/macros/s/AKfycbzWygH_6hyPcYjGx18TpnySeY68xRVvKBQjbndKiRjd3vx8Fw9oqrtiEg4em-sbC-FIYg/exec"),
+            Method = System.Net.Http.HttpMethod.Post,
+            RequestUri = new Uri("https://script.google.com/macros/s/AKfycbwKYvdDrEaKODFIzP66g6lmFoLwh5zjBrS_EoYmFNpHb38bnQsIcA_hCGWOYO01QCwiYQ/exec"),
             Headers =
     {
         { "User-Agent", "insomnia/11.1.0" },
     },
-            Content = new StringContent($"{{\n\t\"type\": \"{type}\",\n\t\"smile\": \"{smile}\",\n\t\"screenshot\": \"{screenshot}\",\n\t\"text\": \"{text}\"\n}}")
+            Content = new StringContent($"{{\n\t\"type\": \"{type}\",\n\t\"smile\": \"{smile}\",\n\t\"screenshot\": \"{screenshot}\",\n\t\"text\": \"{text}\",\n\t\"game\": \"{game}\"\n}}")
             {
                 Headers =
         {
@@ -71,8 +87,12 @@ public class Feedbacker : MonoBehaviour
             var body = await response.Content.ReadAsStringAsync();
             Debug.Log(body);
         }
+
+        loadingIndicator.SetActive(false);
     }
 
+
+    string filename;
     public void Open()
     {
         if (!open)
@@ -92,20 +112,22 @@ public class Feedbacker : MonoBehaviour
 
     public IEnumerator TakeScreen()
     {
+        Guid guid = Guid.NewGuid();
+        filename = Application.persistentDataPath + $"/{guid.ToString()}.png";
+
         open = true;
-        ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/feedback_screenshot.png");
-        Debug.Log("Saving to " + Application.persistentDataPath + "/feedback_screenshot.png");
+        ScreenCapture.CaptureScreenshot(filename);
+        Debug.Log("Saving to " + filename);
         yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();
-        string filename = Application.persistentDataPath + "/feedback_screenshot.png";
         var rawData = System.IO.File.ReadAllBytes(filename);
         Texture2D tex = new Texture2D(2, 2);
         tex.LoadImage(rawData);
 
         tex = ScaleTexture(tex, 1280, 720);
 
-        File.WriteAllBytes(Application.persistentDataPath + "/feedback_screenshot.png", tex.EncodeToPNG());
+        File.WriteAllBytes(Application.persistentDataPath + $"/{guid.ToString()}.png", tex.EncodeToPNG());
 
         screenShotImage.texture = tex;
         ui.SetActive(true);

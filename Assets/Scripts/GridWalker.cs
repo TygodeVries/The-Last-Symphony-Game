@@ -56,14 +56,17 @@ public class GridWalker : MonoBehaviour
         CameraSystem.SetTarget(transform);
 
         Vector3 startPos = transform.position;
-        float waiting = 0.4f * 0.01f;
-        for (float t = 0; t < 1f; t += 0.01f)
+        float waiting = 0.4f * 0.05f;
+        for (float t = 0; t < 1f; t += 0.05f)
         {
+            // Move
             transform.position = Vector3.Lerp(startPos, tile.transform.position, t);
 
+            // Looking in the correct direction
             Vector3 delta = tile.transform.position - startPos;
             transform.forward = Vector3.Lerp(transform.forward, delta, Mathf.Clamp01(t * 2));
 
+            // Wait for a bit
             yield return new WaitForSeconds(waiting);
         }
 
@@ -84,7 +87,7 @@ public class GridWalker : MonoBehaviour
 
         if (startingTile == null)
         {
-            Debug.LogError("Starting tilew cannot be null!");
+            Debug.LogError("Starting tile cannot be null!");
             return null;
         }
 
