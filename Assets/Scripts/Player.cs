@@ -22,9 +22,11 @@ public class Player : MonoBehaviour
         Debug.Log("Starting...");
         CameraSystem.SetTarget(transform);
 
+        GetComponentInChildren<Animator>().SetBool("Walking", true);
         Debug.Log("Before Navigate");
         yield return StartCoroutine(walker.Navigate(tile));
         Debug.Log("After Navigate");
+        GetComponentInChildren<Animator>().SetBool("Walking", false);
 
         CameraSystem.SetTarget(null);
         Debug.Log("Back to null!");
