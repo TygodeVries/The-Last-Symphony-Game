@@ -59,7 +59,7 @@ public class Battle : MonoBehaviour
     }
     private IEnumerator StartLoss()
     {
-        ToolTip.Set("<sprite name=\"b\"> Continue");
+        ToolTip.Set("<sprite name=\"a\"> Continue");
         if (GameOver)
             yield break;
 
@@ -72,7 +72,7 @@ public class Battle : MonoBehaviour
     public GameObject winCanvas;
     public IEnumerator StartVictory()
     {
-        ToolTip.Set("<sprite name=\"b\"> Continue");
+        ToolTip.Set("<sprite name=\"a\"> Continue");
         if (GameOver)
             yield break;
         winCanvas.SetActive(true);
@@ -108,13 +108,19 @@ public class Battle : MonoBehaviour
         if(Granade)
             RestoreAction("Attack Granade");
 
+
+        StartCoroutine(StartDelayed());
+    }
+
+    private IEnumerator StartDelayed()
+    {
+        yield return new WaitForSeconds(1f);
         if (EnemyStartsBattle)
         {
             StartCoroutine(StartEnemyTurn());
         }
         else
             StartPlayerTurn();
-
     }
 
     [SerializeField] private bool EnemyStartsBattle = false;

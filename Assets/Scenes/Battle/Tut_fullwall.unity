@@ -127,10 +127,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 62097267838837215, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 310359383816640066, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: HealthPoints
       value: 80
@@ -191,30 +187,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4031033463737709340, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
-      propertyPath: m_Color.a
-      value: 0.6117647
-      objectReference: {fileID: 0}
-    - target: {fileID: 4031033463737709340, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4031033463737709340, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4031033463737709340, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4031033463737709340, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4031033463737709340, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
-      propertyPath: m_Texture
-      value: 
-      objectReference: {fileID: 2800000, guid: 3fe239e19d10e284cb9bb5a748ecb82e, type: 3}
     - target: {fileID: 4421500960329683218, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.2432837
@@ -331,22 +303,6 @@ PrefabInstance:
       propertyPath: OnContinue.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 6008183066372605751, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008183066372605751, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008183066372605751, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008183066372605751, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.size
       value: 5
@@ -373,7 +329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.data[0].numberArgument
-      value: 1
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.data[0].stringArgument
@@ -411,22 +367,6 @@ PrefabInstance:
       propertyPath: dialog.Array.data[4].stringArgument
       value: I need to relocate to target them!
       objectReference: {fileID: 0}
-    - target: {fileID: 7133080883067763392, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7133080883067763392, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7133080883067763392, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7133080883067763392, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7597003615565741535, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -451,14 +391,6 @@ PrefabInstance:
       propertyPath: linePrefab
       value: 
       objectReference: {fileID: 6734301586088095747, guid: 353e25cd508424c4a96ead69fce3ab97, type: 3}
-    - target: {fileID: 7968674885047058258, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 187.31042
-      objectReference: {fileID: 0}
-    - target: {fileID: 7968674885047058258, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 9.066772
-      objectReference: {fileID: 0}
     - target: {fileID: 8105387532530188561, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.444007
@@ -1169,7 +1101,7 @@ Transform:
   m_GameObject: {fileID: 595304903}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.03, y: -0.019, z: -2.23}
+  m_LocalPosition: {x: -3.03, y: -0.061, z: -2.23}
   m_LocalScale: {x: 6.425417, y: 6.425417, z: 6.425417}
   m_ConstrainProportionsScale: 0
   m_Children: []

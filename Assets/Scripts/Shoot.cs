@@ -80,7 +80,7 @@ public class Shoot : MonoBehaviour
                 if (Random.Range(0f, 1f) <= chance)
                 {
                     damangeAmount = 10;
-                    if (timingImage.fillAmount > 0.9f)
+                    if (timingImage.fillAmount > 0.8f)
                     {
                         damangeAmount = 20;
                     }
