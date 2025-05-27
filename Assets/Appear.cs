@@ -1,0 +1,39 @@
+using TMPro;
+using UnityEngine;
+
+public class Appear : MonoBehaviour
+{
+    public float Size = 4;
+    public void OnDrawGizmos()
+    {
+        Gizmos.color = Color.gray;
+        Gizmos.DrawWireSphere(transform.position, Size);
+    }
+
+    WalkPlayer walkPlayer;
+    TMP_Text text;
+    public void Start()
+    {
+        text = GetComponent<TMP_Text>();
+        walkPlayer = FindAnyObjectByType<WalkPlayer>();
+        text.color = new Color(0, 0, 0, 0);
+    }
+
+    private void Update()
+    {
+        if (Vector3.Distance(walkPlayer.transform.position, transform.position) < Size)
+        {
+            text.color = Color.Lerp(text.color, text.color = new Color(1, 1, 1, 1), Time.deltaTime * 2);
+        }
+        else
+        {
+            text.color = Color.Lerp(text.color, text.color = new Color(0, 0, 0, 0), Time.deltaTime * 2);
+        }
+    }
+
+    public void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow; 
+        Gizmos.DrawWireSphere(transform.position, Size);
+    }
+}

@@ -48,16 +48,42 @@ public class Battle : MonoBehaviour
         Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
         if(enemies.Length == 0)
         {
-            SceneManager.LoadScene("Victory");
+            StartCoroutine(StartVictory());
         }
 
-        Player[] player = FindObjectsByType<Player>(sortMode: FindObjectsSortMode.None);
-
-        if (player.Length == 0)
-        {
-            SceneManager.LoadScene("Loss");
-        }
     }
+
+    public void PlayerDeath()
+    {
+        StartCoroutine(StartLoss());
+    }
+    private IEnumerator StartLoss()
+    {
+        ToolTip.Set("<sprite name=\"b\"> Continue");
+        if (GameOver)
+            yield break;
+
+        GameOver = true;
+        loseCanvas.SetActive(true);
+    }
+
+
+    public GameObject loseCanvas;
+    public GameObject winCanvas;
+    public IEnumerator StartVictory()
+    {
+        ToolTip.Set("<sprite name=\"b\"> Continue");
+        if (GameOver)
+            yield break;
+        winCanvas.SetActive(true);
+        GameOver = true;
+
+        FindAnyObjectByType<Player>().GetComponentInChildren<Animator>().SetTrigger("Win");
+
+        yield return new WaitForSeconds(1);
+    }
+
+    public bool GameOver = false;
 
     public bool HasAction(string id)
     {
@@ -97,6 +123,9 @@ public class Battle : MonoBehaviour
 
     public void StartPlayerTurn()
     {
+        CheckForEndOfGame();
+        if (GameOver)
+            return;
         ToolTip.Set("<sprite name=\"a\"> Select\n<sprite name=\"Inputs_1\"> Navigate");
         ResetActions();
 
@@ -108,6 +137,9 @@ public class Battle : MonoBehaviour
 
     public IEnumerator StartEnemyTurn()
     {
+        if (GameOver)
+            yield break;
+
         ToolTip.Set("");
         Notification.SetText("Ghost Turn", 1.5f);
         Enemy[] enemies = UnityEngine.Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None);

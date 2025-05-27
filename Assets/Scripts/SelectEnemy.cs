@@ -24,6 +24,7 @@ public class SelectEnemy : MonoBehaviour
     }
 
 
+    public GameObject ChanceText;
     public Enemy GetSelected()
     {
         return enemies[selected];
@@ -31,11 +32,13 @@ public class SelectEnemy : MonoBehaviour
 
     private void OnEnable()
     {
+        ChanceText.SetActive(true);
         cursor.gameObject.SetActive(true);    
     }
 
     private void OnDisable()
     {
+        ChanceText.SetActive(false);
         cursor.gameObject.SetActive(false);
     }
 
