@@ -134,7 +134,7 @@ PrefabInstance:
     - target: {fileID: 1492860339817042817, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 11400000, guid: 5c84a6f690245284d8466ea6e835e75c, type: 2}
     - target: {fileID: 1492860339817042817, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
@@ -333,7 +333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.size
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.data[1].actionType
@@ -377,7 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.data[2].numberArgument
-      value: 0.1
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.data[2].stringArgument
@@ -393,11 +393,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.data[4].numberArgument
-      value: 0.1
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.data[4].stringArgument
-      value: Tch! One is hiding behind a Half Wall, I have a 50% chance of hitting
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.data[5].numberArgument
