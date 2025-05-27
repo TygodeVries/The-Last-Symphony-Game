@@ -47,7 +47,7 @@ public class Dialog : MonoBehaviour
 
     public IEnumerator SetDialog(string text, float time)
     {
-        float timePerLetter = 0.1f;
+        float timePerLetter = 0.05f;
         dialogBox.SetActive(true);
         Time.timeScale = 0;
         for (int i = 0; i < text.Length; i++)
