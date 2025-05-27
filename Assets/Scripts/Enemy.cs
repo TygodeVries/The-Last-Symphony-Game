@@ -8,6 +8,24 @@ using UnityEngine.UIElements;
 
 public class Enemy : MonoBehaviour
 {
+    public void Death()
+    {
+        CameraSystem.Zoom(0.5f);
+        StartCoroutine(DeathAnimation());
+    }
+
+    public void Damage()
+    {
+        GetComponentInChildren<Animator>().SetTrigger("Hit");
+    }
+
+    private IEnumerator DeathAnimation()
+    {
+        GetComponentInChildren<Animator>().SetTrigger("Death");
+        yield return new WaitForSeconds(3);
+        Destroy(this.gameObject);
+    }
+
     [SerializeField] public bool DebugMode;
 
     [SerializeField] private float MinimumPlayerDistance = 3f;

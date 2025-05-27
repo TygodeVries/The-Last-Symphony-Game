@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Living : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Living : MonoBehaviour
 
     public void Damage(int amount)
     {
+        OnDamage.Invoke();
         HealthPoints -= amount;
 
         if(healthText != null)
@@ -24,6 +26,10 @@ public class Living : MonoBehaviour
         }
 
         if (HealthPoints <= 0)
-            Destroy(this.gameObject);
+        {
+            OnDeath.Invoke();
+        }
     }
+    public UnityEvent OnDamage;
+    public UnityEvent OnDeath;
 }

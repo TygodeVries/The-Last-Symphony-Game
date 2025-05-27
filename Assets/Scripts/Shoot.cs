@@ -76,15 +76,15 @@ public class Shoot : MonoBehaviour
             if (uiInput.Confirm.WasPressedThisFrame())
             {
 
+                int damangeAmount = 0;
                 if (Random.Range(0f, 1f) <= chance)
                 {
-                    int am = 10;
+                    damangeAmount = 10;
                     if (timingImage.fillAmount > 0.9f)
                     {
-                        am = 20;
+                        damangeAmount = 20;
                     }
-                    target.Damage(am);
-                    Notification.SetText($"Did {am} damage!", 1);
+                    Notification.SetText($"Did {damangeAmount} damage!", 1);
                 }
                 else
                 {
@@ -94,7 +94,7 @@ public class Shoot : MonoBehaviour
                 ShootingUI.SetActive(false);
                 inTimingState = false;
                 GetComponent<SelectEnemy>().enabled = true;
-                StartCoroutine(DoThing(target.transform, shot));
+                StartCoroutine(DoThing(target, shot, damangeAmount));
                 ShotFired = true;
 
             }
@@ -115,22 +115,36 @@ public class Shoot : MonoBehaviour
         }
     }
 
-    IEnumerator DoThing(Transform target, Shot shot)
+    IEnumerator DoThing(Living target, Shot shot, int damageAmount)
     {
-        GameObject.FindGameObjectsWithTag("Player Animator")[0].transform.LookAt(target.position);
+        GetComponent<SelectEnemy>().enabled = false;
+        GameObject.FindGameObjectsWithTag("Player Animator")[0].transform.LookAt(target.transform.position);
         GameObject.FindGameObjectsWithTag("Player Animator")[0].GetComponent<Animator>().SetTrigger("Lyre");
+        target.transform.LookAt(transform.position);
 
         yield return new WaitForSeconds(2);
         Projectile.instance.DrawShot(shot);
 
-        yield return new WaitForSeconds(1);
-        CameraSystem.SetTarget(target);
+        yield return new WaitForSeconds(0.4f);
+        CameraSystem.SetTarget(target.transform);
+
+        if (damageAmount > 0)
+        {
+            yield return new WaitForSeconds(1);
+            target.Damage(damageAmount);
+        }
+
+        if(target.HealthPoints < 1)
+        {
+            yield return new WaitForSeconds(5);
+        }
 
         yield return new WaitForSeconds(1);
         FindAnyObjectByType<Battle>().UseAction("Attack Shoot");
         CameraSystem.SetTarget(null);
         FindAnyObjectByType<Battle>().StartCoroutine(FindAnyObjectByType<Battle>().StartEnemyTurn());
 
+        GetComponent<SelectEnemy>().enabled = true;
         gameObject.SetActive(false);
 
     }
