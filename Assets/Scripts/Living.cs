@@ -52,7 +52,7 @@ public class Living : MonoBehaviour
         acualHealthSlider.value = accualGoal;
 
         ColorBlock block = acualHealthSlider.colors;
-        block.disabledColor = Color.Lerp(block.disabledColor, highliteColor, Time.deltaTime * 4);
+        block.disabledColor = Color.Lerp(block.disabledColor, highliteColor * ((Mathf.Cos(Time.time * 5) / 1.1f) + 1f), Time.deltaTime * 4);
         acualHealthSlider.colors = block;
     }
 
