@@ -5652,7 +5652,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthPoints: 60
-  healthText: {fileID: 4096275549905875528}
+  shownHealthSlider: {fileID: 0}
+  acualHealthSlider: {fileID: 0}
+  lines: {fileID: 0}
+  highliteColor: {r: 0, g: 0, b: 0, a: 0}
+  barColor: {r: 0, g: 0, b: 0, a: 0}
+  currentPrev: 0
   OnDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -5958,7 +5963,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChanceText: {fileID: 3898982055599375504}
   cursor: {fileID: 473626202347347188}
-  cursorOffset: {x: 0, y: 1, z: 0}
+  cursorOffset: {x: 0, y: 1.55, z: 0}
 --- !u!114 &4658845323782502375
 MonoBehaviour:
   m_ObjectHideFlags: 0
