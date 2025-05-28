@@ -969,6 +969,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Close range guy
       objectReference: {fileID: 0}
+    - target: {fileID: 6568823610285265757, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568823610285265757, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7377839715425914090, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
@@ -1009,13 +1017,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8272440284270351792, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272440284270351792, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993032671302468944, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5763620604394878214, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
 --- !u!114 &1165778557 stripped
 MonoBehaviour:
@@ -1351,6 +1368,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Close range guy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6568823610285265757, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568823610285265757, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7377839715425914090, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
@@ -1391,13 +1416,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8272440284270351792, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272440284270351792, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993032671302468944, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5763620604394878214, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
 --- !u!1001 &1704589216
 PrefabInstance:
