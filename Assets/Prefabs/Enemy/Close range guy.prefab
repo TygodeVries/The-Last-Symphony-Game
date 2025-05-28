@@ -250,8 +250,8 @@ MonoBehaviour:
   shownHealthSlider: {fileID: 6754577714663065915}
   acualHealthSlider: {fileID: 6761095993618183452}
   lines: {fileID: 5921824519749012613}
-  highliteColor: {r: 1, g: 0.15566039, b: 0.15566039, a: 1}
-  barColor: {r: 0.37016878, g: 0.8773585, b: 0.26072446, a: 1}
+  highliteColor: {r: 0.6132076, g: 0, b: 0, a: 1}
+  barColor: {r: 1, g: 0.0047169924, b: 0.014884564, a: 1}
   currentPrev: 0
   OnDamage:
     m_PersistentCalls:
@@ -816,7 +816,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.36862746, g: 0.8784314, b: 0.25882354, a: 1}
+    m_DisabledColor: {r: 1, g: 0.003921569, b: 0.015686275, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
