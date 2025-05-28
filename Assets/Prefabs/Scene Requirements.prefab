@@ -3111,7 +3111,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileHighlight: {fileID: 2630408189039366427}
   maxWalkSize: 10
-  shields: []
+  shields:
+  - {fileID: 1769695612061602906}
+  - {fileID: 4023686003047705628}
+  - {fileID: 5989678326645816465}
+  - {fileID: 5985099753637861742}
 --- !u!120 &3394607304893247475
 LineRenderer:
   serializedVersion: 2
