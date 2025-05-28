@@ -73,14 +73,14 @@ public class Shoot : MonoBehaviour
 
             timingImage.fillAmount = (Mathf.Sin(time) + 1) / 2;
 
-            if (uiInput.Confirm.WasPressedThisFrame())
+            UnityEngine.Debug.Log(Experiments.disableTimingGameS);
+            if (uiInput.Confirm.WasPressedThisFrame() || Experiments.disableTimingGameS)
             {
-
                 int damangeAmount = 0;
                 if (Random.Range(0f, 1f) <= chance)
                 {
                     damangeAmount = 10;
-                    if (timingImage.fillAmount > 0.8f)
+                    if (timingImage.fillAmount > 0.8f || Experiments.disableTimingGameS)
                     {
                         damangeAmount = 20;
                     }
@@ -90,6 +90,8 @@ public class Shoot : MonoBehaviour
                 {
                     Notification.SetText("Miss!", 1f);
                 }
+
+                
 
                 ShootingUI.SetActive(false);
                 inTimingState = false;

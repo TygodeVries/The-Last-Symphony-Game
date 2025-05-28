@@ -1589,6 +1589,7 @@ GameObject:
   - component: {fileID: 2521082316786454461}
   - component: {fileID: 987230163872050423}
   - component: {fileID: 6407964830019154708}
+  - component: {fileID: 3828262198751729162}
   m_Layer: 0
   m_Name: Scene Requirements
   m_TagString: Untagged
@@ -1658,6 +1659,19 @@ MonoBehaviour:
   dialog: []
   dialogText: {fileID: 1492860339817042817}
   dialogBox: {fileID: 4653703720814755536}
+--- !u!114 &3828262198751729162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2566588133134548036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed34a4650ce7374780c32eba1416d8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disableTimingGame: 0
 --- !u!1 &2641759533607776418
 GameObject:
   m_ObjectHideFlags: 0
