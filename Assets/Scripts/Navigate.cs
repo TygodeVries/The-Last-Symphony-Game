@@ -156,7 +156,40 @@ public class Navigate : MonoBehaviour
 
         selected = nearest;
         UpdateLine(path);
+
+        Protection protection = selected.GetComponent<Protection>();
+        if (protection != null)
+        {
+            if (protection.xPositive)
+                shields[0].SetActive(true);
+            else
+                shields[0].SetActive(false);
+
+            if (protection.xNegative)
+                shields[1].SetActive(true);
+            else
+                shields[1].SetActive(false);
+
+            if (protection.zPositive)
+                shields[2].SetActive(true);
+            else
+                shields[2].SetActive(false);
+
+            if (protection.zNegative)
+                shields[3].SetActive(true);
+            else
+                shields[3].SetActive(false);
+        }
+        else
+        {
+            shields[0].SetActive(false);
+            shields[1].SetActive(false);
+            shields[2].SetActive(false);
+            shields[3].SetActive(false);
+        }
     }
+
+    [SerializeField] public List<GameObject> shields;
 
     public void UpdateLine(List<Tile> tiles)
     {

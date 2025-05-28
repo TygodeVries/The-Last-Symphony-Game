@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
 
         Debug.LogWarning(end);
         ProjectileInstance instance = GameObject.Instantiate(ProjectilePrefab, start, Quaternion.identity).GetComponent<ProjectileInstance>();
-        
+            
         instance.SetPoints(start, end);
     }
 

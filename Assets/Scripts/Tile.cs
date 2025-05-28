@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -244,8 +245,69 @@ public class TileUI : EditorWindow
             }
         }
 
+        if (GUILayout.Button("Auto Protection"))
+        {
+            if(Selection.gameObjects.Length != 4)
+            {
+                EditorUtility.DisplayDialog("ERROR", "You must select 4 tiles", "Yeye, I get it.");
+                return;
+            }
 
-        GUILayout.Label("Debugging", EditorStyles.boldLabel);
+            Vector3 sum = new Vector3();
+            for(int i = 0; i < 4; i++)
+            {
+                GameObject tileObj = Selection.gameObjects[i];
+
+                Tile tile = tileObj.GetComponent<Tile>();
+                if(tile == null)
+                {
+                    EditorUtility.DisplayDialog("ERROR", "Non-Tile object selected.", "Yeye, I get it.");
+                    return;
+                }
+
+                Protection protection = tile.GetComponent<Protection>();
+                if (protection == null)
+                {
+                    tile.AddComponent<Protection>();
+                }
+
+                sum += tile.transform.position;
+            }
+
+            Vector3 center = sum / 4;
+            for (int i = 0; i < 4; i++)
+            {
+                Protection protection = Selection.gameObjects[i].GetComponent<Protection>();
+
+                protection.xNegative = false;
+                protection.xPositive = false;
+                protection.zNegative = false;
+                protection.zPositive = false;
+
+                if (protection.transform.position.x > center.x + 0.5f)
+                {
+                    protection.xNegative= true;
+                }
+
+                if (protection.transform.position.x < center.x - 0.5f)
+                {
+                    protection.xPositive = true;
+                }
+
+                if (protection.transform.position.z > center.z + 0.5f)
+                {
+                    protection.zNegative = true;
+                }
+
+                if (protection.transform.position.z < center.z - 0.5f)
+                {
+                    protection.zPositive = true;
+                }
+            }
+        }
+
+
+            GUILayout.Label("Debugging", EditorStyles.boldLabel);
         RenderType = GUILayout.Toggle(RenderType, "Render Behaviour");
     }
 

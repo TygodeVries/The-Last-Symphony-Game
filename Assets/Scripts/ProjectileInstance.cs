@@ -15,6 +15,7 @@ public class ProjectileInstance : MonoBehaviour
         Debug.DrawLine(start, end, Color.blue, 100);
         CameraSystem.SetTarget(this.transform);
         float elapsed = 0f;
+        yield return new WaitForSeconds(0.4f);
 
         while (elapsed < 1f)
         {
