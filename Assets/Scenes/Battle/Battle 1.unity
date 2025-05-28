@@ -6434,6 +6434,14 @@ PrefabInstance:
       propertyPath: tile
       value: 
       objectReference: {fileID: 475980839}
+    - target: {fileID: 1899297202411710441, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.276
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899297202411710441, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.158
+      objectReference: {fileID: 0}
     - target: {fileID: 2050951874687617325, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
       propertyPath: m_Name
       value: Close range guy (1)
@@ -7635,7 +7643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4215469604774750104, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: maxWalkSize
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4337582177511617512, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_Antialiasing

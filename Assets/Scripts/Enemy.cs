@@ -278,16 +278,17 @@ public class Enemy : MonoBehaviour
 
     public IEnumerator Shoot(Shot shot)
     {
+        float c = shot.GetHitChance();
+        bool isHit = Random.Range(0f, 1f) <= c;
+
         CameraSystem.SetTarget(transform); // Look at us
         CameraSystem.Zoom(0.5f);
         yield return new WaitForSeconds(1f);
-        Projectile.instance.DrawShot(shot);
+        Projectile.instance.DrawShot(shot, isHit);
         CameraSystem.SetTarget(shot.target.transform);   // Look at player  
         yield return new WaitForSeconds(1f);
 
-        float c = shot.GetHitChance();
-        Debug.Log("Chance of hit hitting, " + c);
-        if (Random.Range(0f, 1f) <= c)
+        if (isHit)
         {
             // Shot hit
             Notification.SetText("Hit!", 1f);

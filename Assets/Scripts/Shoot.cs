@@ -122,24 +122,26 @@ public class Shoot : MonoBehaviour
         GameObject.FindGameObjectsWithTag("Player Animator")[0].GetComponent<Animator>().SetTrigger("Lyre");
         target.transform.LookAt(transform.position);
 
-        yield return new WaitForSeconds(2);
-        Projectile.instance.DrawShot(shot);
 
-        yield return new WaitForSeconds(0.4f);
+        shot.shooter = gameObject;
+        shot.target = target.gameObject;
+        yield return new WaitForSeconds(2);
+        Projectile.instance.DrawShot(shot, damageAmount > 0);
+        yield return new WaitForSeconds(1.2f);
         CameraSystem.SetTarget(target.transform);
 
         if (damageAmount > 0)
         {
-            yield return new WaitForSeconds(1);
             target.Damage(damageAmount);
+            yield return new WaitForSeconds(1);
         }
 
         if(target.HealthPoints < 1)
         {
+            // Death animation
             yield return new WaitForSeconds(5);
         }
 
-        yield return new WaitForSeconds(1);
         FindAnyObjectByType<Battle>().UseAction("Attack Shoot");
         CameraSystem.SetTarget(null);
         FindAnyObjectByType<Battle>().StartCoroutine(FindAnyObjectByType<Battle>().StartEnemyTurn());
@@ -206,6 +208,7 @@ public class Shot
 
             baseRate *= effector.PassChance;
             debugMsg += $"Passed {hit.collider}, Range is now {baseRate}.\n";
+            ProjectileEarlyDeathPoint = hit.point;
         }   
 
         return baseRate;

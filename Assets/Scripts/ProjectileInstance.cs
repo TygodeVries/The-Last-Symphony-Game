@@ -7,16 +7,25 @@ public class ProjectileInstance : MonoBehaviour
 
     public void SetPoints(Vector3 start, Vector3 end)
     {
-        r = GetComponent<LineRenderer>();
-        r.SetPosition(0, start + new Vector3(0, 0.5f, 0));
-        r.SetPosition(1, end + new Vector3(0, 0.5f, 0));
-
-        StartCoroutine(DeleteLater());
+        StartCoroutine(Move(start, end));
     }
 
-    IEnumerator DeleteLater()
+    IEnumerator Move(Vector3 start, Vector3 end)
     {
-        yield return new WaitForSeconds(1);
+        Debug.DrawLine(start, end, Color.blue, 100);
+        CameraSystem.SetTarget(this.transform);
+        float elapsed = 0f;
+
+        while (elapsed < 1f)
+        {
+            transform.position = Vector3.Lerp(start, end, elapsed / 1f);
+            elapsed += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+        transform.position = end;
+
+        yield return new WaitForSeconds(0.4f);
         Destroy(this.gameObject);
     }
 }

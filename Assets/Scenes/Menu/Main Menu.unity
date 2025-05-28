@@ -5764,10 +5764,12 @@ MonoBehaviour:
     Thank you for
     helping us improve! Enjoy the demo.
 
+
+
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3f225b66f29fb574f8f77fa89558599d, type: 2}
+  m_sharedMaterial: {fileID: 419200990052247917, guid: 3f225b66f29fb574f8f77fa89558599d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7348,6 +7350,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6356981775182316802, guid: 43ba5c22ca9eefc48a149ee5816a1ad3, type: 3}
+      propertyPath: m_text
+      value: "Unicorn Build \nNot a final product"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356981775182316802, guid: 43ba5c22ca9eefc48a149ee5816a1ad3, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 6356981775182316802, guid: 43ba5c22ca9eefc48a149ee5816a1ad3, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 7688862744166067986, guid: 43ba5c22ca9eefc48a149ee5816a1ad3, type: 3}
       propertyPath: m_Pivot.x
       value: 0

@@ -4,7 +4,7 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private GameObject ProjectilePrefab;
 
-    public void DrawShot(Shot shot)
+    public void DrawShot(Shot shot, bool targetIsHit)
     {
         if (shot.shooter == null || shot.target == null)
             return;
@@ -12,19 +12,21 @@ public class Projectile : MonoBehaviour
         Vector3 start = shot.shooter.transform.position;
         Vector3 end = shot.target.transform.position;
 
-        if(Vector3.Distance(shot.ProjectileEarlyDeathPoint, Vector3.zero) > 0.01f)
+        if(!targetIsHit)
         {
             end = shot.ProjectileEarlyDeathPoint;
         }
 
+        Debug.Log("Target is: " + shot.target.gameObject.name);
+
         Debug.LogWarning(end);
-        ProjectileInstance instance = GameObject.Instantiate(ProjectilePrefab).GetComponent<ProjectileInstance>();
+        ProjectileInstance instance = GameObject.Instantiate(ProjectilePrefab, start, Quaternion.identity).GetComponent<ProjectileInstance>();
         
         instance.SetPoints(start, end);
     }
 
     public void Update()
-    {
+    {   
         if(instance == null)
         {
             Debug.LogWarning("Hot reloading is not supported!");
