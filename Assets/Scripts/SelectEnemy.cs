@@ -47,6 +47,7 @@ public class SelectEnemy : MonoBehaviour
     {
         enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
 
+
         if (uiInput.Right.WasPressedThisFrame())
             selected++;
         if (uiInput.Left.WasPressedThisFrame())
@@ -61,6 +62,15 @@ public class SelectEnemy : MonoBehaviour
         CameraSystem.SetTarget(enemies[selected].transform);
         cursor.transform.position = enemies[selected].transform.position + cursorOffset;
 
+        enemies[selected].GetComponent<Living>().SetPreview(20);
+
+        foreach (Enemy enemy in enemies)
+        {
+            if (enemies[selected] != enemy && enemy.GetComponent<Living>().currentPrev != 0)
+            {
+                enemy.GetComponent<Living>().SetPreview(0);
+            }
+        }
     }
 
     [SerializeField] private GameObject cursor;
