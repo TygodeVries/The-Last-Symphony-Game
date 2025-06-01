@@ -51,8 +51,7 @@ public class Dialog : MonoBehaviour
         Time.timeScale = 0;
         for (int i = 0; i < text.Length; i++)
         {
-            if (text[i] == ' ')
-                yield return new WaitForSecondsRealtime(0.2f);
+                yield return new WaitForSecondsRealtime(0.05f);
             dialogText.text += text[i];
         }
 
