@@ -83,10 +83,12 @@ public class Enemy : MonoBehaviour
             transform.rotation = rot;
         }
 
-        animator.SetBool("Walking", true);
-        yield return StartCoroutine(Walk());
-        animator.SetBool("Walking", false);
-
+        if (animator != null)
+        {
+            animator.SetBool("Walking", true);
+            yield return StartCoroutine(Walk());
+            animator.SetBool("Walking", false);
+        }
 
     }
 

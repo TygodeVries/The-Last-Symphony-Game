@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraSystem : MonoBehaviour
 {
     private Transform target;
-    [SerializeField] private Vector3 offset = new Vector3(-1, 2, -1);
+    [SerializeField] public Vector3 offset = new Vector3(-1, 2, -1);
     public static void SetTarget(Transform transform)
     {
         Zoom(1);
@@ -17,10 +17,10 @@ public class CameraSystem : MonoBehaviour
 
     public float goalZoom = 1;
     public float zoom = 1;
-    private Vector3 start;
+    public Vector3 defaultPos;
     private void Start()
     {
-        start = transform.position;
+        defaultPos = transform.position;
     }
 
     private Vector3 zoomedOffset;
@@ -38,7 +38,7 @@ public class CameraSystem : MonoBehaviour
         }
         else
         {
-            transform.position = Vector3.Lerp(transform.position, start, Time.deltaTime * 3);
+            transform.position = Vector3.Lerp(transform.position, defaultPos, Time.deltaTime * 3);
         }
     }
 }
