@@ -136,7 +136,7 @@ public class Battle : MonoBehaviour
         ResetActions();
 
         PlayerTurnStarts.Invoke();
-        Notification.SetText("Your Turn", 1.5f);
+        Notification.SetText("<sprite=1>'s Turn", 1.5f);
         CameraSystem.SetTarget(null);
         player.OpenActionGUI();
     }
@@ -147,7 +147,7 @@ public class Battle : MonoBehaviour
             yield break;
 
         ToolTip.Set("");
-        Notification.SetText("Ghost Turn", 1.5f);
+        Notification.SetText("<sprite=0>'s Turn", 1.5f);
         Enemy[] enemies = UnityEngine.Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None);
 
         foreach (Enemy enemy in enemies)
