@@ -7,6 +7,9 @@ using UnityEngine.InputSystem;
 
 public class Navigate : MonoBehaviour
 {
+    [SerializeField] private Material halfWallMaterial;
+    [SerializeField] private Material fullWallMaterial;
+
     [SerializeField] private Transform tileHighlight;
 
     [SerializeField] private int maxWalkSize = 10;
@@ -160,25 +163,31 @@ public class Navigate : MonoBehaviour
         Protection protection = selected.GetComponent<Protection>();
         if (protection != null)
         {
-            if (protection.xPositive)
-                shields[0].SetActive(true);
-            else
-                shields[0].SetActive(false);
+            for(int i = 0; i < shields.Count; i++)
+            {
+                shields[i].SetActive(false);
+            }
 
-            if (protection.xNegative)
-                shields[1].SetActive(true);
-            else
-                shields[1].SetActive(false);
+            bool[] bools = new bool[] { protection.xPositive, protection.xNegative, protection.zPositive, protection.zNegative };
+            bool[] types = new bool[] { protection.xPositiveHalfWall, protection.xNegativeHalfWall, protection.zPositiveHalfWall, protection.zNegativeHalfWall };
 
-            if (protection.zPositive)
-                shields[2].SetActive(true);
-            else
-                shields[2].SetActive(false);
+            for (int i = 0; i < bools.Length; i++)
+            {
+                bool active = bools[i];
+                if(active)
+                {
+                    shields[i].SetActive(true);
+                }
 
-            if (protection.zNegative)
-                shields[3].SetActive(true);
-            else
-                shields[3].SetActive(false);
+                if (types[i])
+                {
+                    shields[i].GetComponent<MeshRenderer>().material = halfWallMaterial;
+                }
+                else
+                {
+                    shields[i].GetComponent<MeshRenderer>().material = fullWallMaterial;
+                }
+            }
         }
         else
         {
