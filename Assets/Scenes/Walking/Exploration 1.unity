@@ -41276,8 +41276,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.64, y: 1, z: 27.08}
-  m_Center: {x: 0.38, y: -8.28, z: 6.47}
+  m_Size: {x: 2.7333317, y: 3.7277102, z: 24.327364}
+  m_Center: {x: 10.74, y: -10.6638775, z: 7.846323}
 --- !u!4 &1576114306 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4d15a2771f9666f45a1e62ddfc4018ba, type: 3}
@@ -56396,6 +56396,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3841331339887694343, guid: 54d296b6bb8f1b14ebf021e84368148c, type: 3}
+      propertyPath: Size
+      value: 3.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841331339887694343, guid: 54d296b6bb8f1b14ebf021e84368148c, type: 3}
+      propertyPath: offset.z
+      value: 3.56
+      objectReference: {fileID: 0}
     - target: {fileID: 6544875216714532456, guid: 54d296b6bb8f1b14ebf021e84368148c, type: 3}
       propertyPath: m_Name
       value: Magnet
@@ -56456,6 +56464,22 @@ PrefabInstance:
     - target: {fileID: 643963056454019761, guid: 2f7f7168a0cf2614ba5e4a2473d8870d, type: 3}
       propertyPath: m_Name
       value: Dream Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 8285991321249700670, guid: 2f7f7168a0cf2614ba5e4a2473d8870d, type: 3}
+      propertyPath: Size
+      value: 5.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8285991321249700670, guid: 2f7f7168a0cf2614ba5e4a2473d8870d, type: 3}
+      propertyPath: offset.z
+      value: 1.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868738401718801486, guid: 2f7f7168a0cf2614ba5e4a2473d8870d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868738401718801486, guid: 2f7f7168a0cf2614ba5e4a2473d8870d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 9204650354789589203, guid: 2f7f7168a0cf2614ba5e4a2473d8870d, type: 3}
       propertyPath: m_Pivot.x
