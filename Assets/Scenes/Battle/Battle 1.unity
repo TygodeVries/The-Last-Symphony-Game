@@ -2121,7 +2121,7 @@ PrefabInstance:
     - target: {fileID: 7711990537306612986, guid: 417fb722bdb45b34caf2a705a025e2ef, type: 3}
       propertyPath: connections.Array.data[1].tile
       value: 
-      objectReference: {fileID: 1267501878}
+      objectReference: {fileID: 1510816077}
     - target: {fileID: 7711990537306612986, guid: 417fb722bdb45b34caf2a705a025e2ef, type: 3}
       propertyPath: connections.Array.data[2].tile
       value: 
@@ -5142,7 +5142,7 @@ MonoBehaviour:
   zPositive: 0
   zPositiveHalfWall: 0
   xNegative: 1
-  xNegativeHalfWall: 0
+  xNegativeHalfWall: 1
   zNegative: 0
   zNegativeHalfWall: 0
 --- !u!1001 &780409380
@@ -5264,11 +5264,11 @@ MonoBehaviour:
   xPositive: 1
   xPositiveHalfWall: 1
   zPositive: 0
-  zPositiveHalfWall: 1
+  zPositiveHalfWall: 0
   xNegative: 0
-  xNegativeHalfWall: 1
+  xNegativeHalfWall: 0
   zNegative: 0
-  zNegativeHalfWall: 1
+  zNegativeHalfWall: 0
 --- !u!1001 &780679011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9045,7 +9045,7 @@ PrefabInstance:
     - target: {fileID: 7711990537306612986, guid: 417fb722bdb45b34caf2a705a025e2ef, type: 3}
       propertyPath: connections.Array.data[1].tile
       value: 
-      objectReference: {fileID: 1267501878}
+      objectReference: {fileID: 1510816077}
     - target: {fileID: 7711990537306612986, guid: 417fb722bdb45b34caf2a705a025e2ef, type: 3}
       propertyPath: connections.Array.data[2].tile
       value: 
@@ -9969,17 +9969,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 417fb722bdb45b34caf2a705a025e2ef, type: 3}
---- !u!114 &1267501878 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7711990537306612986, guid: 417fb722bdb45b34caf2a705a025e2ef, type: 3}
-  m_PrefabInstance: {fileID: 1267501877}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f10e296d1774a344da3593ef69445b97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1282349556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10089,13 +10078,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xPositive: 0
-  xPositiveHalfWall: 1
+  xPositiveHalfWall: 0
   zPositive: 1
   zPositiveHalfWall: 1
   xNegative: 0
-  xNegativeHalfWall: 1
+  xNegativeHalfWall: 0
   zNegative: 0
-  zNegativeHalfWall: 1
+  zNegativeHalfWall: 0
 --- !u!4 &1289062073 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 865572563034669950, guid: 417fb722bdb45b34caf2a705a025e2ef, type: 3}
@@ -10860,7 +10849,7 @@ MonoBehaviour:
   xNegative: 0
   xNegativeHalfWall: 0
   zNegative: 1
-  zNegativeHalfWall: 0
+  zNegativeHalfWall: 1
 --- !u!4 &1454524900 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 865572563034669950, guid: 417fb722bdb45b34caf2a705a025e2ef, type: 3}
@@ -11084,6 +11073,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 865572563034669950, guid: 417fb722bdb45b34caf2a705a025e2ef, type: 3}
   m_PrefabInstance: {fileID: 1317186742}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1510816077 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7711990537306612986, guid: 417fb722bdb45b34caf2a705a025e2ef, type: 3}
+  m_PrefabInstance: {fileID: 1317186742}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10e296d1774a344da3593ef69445b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1519989289 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 865572563034669950, guid: 417fb722bdb45b34caf2a705a025e2ef, type: 3}
@@ -11247,7 +11247,7 @@ MonoBehaviour:
   xNegative: 0
   xNegativeHalfWall: 0
   zNegative: 1
-  zNegativeHalfWall: 0
+  zNegativeHalfWall: 1
 --- !u!1001 &1566008381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11365,7 +11365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xPositive: 1
-  xPositiveHalfWall: 0
+  xPositiveHalfWall: 1
   zPositive: 0
   zPositiveHalfWall: 0
   xNegative: 0
@@ -11914,7 +11914,7 @@ MonoBehaviour:
   xPositive: 0
   xPositiveHalfWall: 0
   zPositive: 1
-  zPositiveHalfWall: 0
+  zPositiveHalfWall: 1
   xNegative: 0
   xNegativeHalfWall: 0
   zNegative: 0
@@ -13048,13 +13048,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xPositive: 0
-  xPositiveHalfWall: 1
+  xPositiveHalfWall: 0
   zPositive: 0
-  zPositiveHalfWall: 1
+  zPositiveHalfWall: 0
   xNegative: 1
   xNegativeHalfWall: 1
   zNegative: 0
-  zNegativeHalfWall: 1
+  zNegativeHalfWall: 0
 --- !u!114 &1877670740 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7711990537306612986, guid: 417fb722bdb45b34caf2a705a025e2ef, type: 3}
@@ -13372,11 +13372,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xPositive: 0
-  xPositiveHalfWall: 1
+  xPositiveHalfWall: 0
   zPositive: 0
-  zPositiveHalfWall: 1
+  zPositiveHalfWall: 0
   xNegative: 0
-  xNegativeHalfWall: 1
+  xNegativeHalfWall: 0
   zNegative: 1
   zNegativeHalfWall: 1
 --- !u!114 &1925927641 stripped
@@ -13531,7 +13531,7 @@ MonoBehaviour:
   xPositive: 0
   xPositiveHalfWall: 0
   zPositive: 1
-  zPositiveHalfWall: 0
+  zPositiveHalfWall: 1
   xNegative: 0
   xNegativeHalfWall: 0
   zNegative: 0
@@ -13948,7 +13948,7 @@ PrefabInstance:
     - target: {fileID: 7711990537306612986, guid: 417fb722bdb45b34caf2a705a025e2ef, type: 3}
       propertyPath: connections.Array.data[1].tile
       value: 
-      objectReference: {fileID: 1267501878}
+      objectReference: {fileID: 1510816077}
     - target: {fileID: 7711990537306612986, guid: 417fb722bdb45b34caf2a705a025e2ef, type: 3}
       propertyPath: connections.Array.data[1].direction
       value: 3
@@ -14064,7 +14064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xPositive: 1
-  xPositiveHalfWall: 0
+  xPositiveHalfWall: 1
   zPositive: 0
   zPositiveHalfWall: 0
   xNegative: 0
@@ -14093,7 +14093,7 @@ MonoBehaviour:
   zPositive: 0
   zPositiveHalfWall: 0
   xNegative: 1
-  xNegativeHalfWall: 0
+  xNegativeHalfWall: 1
   zNegative: 0
   zNegativeHalfWall: 0
 --- !u!1 &2023726397
