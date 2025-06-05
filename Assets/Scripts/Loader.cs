@@ -19,6 +19,8 @@ public class Loader : MonoBehaviour
         StartCoroutine(LoadScene(next, startDelay));
     }
 
+
+    public float FakeLoadTime = 2;
     public IEnumerator LoadScene(string next, float startDelay)
     {
         yield return new WaitForSeconds(startDelay);
@@ -30,7 +32,7 @@ public class Loader : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(FakeLoadTime);
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(next);
 
