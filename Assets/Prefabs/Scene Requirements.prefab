@@ -1582,6 +1582,7 @@ GameObject:
   - component: {fileID: 987230163872050423}
   - component: {fileID: 6407964830019154708}
   - component: {fileID: 3828262198751729162}
+  - component: {fileID: 3457341969877563024}
   m_Layer: 0
   m_Name: Scene Requirements
   m_TagString: Untagged
@@ -1664,6 +1665,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableTimingGame: 0
+--- !u!81 &3457341969877563024
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2566588133134548036}
+  m_Enabled: 1
 --- !u!1 &2641759533607776418
 GameObject:
   m_ObjectHideFlags: 0
