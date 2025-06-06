@@ -1362,7 +1362,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4421500960329683218}
   - component: {fileID: 31696455379824009}
-  - component: {fileID: 4905454124496589400}
   - component: {fileID: 4337582177511617512}
   - component: {fileID: 1372377228389212986}
   m_Layer: 0
@@ -1438,14 +1437,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &4905454124496589400
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1923907616399321093}
-  m_Enabled: 1
 --- !u!114 &4337582177511617512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2562,6 +2553,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  EnemyTurnStart:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2744575138759140599
 MonoBehaviour:
   m_ObjectHideFlags: 0
