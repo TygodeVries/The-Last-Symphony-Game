@@ -1,11 +1,11 @@
 <h1> Our awesome block 3 project :D</h1>
 
-Programming
+<h2>Programming<h2>
   Tygo
 
-Level Design & Narrative
+<h2>Level Design & Narrative<h2>
   Kelvin
 
-Art
+<h2>Art<h2>
   Veronika
   Emma
