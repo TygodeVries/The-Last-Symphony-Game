@@ -125,7 +125,7 @@ public class Shoot : MonoBehaviour
     IEnumerator DoThing(Living target, Shot shot, int damageAmount)
     {
         GetComponent<SelectEnemy>().enabled = false;
-        GameObject.FindGameObjectsWithTag("Player Animator")[0].transform.LookAt(target.transform.position);
+        FindAnyObjectByType<Player>().transform.LookAt(target.transform.position);
         GameObject.FindGameObjectsWithTag("Player Animator")[0].GetComponent<Animator>().SetTrigger("Lyre");
         target.transform.LookAt(transform.position);
 
