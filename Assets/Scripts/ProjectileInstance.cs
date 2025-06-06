@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ProjectileInstance : MonoBehaviour
@@ -14,14 +15,20 @@ public class ProjectileInstance : MonoBehaviour
     {
         Debug.DrawLine(start, end, Color.blue, 100);
         CameraSystem.SetTarget(this.transform);
+
+        float speed = 5f;
+        float distance = Vector3.Distance(start, end);
+        float duration = distance / speed;
         float elapsed = 0f;
+
         yield return new WaitForSeconds(0.4f);
 
-        while (elapsed < 1f)
+        while (elapsed < duration)
         {
-            transform.position = Vector3.Lerp(start, end, elapsed / 1f);
+            float t = elapsed / duration;
+            transform.position = Vector3.Lerp(start, end, t);
             elapsed += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            yield return null;
         }
 
         transform.position = end;
@@ -29,4 +36,6 @@ public class ProjectileInstance : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         Destroy(this.gameObject);
     }
+
+
 }
