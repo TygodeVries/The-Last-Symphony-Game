@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class Appear : MonoBehaviour
 {
+    public Vector3 offset;
     public float Size = 4;
     public void OnDrawGizmos()
     {
         Gizmos.color = Color.gray;
-        Gizmos.DrawWireSphere(transform.position, Size);
+        Gizmos.DrawWireSphere(transform.position + offset, Size);
     }
 
     WalkPlayer walkPlayer;
@@ -21,7 +22,7 @@ public class Appear : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(walkPlayer.transform.position, transform.position) < Size)
+        if (Vector3.Distance(walkPlayer.transform.position, transform.position + offset) < Size)
         {
             text.color = Color.Lerp(text.color, text.color = new Color(1, 1, 1, 1), Time.deltaTime * 2);
         }
@@ -34,6 +35,6 @@ public class Appear : MonoBehaviour
     public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow; 
-        Gizmos.DrawWireSphere(transform.position, Size);
+        Gizmos.DrawWireSphere(transform.position + offset, Size);
     }
 }

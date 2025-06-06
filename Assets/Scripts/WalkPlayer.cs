@@ -43,8 +43,6 @@ public class WalkPlayer : MonoBehaviour
     private bool isWalking = false;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-            PutDown();
 
         if (puttingDown)
             return;

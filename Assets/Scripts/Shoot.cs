@@ -39,6 +39,9 @@ public class Shoot : MonoBehaviour
     {
         ShotFired = false;
     }
+
+
+    bool riggedInFavor = false;
     public void Update()
     {
         if (ShotFired)
@@ -77,7 +80,7 @@ public class Shoot : MonoBehaviour
             if (uiInput.Confirm.WasPressedThisFrame() || Experiments.disableTimingGameS)
             {
                 int damangeAmount = 0;
-                if (Random.Range(0f, 1f) <= chance)
+                if (Random.Range(0f, 1f) <= chance || (Mathf.Approximately(chance, 0.5f) && riggedInFavor))
                 {
                     damangeAmount = 10;
                     if (timingImage.fillAmount > 0.8f || Experiments.disableTimingGameS)
@@ -85,9 +88,11 @@ public class Shoot : MonoBehaviour
                         damangeAmount = 20;
                     }
                     Notification.SetText($"Did {damangeAmount} damage!", 1);
+                    riggedInFavor = false;
                 }
                 else
                 {
+                    riggedInFavor = true;
                     Notification.SetText("Miss!", 1f);
                 }
 
