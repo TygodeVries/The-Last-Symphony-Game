@@ -12896,8 +12896,7 @@ Transform:
   m_LocalPosition: {x: -1.063, y: 0.03999999, z: -4.788}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 841716706}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &484411485
@@ -23468,9 +23467,9 @@ GameObject:
   - component: {fileID: 841716703}
   - component: {fileID: 841716702}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Level Exit
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -23539,11 +23538,11 @@ Transform:
   m_GameObject: {fileID: 841716701}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 24.683, y: 0.9760001, z: 61.947998}
+  m_LocalPosition: {x: 23.62, y: 1.016, z: 57.159996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 483609024}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &844574300 stripped
 Transform:
@@ -58261,3 +58260,4 @@ SceneRoots:
   - {fileID: 1001704900}
   - {fileID: 1615482230}
   - {fileID: 5663350173593926072}
+  - {fileID: 841716706}
