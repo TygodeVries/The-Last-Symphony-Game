@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 91866678893166419}
   - component: {fileID: 2631864748084455421}
   - component: {fileID: 8972369041350074238}
+  - component: {fileID: 8711675556534723589}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -270,6 +271,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8711675556534723589}
+        m_TargetAssemblyTypeName: Shake, Assembly-CSharp
+        m_MethodName: Do
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8711675556534723589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115821643866259181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fbe6ddb6df355d419f0c1b9bd0e8b57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  left: 1
+  right: 1
+  time: 0.2
 --- !u!1 &4023465167804321112
 GameObject:
   m_ObjectHideFlags: 0
