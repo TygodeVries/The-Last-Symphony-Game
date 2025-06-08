@@ -74,7 +74,7 @@ public class Cursor : MonoBehaviour
             LevelObject toDelete = null;
             foreach (LevelObject obj in objs)
             {
-                if(Vector3.Distance(obj.transform.position, transform.position) < 1)
+                if(Vector3.Distance(obj.transform.position, transform.position) < 0.1f)
                 {
                     if(toDelete == null || obj.importance > toDelete.importance)
                     {

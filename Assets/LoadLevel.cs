@@ -40,7 +40,8 @@ public class LoadLevel : MonoBehaviour
         }
 
 
-        GameObject.Instantiate(Requirements);
+        if(Requirements != null)
+            GameObject.Instantiate(Requirements);
         Tile.AutoTileAll();
         GridWalker.SnapAll();
     }
