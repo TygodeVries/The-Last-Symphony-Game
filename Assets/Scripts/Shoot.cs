@@ -88,7 +88,7 @@ public class Shoot : MonoBehaviour
                     {
                         damangeAmount = 20;
                     }
-                    Notification.SetText($"Did {damangeAmount} damage!", 1);
+                    
                     riggedInFavor = false;
                 }
                 else
@@ -149,7 +149,7 @@ public class Shoot : MonoBehaviour
         if(target.HealthPoints < 1)
         {
             // Death animation
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(3);
         }
 
         FindAnyObjectByType<Battle>().UseAction("Attack Shoot");
