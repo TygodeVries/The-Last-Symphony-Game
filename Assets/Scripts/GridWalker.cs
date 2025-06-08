@@ -17,6 +17,37 @@ public class GridWalker : MonoBehaviour
 #endif
     }
 
+    public static void SnapAll()
+    {
+        Tile[] tiles = UnityEngine.Object.FindObjectsByType<Tile>(FindObjectsSortMode.None);
+        GridWalker[] gridWalkers = UnityEngine.Object.FindObjectsByType<GridWalker>(FindObjectsSortMode.None);
+
+        foreach (GridWalker gridWalker in gridWalkers)
+        {
+            Tile nearest = null;
+            float nearestDistance = 1000;
+            foreach (Tile tile in tiles)
+            {
+                float distance = Vector3.Distance(gridWalker.transform.position, tile.transform.position);
+                if (distance < nearestDistance)
+                {
+                    nearestDistance = distance;
+                    nearest = tile;
+                }
+            }
+
+            if (nearest != null)
+            {
+                gridWalker.transform.position = nearest.transform.position;
+                gridWalker.SetTile(nearest);
+            }
+            else
+            {
+                Debug.LogWarning($"Could not find good location for {gridWalker.transform.name}");
+            }
+        }
+    }
+
     public void Start()
     {
         if(tile == null)
