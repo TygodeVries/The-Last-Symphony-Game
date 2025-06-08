@@ -135,6 +135,24 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EditorLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""9b099e1e-3131-4d4a-a376-ad529994e9cf"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EditorRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""dd9ae281-0939-4142-92bc-6f240f0fbce8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -269,6 +287,50 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
                     ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""64ddfc7a-e196-4bdb-ac49-264a64e16343"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EditorRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b59691c0-c85e-4a12-9c1a-238366f01ebc"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EditorRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""76935fc7-7bb1-47cc-8091-df246990b8c8"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EditorLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""047b4081-3cf6-4544-bbcb-ccad066cdc0a"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EditorLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -282,6 +344,8 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         m_UINav_Confirm = m_UINav.FindAction("Confirm", throwIfNotFound: true);
         m_UINav_Back = m_UINav.FindAction("Back", throwIfNotFound: true);
         m_UINav_Menu = m_UINav.FindAction("Menu", throwIfNotFound: true);
+        m_UINav_EditorLeft = m_UINav.FindAction("EditorLeft", throwIfNotFound: true);
+        m_UINav_EditorRight = m_UINav.FindAction("EditorRight", throwIfNotFound: true);
     }
 
     ~@GameInput()
@@ -367,6 +431,8 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_UINav_Confirm;
     private readonly InputAction m_UINav_Back;
     private readonly InputAction m_UINav_Menu;
+    private readonly InputAction m_UINav_EditorLeft;
+    private readonly InputAction m_UINav_EditorRight;
     /// <summary>
     /// Provides access to input actions defined in input action map "UINav".
     /// </summary>
@@ -398,6 +464,14 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UINav/Menu".
         /// </summary>
         public InputAction @Menu => m_Wrapper.m_UINav_Menu;
+        /// <summary>
+        /// Provides access to the underlying input action "UINav/EditorLeft".
+        /// </summary>
+        public InputAction @EditorLeft => m_Wrapper.m_UINav_EditorLeft;
+        /// <summary>
+        /// Provides access to the underlying input action "UINav/EditorRight".
+        /// </summary>
+        public InputAction @EditorRight => m_Wrapper.m_UINav_EditorRight;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -439,6 +513,12 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
             @Menu.started += instance.OnMenu;
             @Menu.performed += instance.OnMenu;
             @Menu.canceled += instance.OnMenu;
+            @EditorLeft.started += instance.OnEditorLeft;
+            @EditorLeft.performed += instance.OnEditorLeft;
+            @EditorLeft.canceled += instance.OnEditorLeft;
+            @EditorRight.started += instance.OnEditorRight;
+            @EditorRight.performed += instance.OnEditorRight;
+            @EditorRight.canceled += instance.OnEditorRight;
         }
 
         /// <summary>
@@ -465,6 +545,12 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
             @Menu.started -= instance.OnMenu;
             @Menu.performed -= instance.OnMenu;
             @Menu.canceled -= instance.OnMenu;
+            @EditorLeft.started -= instance.OnEditorLeft;
+            @EditorLeft.performed -= instance.OnEditorLeft;
+            @EditorLeft.canceled -= instance.OnEditorLeft;
+            @EditorRight.started -= instance.OnEditorRight;
+            @EditorRight.performed -= instance.OnEditorRight;
+            @EditorRight.canceled -= instance.OnEditorRight;
         }
 
         /// <summary>
@@ -540,5 +626,19 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMenu(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "EditorLeft" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEditorLeft(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "EditorRight" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEditorRight(InputAction.CallbackContext context);
     }
 }

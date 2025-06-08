@@ -1,7 +1,9 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Cursor : MonoBehaviour
@@ -23,14 +25,29 @@ public class Cursor : MonoBehaviour
     Vector3 internalPosistion = Vector3.zero;
     void Update()
     {
-        if(uiInput.Right.WasPressedThisFrame())
+        if(uiInput.Menu.WasPressedThisFrame())
+        {
+            string levelData = "";
+
+            LevelObject[] levelObjects = FindObjectsByType<LevelObject>(FindObjectsSortMode.None);
+            foreach(LevelObject levelObject in levelObjects)
+            {
+                levelData += $"{levelObject.id} {Mathf.RoundToInt(levelObject.transform.position.x)} {Mathf.RoundToInt(levelObject.transform.position.z)}\n";
+            }
+
+            File.WriteAllText("C:\\Users\\zttde\\AppData\\Roaming\\Dansmacabre\\level.txt", levelData);
+
+            SceneManager.LoadScene("LevelHost");
+        }
+
+        if(uiInput.EditorRight.WasPressedThisFrame())
         {
             selected++;
             if (selected >= placeables.Count)
                 selected = 0;
         }
 
-        if (uiInput.Left.WasPressedThisFrame())
+        if (uiInput.EditorLeft.WasPressedThisFrame())
         {
             selected--;
             if (selected < 0)

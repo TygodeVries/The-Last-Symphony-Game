@@ -22,12 +22,20 @@ public class LoadLevel : MonoBehaviour
             int x = int.Parse(line.Split(' ')[1]);
             int z = int.Parse(line.Split(' ')[2]);
 
+            bool found = false;
             foreach(IdObject idObject in objectTypes)
             {
                 if(idObject.id == type)
                 {
+                    Debug.Log($"Spawning {type} at {x}, {z}");
                     GameObject.Instantiate(idObject.prefab, new Vector3(x, 0, z), idObject.prefab.transform.rotation);
+                    found = true;
                 }
+            }
+
+            if(!found)
+            {
+                Debug.LogError("Could not find " + type);
             }
         }
 

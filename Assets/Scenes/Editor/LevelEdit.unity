@@ -348,6 +348,7 @@ MonoBehaviour:
   - prefab: {fileID: 269349133593770961, guid: 6875553ce865dab409d5c73ffd7ccc15, type: 3}
     icon: {fileID: 2800000, guid: 4a519e01900db7742a74c669b10be183, type: 3}
   selected: 0
+  preview: {fileID: 1461540560}
 --- !u!4 &283849234
 Transform:
   m_ObjectHideFlags: 0
@@ -624,7 +625,7 @@ GameObject:
   - component: {fileID: 1461540561}
   - component: {fileID: 1461540560}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: Selected
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -646,8 +647,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 235.13416, y: -204.27844}
-  m_SizeDelta: {x: 500, y: 500}
+  m_AnchoredPosition: {x: 50, y: -50}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1461540560
 MonoBehaviour:
