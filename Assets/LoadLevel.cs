@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoadLevel : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class LoadLevel : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if(!File.Exists("C:\\Users\\zttde\\AppData\\Roaming\\Dansmacabre\\level.txt"))
+        {
+            SceneManager.LoadScene("LevelEdit");
+        }
+
         string[] lines = File.ReadAllLines("C:\\Users\\zttde\\AppData\\Roaming\\Dansmacabre\\level.txt");
 
         foreach (string line in lines)
