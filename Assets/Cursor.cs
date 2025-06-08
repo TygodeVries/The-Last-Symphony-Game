@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Cursor : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class Cursor : MonoBehaviour
 
         uiInput = gameInput.UINav;
     }
-
+    public RawImage preview;
 
     Vector3 internalPosistion = Vector3.zero;
     void Update()
@@ -47,7 +48,9 @@ public class Cursor : MonoBehaviour
 
         transform.position = Vector3.Lerp(transform.position, round(internalPosistion), Time.deltaTime * 5);
 
-        if(uiInput.Back.WasPressedThisFrame())
+
+        preview.texture = placeables[selected].icon;
+        if (uiInput.Back.WasPressedThisFrame())
         {
             LevelObject[] objs = FindObjectsByType<LevelObject>(FindObjectsSortMode.None);
 
