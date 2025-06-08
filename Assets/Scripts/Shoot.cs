@@ -88,7 +88,7 @@ public class Shoot : MonoBehaviour
                     {
                         damangeAmount = 20;
                     }
-                    Notification.SetText($"Did {damangeAmount} damage!", 1);
+                    
                     riggedInFavor = false;
                 }
                 else
