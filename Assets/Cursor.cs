@@ -10,7 +10,6 @@ public class Cursor : MonoBehaviour
 {
     GameInput.UINavActions uiInput;
 
-
     public List<Placeable> placeables = new List<Placeable>();
     public int selected;
     private void Start()
@@ -35,7 +34,13 @@ public class Cursor : MonoBehaviour
                 levelData += $"{levelObject.id} {Mathf.RoundToInt(levelObject.transform.position.x)} {Mathf.RoundToInt(levelObject.transform.position.z)}\n";
             }
 
-            File.WriteAllText("C:\\Users\\zttde\\AppData\\Roaming\\Dansmacabre\\level.txt", levelData);
+            if(!Directory.Exists(LoadLevel.LevelFolder()))
+            {
+                Directory.CreateDirectory(LoadLevel.LevelFolder());
+                Debug.Log("Created Level Folder");
+            }
+
+            File.WriteAllText(LoadLevel.LevelPath(), levelData);
 
             SceneManager.LoadScene("LevelHost");
         }
