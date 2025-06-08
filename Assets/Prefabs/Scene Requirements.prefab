@@ -1380,7 +1380,7 @@ Transform:
   m_GameObject: {fileID: 1923907616399321093}
   serializedVersion: 2
   m_LocalRotation: {x: 0.37049055, y: 0.24333525, z: -0.10122075, w: 0.89066213}
-  m_LocalPosition: {x: 1.8489218, y: 4.15857, z: -5.649702}
+  m_LocalPosition: {x: -1.67, y: 4.3, z: -2.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1496,7 +1496,7 @@ MonoBehaviour:
   offset: {x: -1.67, y: 2.89, z: -2.36}
   goalZoom: 1
   zoom: 1
-  defaultPos: {x: 0, y: 0, z: 0}
+  defaultPos: {x: -1.67, y: 4.3, z: -2.36}
 --- !u!1 &1983860057187520047
 GameObject:
   m_ObjectHideFlags: 0
@@ -1599,7 +1599,7 @@ Transform:
   m_GameObject: {fileID: 2566588133134548036}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7422768, y: -0.026008155, z: 0.9033215}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1664,7 +1664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed34a4650ce7374780c32eba1416d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disableTimingGame: 0
+  disableTimingGame: 1
 --- !u!81 &3457341969877563024
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2529,7 +2529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Move: 1
   Shoot: 1
-  Granade: 1
+  Granade: 0
   loseCanvas: {fileID: 5296901702175763545}
   winCanvas: {fileID: 4294732896594328165}
   GameOver: 0
