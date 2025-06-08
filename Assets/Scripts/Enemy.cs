@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
 
 public class Enemy : MonoBehaviour
@@ -58,6 +59,7 @@ public class Enemy : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
     }
+    public UnityEvent onAttack;
 
     public IEnumerator TakeTurn()
     {
@@ -77,6 +79,7 @@ public class Enemy : MonoBehaviour
 
             transform.LookAt(shot.target.transform);
             animator.SetTrigger("Attack");
+            onAttack.Invoke();
             yield return new WaitForSeconds(0.7f);
             yield return StartCoroutine(Shoot(shot));
 

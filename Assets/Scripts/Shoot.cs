@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Shoot : MonoBehaviour
@@ -122,8 +123,10 @@ public class Shoot : MonoBehaviour
         }
     }
 
+    public UnityEvent onAttack;
     IEnumerator DoThing(Living target, Shot shot, int damageAmount)
     {
+        onAttack.Invoke();
         GetComponent<SelectEnemy>().enabled = false;
         FindAnyObjectByType<Player>().transform.LookAt(target.transform.position);
         GameObject.FindGameObjectsWithTag("Player Animator")[0].GetComponent<Animator>().SetTrigger("Lyre");
