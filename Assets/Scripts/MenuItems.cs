@@ -50,7 +50,7 @@ public class MenuItems : MonoBehaviour
     {
         float frameRate = 1.0f / Time.deltaTime;
 
-        if(inStartup > 0 && inStartup < 990 && frameRate < 30)
+        if(inStartup > 10 && inStartup < 50 && frameRate < 4)
         {
             QualitySettings.SetQualityLevel(0, true);
             PlayerPrefs.SetInt("Graphics", 0);

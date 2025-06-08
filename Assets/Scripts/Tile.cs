@@ -13,6 +13,46 @@ public class Tile : MonoBehaviour
 
     [HideInInspector] [SerializeField] public List<TileConnection> connections;
 
+    
+    public static void AutoTileAll()
+    {
+        Tile[] tiles = UnityEngine.Object.FindObjectsByType<Tile>(FindObjectsSortMode.None);
+
+        GameObject level = GameObject.Find("Level");
+        if (level == null)
+            level = new GameObject("Level");
+
+        int done = 0;
+        int total = tiles.Length;
+        foreach (Tile tile in tiles)
+        {
+            tile.RemoveConnections();
+
+            tile.AddConnection(TileDirection.XPositive, FindTileNear(tiles, tile.transform.position + new Vector3(1, 0, 0)));
+            tile.AddConnection(TileDirection.XNegative, FindTileNear(tiles, tile.transform.position + new Vector3(-1, 0, 0)));
+
+            tile.AddConnection(TileDirection.ZPositive, FindTileNear(tiles, tile.transform.position + new Vector3(0, 0, 1)));
+            tile.AddConnection(TileDirection.ZNegative, FindTileNear(tiles, tile.transform.position + new Vector3(0, 0, -1)));
+
+            done++;
+            if (tile.transform.parent != level)
+                tile.transform.parent = level.transform;
+
+            tile.SetStyle(TileStyle.None);
+        }
+
+    }
+
+    private static Tile FindTileNear(Tile[] tiles, Vector3 location)
+    {
+        foreach (Tile tile in tiles)
+        {
+            if (Vector3.Distance(tile.transform.position, location) < 0.1f)
+                return tile;
+        }
+
+        return null;
+    }
 
     public int data;
     private bool IsSelected;
@@ -184,65 +224,12 @@ public class TileUI : EditorWindow
 
         if(GUILayout.Button("Auto Tile"))
         {
-            Tile[] tiles = UnityEngine.Object.FindObjectsByType<Tile>(FindObjectsSortMode.None);
-
-            GameObject level = GameObject.Find("Level");
-            if (level == null)
-                level = new GameObject("Level");
-
-            int done = 0;
-            int total = tiles.Length;
-            foreach(Tile tile in tiles)
-            {
-                tile.RemoveConnections();
-
-                tile.AddConnection(TileDirection.XPositive, FindTileNear(tiles, tile.transform.position + new Vector3(1, 0, 0)));
-                tile.AddConnection(TileDirection.XNegative, FindTileNear(tiles, tile.transform.position + new Vector3(-1, 0, 0)));
-
-                tile.AddConnection(TileDirection.ZPositive, FindTileNear(tiles, tile.transform.position + new Vector3(0, 0, 1)));
-                tile.AddConnection(TileDirection.ZNegative, FindTileNear(tiles, tile.transform.position + new Vector3(0, 0, -1)));
-
-                done++;
-                EditorUtility.DisplayProgressBar("Connecting Tiles", $"Processed: {done} out of {total}", ((float) total / (float) done) * 100);
-
-                if (tile.transform.parent != level)
-                    tile.transform.parent = level.transform;
-
-                tile.SetStyle(TileStyle.None);
-            }
-
-            EditorUtility.ClearProgressBar();
+            Tile.AutoTileAll();   
         }
 
         if (GUILayout.Button("Snap Walkers"))
         {
-            Tile[] tiles = UnityEngine.Object.FindObjectsByType<Tile>(FindObjectsSortMode.None);
-            GridWalker[] gridWalkers = UnityEngine.Object.FindObjectsByType<GridWalker>(FindObjectsSortMode.None);
-
-            foreach (GridWalker gridWalker in gridWalkers)
-            {
-                Tile nearest = null;
-                float nearestDistance = 1000;
-                foreach (Tile tile in tiles)
-                {
-                    float distance = Vector3.Distance(gridWalker.transform.position, tile.transform.position);
-                    if (distance < nearestDistance)
-                    {
-                        nearestDistance = distance;
-                        nearest = tile;
-                    }
-                }
-
-                if (nearest != null)
-                {
-                    gridWalker.transform.position = nearest.transform.position;
-                    gridWalker.SetTile(nearest);
-                }
-                else
-                {
-                    Debug.LogWarning($"Could not find good location for {gridWalker.transform.name}");
-                }
-            }
+            GridWalker.SnapAll();
         }
 
         if (GUILayout.Button("Auto Protection"))
@@ -309,17 +296,6 @@ public class TileUI : EditorWindow
 
             GUILayout.Label("Debugging", EditorStyles.boldLabel);
         RenderType = GUILayout.Toggle(RenderType, "Render Behaviour");
-    }
-
-    private Tile FindTileNear(Tile[] tiles, Vector3 location)
-    {
-        foreach (Tile tile in tiles)
-        {
-            if (Vector3.Distance(tile.transform.position, location) < 0.1f)
-                return tile;
-        }
-
-        return null;
     }
 }
 #endif
