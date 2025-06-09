@@ -14,16 +14,16 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.047058824, g: 0.05882353, b: 0.21568628, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.036
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.73
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -2320,31 +2320,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4421500960329683218, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.544838
+      value: 2.5172653
       objectReference: {fileID: 0}
     - target: {fileID: 4421500960329683218, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.7501395
+      value: 3.7815704
       objectReference: {fileID: 0}
     - target: {fileID: 4421500960329683218, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.8768115
+      value: -3.9026794
       objectReference: {fileID: 0}
     - target: {fileID: 4421500960329683218, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8982178
+      value: 0.8935171
       objectReference: {fileID: 0}
     - target: {fileID: 4421500960329683218, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.38634104
+      value: 0.3970916
       objectReference: {fileID: 0}
     - target: {fileID: 4421500960329683218, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.19257395
+      value: 0.19156611
       objectReference: {fileID: 0}
     - target: {fileID: 4421500960329683218, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.082829945
+      value: -0.085134834
       objectReference: {fileID: 0}
     - target: {fileID: 4528778101033966880, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_AnchorMax.x
