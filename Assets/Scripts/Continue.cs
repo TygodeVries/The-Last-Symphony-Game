@@ -1,11 +1,17 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Continue : MonoBehaviour
 { 
     public void DoContinue()
     {
         OnContinue.Invoke();
+
+        if(inLevelEditor)
+        {
+            SceneManager.LoadScene("LevelEdit");
+        }
     }
 
     public void Update()
@@ -14,6 +20,8 @@ public class Continue : MonoBehaviour
             DoContinue();
     }
 
+
+    bool inLevelEditor;
     GameInput.UINavActions uiInput;
     private void Start()
     {
@@ -21,6 +29,12 @@ public class Continue : MonoBehaviour
         gameInput.Enable();
 
         uiInput = gameInput.UINav;
+
+        if(OnContinue.GetPersistentEventCount() == 0)
+        {
+            inLevelEditor = true;
+            Debug.LogWarning("Level Editor Detected!");
+        }
     }
 
 

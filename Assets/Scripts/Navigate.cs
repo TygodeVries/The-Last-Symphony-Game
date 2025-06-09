@@ -52,6 +52,8 @@ public class Navigate : MonoBehaviour
         }
     }
 
+
+    [Serialize] public float MaxCameraRange = 7f;
     public void OnApplicationQuit()
     {
         uiInput.Disable();
@@ -126,7 +128,7 @@ public class Navigate : MonoBehaviour
         motion *= Time.deltaTime * 3;
 
         float newDistance = Vector3.Distance(player.transform.position, transform.position + motion);
-        if (newDistance < 10)
+        if (newDistance < MaxCameraRange)
         {
             transform.position += motion;
         }

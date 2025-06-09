@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Shoot : MonoBehaviour
@@ -87,7 +88,7 @@ public class Shoot : MonoBehaviour
                     {
                         damangeAmount = 20;
                     }
-                    Notification.SetText($"Did {damangeAmount} damage!", 1);
+                    
                     riggedInFavor = false;
                 }
                 else
@@ -122,10 +123,12 @@ public class Shoot : MonoBehaviour
         }
     }
 
+    public UnityEvent onAttack;
     IEnumerator DoThing(Living target, Shot shot, int damageAmount)
     {
+        onAttack.Invoke();
         GetComponent<SelectEnemy>().enabled = false;
-        GameObject.FindGameObjectsWithTag("Player Animator")[0].transform.LookAt(target.transform.position);
+        FindAnyObjectByType<Player>().transform.LookAt(target.transform.position);
         GameObject.FindGameObjectsWithTag("Player Animator")[0].GetComponent<Animator>().SetTrigger("Lyre");
         target.transform.LookAt(transform.position);
 
@@ -146,7 +149,7 @@ public class Shoot : MonoBehaviour
         if(target.HealthPoints < 1)
         {
             // Death animation
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(3);
         }
 
         FindAnyObjectByType<Battle>().UseAction("Attack Shoot");

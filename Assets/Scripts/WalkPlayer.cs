@@ -38,6 +38,21 @@ public class WalkPlayer : MonoBehaviour
         puttingDown = false;
     }
 
+    public void TempVanishOrSpanish(float time)
+    {
+        StartCoroutine(TempVanishOrSpanishREAL(time));
+    }
+
+    public IEnumerator TempVanishOrSpanishREAL(float time)
+    {
+        Vector3 oldPos = transform.position;
+        transform.position = new Vector3(transform.position.x, transform.position.y - 4, transform.position.z);
+        body.isKinematic = true;
+        yield return new WaitForSeconds(time);
+        body.isKinematic = false;
+        transform.position = oldPos;
+
+    }
 
     private bool puttingDown;
     private bool isWalking = false;

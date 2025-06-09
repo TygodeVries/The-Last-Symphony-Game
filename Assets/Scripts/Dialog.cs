@@ -56,7 +56,8 @@ public class Dialog : MonoBehaviour
             dialogText.text += text[i];
         }
 
-
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
         yield return new WaitUntil(() =>
         {
             return uiInput.Back.WasPressedThisFrame();

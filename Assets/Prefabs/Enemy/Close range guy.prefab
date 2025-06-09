@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 1745938314164785684}
   - component: {fileID: 920098885712460706}
   - component: {fileID: 9014937683018835597}
+  - component: {fileID: 294798515231622598}
   m_Layer: 0
   m_Name: Close range guy
   m_TagString: Untagged
@@ -198,6 +199,21 @@ MonoBehaviour:
   NotInRangeScore: -1000
   ShotRiskinessThreshold: 0.5
   TileAlreadyOccupiedScore: -10000
+  onAttack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 294798515231622598}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &920098885712460706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +286,103 @@ CapsuleCollider:
   m_Height: 1.02
   m_Direction: 1
   m_Center: {x: 0, y: 0.26, z: 0}
+--- !u!82 &294798515231622598
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050951874687617325}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4cf3acd711fffc148bf8560d73513094, type: 3}
+  m_Resource: {fileID: 8300000, guid: 4cf3acd711fffc148bf8560d73513094, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &487843513534298359
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -364,6 +477,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7377839715425914090}
     m_Modifications:
+    - target: {fileID: -8772938924037355468, guid: 3d4d02639c9fcb84ba99b1c32b933b05, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1634a19ae7d5daa46b4eba2411642b09, type: 2}
+    - target: {fileID: -8772938924037355468, guid: 3d4d02639c9fcb84ba99b1c32b933b05, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 82f1e0480bc11ac448b357458664f3c4, type: 2}
     - target: {fileID: -8679921383154817045, guid: 3d4d02639c9fcb84ba99b1c32b933b05, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.2577239

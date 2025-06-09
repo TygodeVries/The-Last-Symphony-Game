@@ -1527,6 +1527,14 @@ PrefabInstance:
       propertyPath: 'shields.Array.data[3]'
       value: 
       objectReference: {fileID: 186327546}
+    - target: {fileID: 4421500960329683218, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.885
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421500960329683218, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.701
+      objectReference: {fileID: 0}
     - target: {fileID: 4528778101033966880, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -6271,7 +6279,9 @@ MonoBehaviour:
   filler: {fileID: 8300000, guid: cc7f0c66aa6bbb04a816bb03465ebe83, type: 3}
   mainSource: {fileID: 1365312565}
   backSource: {fileID: 1365312566}
-  test: {fileID: 8300000, guid: 0a63a254201019843b05a71f5c478008, type: 3}
+  library: []
+  Thunder: {fileID: 0}
+  PlayFirstClipAtStart: 0
 --- !u!82 &1365312565
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6897,7 +6907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7377839715425914090, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7377839715425914090, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6905,7 +6915,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7377839715425914090, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7377839715425914090, guid: ec648b65d0bf0f94889acb0085be6573, type: 3}
       propertyPath: m_LocalRotation.w
