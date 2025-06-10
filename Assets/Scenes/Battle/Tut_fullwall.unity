@@ -2464,7 +2464,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5800270698641524557, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: OnContinue.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Exploration 1.5
+      value: Tut_halfwall
       objectReference: {fileID: 0}
     - target: {fileID: 5800270698641524557, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: OnContinue.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -2472,7 +2472,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.size
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.data[0].actionType
@@ -2492,6 +2492,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.data[4].actionType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[5].actionType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[6].actionType
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
@@ -2516,7 +2524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.data[2].stringArgument
-      value: Full walls give me safety, but I can't target enemies through them!
+      value: They are using instruments to battle, maybe I can do the same!
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.data[3].numberArgument
@@ -2532,6 +2540,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.data[4].stringArgument
+      value: Stone walls give me safety, but I can't target enemies through them!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[5].numberArgument
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[5].stringArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[6].stringArgument
       value: I need to relocate to target them!
       objectReference: {fileID: 0}
     - target: {fileID: 7597003615565741535, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
