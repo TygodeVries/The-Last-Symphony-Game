@@ -21,29 +21,30 @@ public class Cursor : MonoBehaviour
     }
     public RawImage preview;
 
+    public void SaveAndPlay()
+    {
+        string levelData = "";
+
+        LevelObject[] levelObjects = FindObjectsByType<LevelObject>(FindObjectsSortMode.None);
+        foreach (LevelObject levelObject in levelObjects)
+        {
+            levelData += $"{levelObject.id} {Mathf.RoundToInt(levelObject.transform.position.x)} {Mathf.RoundToInt(levelObject.transform.position.z)}\n";
+        }
+
+        if (!Directory.Exists(LoadLevel.LevelFolder()))
+        {
+            Directory.CreateDirectory(LoadLevel.LevelFolder());
+            Debug.Log("Created Level Folder");
+        }
+
+        File.WriteAllText(LoadLevel.LevelPath(), levelData);
+
+        FindAnyObjectByType<Loader>().Goto("LevelHost");
+    }
+
     Vector3 internalPosistion = Vector3.zero;
     void Update()
     {
-        if(uiInput.Menu.WasPressedThisFrame())
-        {
-            string levelData = "";
-
-            LevelObject[] levelObjects = FindObjectsByType<LevelObject>(FindObjectsSortMode.None);
-            foreach(LevelObject levelObject in levelObjects)
-            {
-                levelData += $"{levelObject.id} {Mathf.RoundToInt(levelObject.transform.position.x)} {Mathf.RoundToInt(levelObject.transform.position.z)}\n";
-            }
-
-            if(!Directory.Exists(LoadLevel.LevelFolder()))
-            {
-                Directory.CreateDirectory(LoadLevel.LevelFolder());
-                Debug.Log("Created Level Folder");
-            }
-
-            File.WriteAllText(LoadLevel.LevelPath(), levelData);
-
-            SceneManager.LoadScene("LevelHost");
-        }
 
         if(uiInput.EditorRight.WasPressedThisFrame())
         {
