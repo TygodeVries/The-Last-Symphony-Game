@@ -1831,7 +1831,8 @@ PrefabInstance:
       propertyPath: OnContinue.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1949667345776500289, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
     m_RemovedGameObjects:
     - {fileID: 1618315307846599552, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
     m_AddedGameObjects: []
