@@ -2399,7 +2399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5800270698641524557, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: OnContinue.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Tut_fullwall
+      value: Exploration 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5800270698641524557, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: OnContinue.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -2423,7 +2423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.size
-      value: 7
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.data[0].actionType
@@ -2458,6 +2458,18 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[8].actionType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[9].actionType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[10].actionType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.data[0].numberArgument
       value: 0.6
       objectReference: {fileID: 0}
@@ -2479,7 +2491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.data[2].stringArgument
-      value: They are using instruments as weapons, maybe i can do the same!
+      value: When standing next to a wooden barricade, I can 100% hit over the barricade
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.data[3].numberArgument
@@ -2495,7 +2507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.data[4].stringArgument
-      value: Tch! One is hiding behind a Half Wall, I have a 50% chance of hitting
+      value: I have to move right next to the wooden barricade to be 50% protected
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.data[5].numberArgument
@@ -2511,10 +2523,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.data[6].stringArgument
-      value: The other is out in the open, so I have a 100% chance of hitting!
+      value: Moving will allow me to be protected and 100% shoot over barricades!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[7].numberArgument
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
       propertyPath: dialog.Array.data[7].stringArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[8].numberArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[8].stringArgument
+      value: One is protected behind a Wooden Barricade, I have a 50% chance of hitting
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[9].numberArgument
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[9].stringArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407964830019154708, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
+      propertyPath: dialog.Array.data[10].stringArgument
       value: The other is out in the open, so I have a 100% chance of hitting!
       objectReference: {fileID: 0}
     - target: {fileID: 7133080883067763392, guid: 622588b76bb013c4eb74fd09ef7d7bfc, type: 3}
