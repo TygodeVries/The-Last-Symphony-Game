@@ -18725,7 +18725,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1334025389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18847,8 +18847,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4d848b9cf3db56b4f81dfdfc90d89db2, type: 3}
-  m_Resource: {fileID: 8300000, guid: 4d848b9cf3db56b4f81dfdfc90d89db2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9e62a86e8eec4d24abe523acb6d033d8, type: 3}
+  m_Resource: {fileID: 8300000, guid: 9e62a86e8eec4d24abe523acb6d033d8, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -27882,15 +27882,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3c693637bb7e024ea939dd5d65ed6fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filler: {fileID: 8300000, guid: cc7f0c66aa6bbb04a816bb03465ebe83, type: 3}
+  filler: {fileID: 8300000, guid: f2682c030a281b9429f4b32b816c2124, type: 3}
   mainSource: {fileID: 1790875666}
   backSource: {fileID: 1790875665}
   library:
-  - {fileID: 8300000, guid: 0a63a254201019843b05a71f5c478008, type: 3}
-  - {fileID: 0}
-  - {fileID: 8300000, guid: 5bfa0f1240f25f94c8d24b0cbe76d9a4, type: 3}
-  - {fileID: 8300000, guid: a08e956ada452f84089ba87b4b8c930c, type: 3}
-  - {fileID: 8300000, guid: 427d225eca890024c8d8171f26d001ee, type: 3}
+  - {fileID: 8300000, guid: f212ff1b3a689a64dbb3df2f17ddae80, type: 3}
+  - {fileID: 8300000, guid: 2b046129840da26498540d7d8ea2b20a, type: 3}
+  - {fileID: 8300000, guid: 749891daedabd504ea2cd99445700957, type: 3}
+  - {fileID: 8300000, guid: 186944082e80867408b72919fc8192c3, type: 3}
+  - {fileID: 8300000, guid: c90ff6f1d9da2a4498578b808cf47ff4, type: 3}
   - {fileID: 8300000, guid: 4d848b9cf3db56b4f81dfdfc90d89db2, type: 3}
   Thunder: {fileID: 1790875667}
   PlayFirstClipAtStart: 1
@@ -30933,10 +30933,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1790875663}
-        m_TargetAssemblyTypeName: AudioQueue, Assembly-CSharp
-        m_MethodName: PlayFromLibrary
-        m_Mode: 3
+      - m_Target: {fileID: 547239972}
+        m_TargetAssemblyTypeName: SwitchCameraSystems, Assembly-CSharp
+        m_MethodName: Next
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -30945,10 +30945,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 547239972}
-        m_TargetAssemblyTypeName: SwitchCameraSystems, Assembly-CSharp
-        m_MethodName: Next
-        m_Mode: 1
+      - m_Target: {fileID: 1790875663}
+        m_TargetAssemblyTypeName: AudioQueue, Assembly-CSharp
+        m_MethodName: PlayFromLibrary
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1790875663}
+        m_TargetAssemblyTypeName: AudioQueue, Assembly-CSharp
+        m_MethodName: PromoteToFiller
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
