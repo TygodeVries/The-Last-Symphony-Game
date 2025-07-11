@@ -8,6 +8,9 @@
         },
         {
             "m_Id": "a473f7b4470b43e7917300e0a1992408"
+        },
+        {
+            "m_Id": "e6eeaa8b60f24fafb80d6d90cd74e1d4"
         }
     ],
     "m_Keywords": [],
@@ -636,6 +639,9 @@
         },
         {
             "m_Id": "a473f7b4470b43e7917300e0a1992408"
+        },
+        {
+            "m_Id": "e6eeaa8b60f24fafb80d6d90cd74e1d4"
         }
     ]
 }
@@ -741,10 +747,10 @@
     "m_Guid": {
         "m_GuidSerialized": "34e473ba-a0ae-4ad4-bdc4-3fd96615a0f0"
     },
-    "m_Name": "Color",
+    "m_Name": "Texture",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Color",
-    "m_DefaultReferenceName": "_Color",
+    "m_RefNameGeneratedByDisplayName": "Texture",
+    "m_DefaultReferenceName": "_Texture",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -811,7 +817,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
     "m_ObjectId": "3994ada7b3004236972f0a666fc4b7d3",
     "m_Id": 0,
-    "m_DisplayName": "Color",
+    "m_DisplayName": "Texture",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -2100,6 +2106,36 @@
     },
     "m_Labels": [],
     "m_Space": 0
+}
+
+{
+    "m_SGVersion": 3,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.ColorShaderProperty",
+    "m_ObjectId": "e6eeaa8b60f24fafb80d6d90cd74e1d4",
+    "m_Guid": {
+        "m_GuidSerialized": "c401c2a3-4aad-4abb-a3d0-2ecd00bbbf9b"
+    },
+    "m_Name": "Color",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Color",
+    "m_DefaultReferenceName": "_Color",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    },
+    "isMainColor": false,
+    "m_ColorMode": 0
 }
 
 {
