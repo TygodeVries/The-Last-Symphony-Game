@@ -40,6 +40,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 539448592966771898}
     m_Modifications:
+    - target: {fileID: 1130678569878903826, guid: c9cc34763401ef843b5f73051df5e2e1, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1655807310742442881, guid: c9cc34763401ef843b5f73051df5e2e1, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2778825111202698869, guid: c9cc34763401ef843b5f73051df5e2e1, type: 3}
       propertyPath: m_Name
       value: 3 candles
@@ -99,6 +107,14 @@ PrefabInstance:
     - target: {fileID: 3565023641741230034, guid: c9cc34763401ef843b5f73051df5e2e1, type: 3}
       propertyPath: m_Intensity
       value: 3.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565023641741230034, guid: c9cc34763401ef843b5f73051df5e2e1, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638687417814063995, guid: c9cc34763401ef843b5f73051df5e2e1, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5241904292256156400, guid: c9cc34763401ef843b5f73051df5e2e1, type: 3}
       propertyPath: m_LocalPosition.x
