@@ -10,7 +10,7 @@ public class Continue : MonoBehaviour
 
         if(inLevelEditor)
         {
-            SceneManager.LoadScene("LevelEdit");
+            SceneManager.LoadScene("Level Browser");
         }
     }
 

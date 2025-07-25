@@ -290,6 +290,17 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""08cc4ac7-5142-44b6-90af-b141b7c41036"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""64ddfc7a-e196-4bdb-ac49-264a64e16343"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
