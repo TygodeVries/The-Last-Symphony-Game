@@ -278,6 +278,8 @@ MonoBehaviour:
     prefab: {fileID: 7126694905966031423, guid: 99863dea0f9292444abc680b5ae29a08, type: 3}
   - id: tile
     prefab: {fileID: 269349133593770961, guid: 6875553ce865dab409d5c73ffd7ccc15, type: 3}
+  - id: door
+    prefab: {fileID: 269349133593770961, guid: fbceaab40ef2b65488e3de7bde255c13, type: 3}
   Requirements: {fileID: 0}
 --- !u!4 &142080757
 Transform:
@@ -401,6 +403,8 @@ MonoBehaviour:
     icon: {fileID: 2800000, guid: 50a9fa4901ffc1541804267b0d0793ed, type: 3}
   - prefab: {fileID: 269349133593770961, guid: 6875553ce865dab409d5c73ffd7ccc15, type: 3}
     icon: {fileID: 2800000, guid: 4a519e01900db7742a74c669b10be183, type: 3}
+  - prefab: {fileID: 269349133593770961, guid: fbceaab40ef2b65488e3de7bde255c13, type: 3}
+    icon: {fileID: 2800000, guid: d3361986e7ce73f4faa12fc484c9f946, type: 3}
   selected: 0
   preview: {fileID: 1461540560}
 --- !u!4 &283849234
