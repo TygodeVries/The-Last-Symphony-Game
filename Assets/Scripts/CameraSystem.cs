@@ -34,7 +34,10 @@ public class CameraSystem : MonoBehaviour
 
         if (target != null)
         {
-            transform.position = Vector3.Lerp(transform.position, target.position + zoomedOffset, Time.deltaTime * 3);
+            Vector3 finalOffset = transform.right * zoomedOffset.x + transform.forward * zoomedOffset.z + Vector3.up * zoomedOffset.y;
+
+
+            transform.position = Vector3.Lerp(transform.position, target.position + finalOffset, Time.deltaTime * 3);
         }
         else
         {
